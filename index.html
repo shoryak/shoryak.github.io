@@ -1,229 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="en">
-    <meta name="color-scheme" content="light dark">
+<head>
+  <title>shoryak</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
-    
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
 
-    
-
-    <meta name="author" content="Shorya Kumar">
-    <meta name="description" content="shoryak personal website">
-    <meta name="keywords" content="blog,developer,personal">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="shoryak"/>
-<meta name="twitter:description" content="shoryak personal website"/>
-
-    <meta property="og:title" content="shoryak" />
-<meta property="og:description" content="shoryak personal website" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://shoryak.github.io/" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/ data:; form-action 'self'; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; img-src 'self' https://i.ytimg.com; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; connect-src 'self' https://www.google-analytics.com;">
 
 
 
-    <title>shoryak</title>
 
-    
-      <link rel="canonical" href="https://shoryak.github.io/">
-    
+<meta name="author" content="Shorya Kumar">
+<meta name="description" content="Founder of iCurious.ai, Ex-Databricks, EECS @IIT Kanpur">
+<meta name="keywords" content="blog,developer,personal">
 
-    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
 
-    
-      
-      
-      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
-    
 
-    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shorya Kumar">
+  <meta name="twitter:description" content="Founder of iCurious.ai, Ex-Databricks, EECS @IIT Kanpur">
 
-    
-      
-        
-        
-        <link rel="stylesheet" href="/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css" integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin="anonymous" media="screen" />
-      
-    
+<meta property="og:url" content="https://shoryak.github.io/">
+  <meta property="og:site_name" content="shoryak">
+  <meta property="og:title" content="Shorya Kumar">
+  <meta property="og:description" content="Founder of iCurious.ai, Ex-Databricks, EECS @IIT Kanpur">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
 
-    
 
-    
 
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
 
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="canonical" href="https://shoryak.github.io/">
 
-    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="shoryak" />
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.2/twemoji.min.js"
-        integrity="sha384-wyB/MspSJ/r2bT2kCj44qtsYRYlpzO2oAPhRj5myrWD63dt6qWv4x8AZe7Fl3K3b" crossorigin="anonymous"></script>
-    
 
-    <meta name="generator" content="Hugo 0.92.0" />
-  </head>
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
 
   
   
     
+    <link rel="stylesheet" href="/scss/custom.min.bd5fe1f17cd22374d6194ff8ca3328d8ea4d8a765ca71be06bc22fbe93a636ea.css" integrity="sha256-vV/h8XzSI3TWGU/4yjMo2OpNinZcpxvga8IvvpOmNuo=" crossorigin="anonymous" media="screen" />
   
-  <body class="preload-transitions colorscheme-dark"
-        onload=" twemoji.parse(document.body); "
-  >
-    
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link rel="alternate" type="application/rss+xml" href="/index.xml" title="shoryak" />
+
+
+<meta name="generator" content="Hugo 0.150.0">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
 
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      shoryak
-    </a>
+  <main class="wrapper">
+    <nav class="navigation">
+  <div class="nav-inner">
     
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/courses/">Courses</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/contact/">Contact</a>
-            </li>
-          
-        
-        
-      </ul>
+    <a class="nav-logo" href="https://shoryak.github.io/">shoryak</a>
     
-  </section>
-</nav>
-
-
-      <div class="content">
-        
-  <section class="container centered">
-  <div class="about">
     
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+    <label class="menu-toggle-label" for="menu-toggle" aria-label="Toggle menu">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </label>
+    <ul class="nav-list">
       
-        <div class="avatar"><img src="/images/sk2.jpeg" alt="avatar"></div>
+      <li class="nav-item">
+        <a class="nav-link " href="/about/">About</a>
+      </li>
       
-    
-    
-    <h1>Shorya Kumar</h1>
-    
-    <h2>EECS UG @IIT Kanpur<br>Curious<br></h2>
-    
-    
-    <ul>
+      <li class="nav-item">
+        <a class="nav-link " href="/posts/">Writings</a>
+      </li>
       
-        
-          <li>
-            <a href="https://github.com/shoryak/" aria-label="Github"   >
-              <i class="fa fa-github" aria-hidden="true"></i>
-            </a>
-          </li>
-        
+      <li class="nav-item">
+        <a class="nav-link " href="/projects/">Projects</a>
+      </li>
       
-        
-          <li>
-            <a href="https://www.linkedin.com/in/shorya-kumar-21794018b/" aria-label="LinkedIn"   >
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </li>
-        
+      <li class="nav-item">
+        <a class="nav-link " href="/noticing/">Noticing</a>
+      </li>
       
-        
-          <li>
-            <a href="https://drive.google.com/file/d/1S3HO_x16oyFoqyyuwCWUBwWE9gi3CUhi/view?usp=sharing" aria-label="Resume"   >
-              <i class="fa fa-file" aria-hidden="true"></i>
-            </a>
-          </li>
-        
+      <li class="nav-item">
+        <a class="nav-link " href="/expressions/">Expressions</a>
+      </li>
       
-        
-          <li>
-            <a href="https://twitter.com/meet_shoryak" aria-label="twitter" rel="alternate"  type="application/rss&#43;xml">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-          </li>
-        
+      <li class="nav-item">
+        <a class="nav-link " href="/math/">Math</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link " href="/books/">Books</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link " href="/curious/">Curious</a>
+      </li>
       
     </ul>
     
   </div>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="home-wrap">
+
+  <div class="home-hero">
+    
+    <div class="home-avatar">
+      <img src="/images/sk2.jpeg" alt="Shorya Kumar">
+    </div>
+    
+    <div class="home-intro">
+      <h1 class="home-name">Shorya Kumar</h1>
+      
+      <p class="home-bio">Curious about almost everything. Currently building AI at iCurious.ai. I love books, algorithms, and connecting ideas across disciplines.</p>
+      
+      <a href="/about/" class="home-learn-more">learn more →</a>
+    </div>
+  </div>
+
+  
+  <div class="home-sections">
+    
+    <a class="section-pill" href="/about/">About</a>
+    
+    <a class="section-pill" href="/posts/">Writings</a>
+    
+    <a class="section-pill" href="/projects/">Projects</a>
+    
+    <a class="section-pill" href="/noticing/">Noticing</a>
+    
+    <a class="section-pill" href="/expressions/">Expressions</a>
+    
+    <a class="section-pill" href="/math/">Math</a>
+    
+    <a class="section-pill" href="/books/">Books</a>
+    
+    <a class="section-pill" href="/curious/">Curious</a>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="photo-carousel-wrap">
+    <h2 class="home-section-label">through the lens</h2>
+    <div class="photo-carousel" id="photo-carousel">
+      <div class="photo-carousel__track" id="photo-carousel-track">
+        
+        <div class="hero-carousel__slide" data-index="0" data-vid="F28lZyda-MY">
+          
+          <iframe src="https://www.youtube-nocookie.com/embed/F28lZyda-MY?rel=0&modestbranding=1"
+                  title="iCurious AI — Voice AI companion for kids"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+          
+          
+          <div class="photo-carousel__caption">
+            
+            <span>iCurious AI — Voice AI companion for kids</span>
+          </div>
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="1" data-vid="At_FrzzTpQ0">
+          
+          <iframe src="https://www.youtube-nocookie.com/embed/At_FrzzTpQ0?rel=0&modestbranding=1"
+                  title="Protago AI — Personalised storybook pipeline"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+          
+          
+          <div class="photo-carousel__caption">
+            
+            <span>Protago AI — Personalised storybook pipeline</span>
+          </div>
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="2">
+          
+          <img src="/images/gallery/IMG_1536.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="3">
+          
+          <img src="/images/gallery/IMG_1493.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="4">
+          
+          <img src="/images/gallery/IMG_1466.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="5">
+          
+          <img src="/images/gallery/4592BCB0-2DF3-4BD0-9C1D-FC3FC52BC3D5.JPG" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="6">
+          
+          <img src="/images/gallery/FF8EE302-F0D8-493D-88E3-C08B35A00009.JPG" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="7">
+          
+          <img src="/images/gallery/IMG_1366.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="8">
+          
+          <img src="/images/gallery/IMG_0062.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="9">
+          
+          <img src="/images/gallery/IMG_8808.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="10">
+          
+          <img src="/images/gallery/IMG_3511.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="11">
+          
+          <img src="/images/gallery/IMG_2577.jpg" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+        <div class="hero-carousel__slide" data-index="12">
+          
+          <img src="/images/gallery/0FBB2922-9DE8-469C-A3A1-6C08B5A87AB3.JPG" alt="" loading="lazy"
+               onerror="this.parentElement.classList.add('hero-carousel__slide--placeholder')">
+          
+          
+        </div>
+        
+      </div>
+      <button class="photo-carousel__btn photo-carousel__btn--prev" id="photo-prev" aria-label="Previous">&#8249;</button>
+      <button class="photo-carousel__btn photo-carousel__btn--next" id="photo-next" aria-label="Next">&#8250;</button>
+      <div class="photo-carousel__dots" id="photo-dots">
+        
+        <button class="photo-carousel__dot active" data-index="0" aria-label="Go to photo 1"></button>
+        
+        <button class="photo-carousel__dot" data-index="1" aria-label="Go to photo 2"></button>
+        
+        <button class="photo-carousel__dot" data-index="2" aria-label="Go to photo 3"></button>
+        
+        <button class="photo-carousel__dot" data-index="3" aria-label="Go to photo 4"></button>
+        
+        <button class="photo-carousel__dot" data-index="4" aria-label="Go to photo 5"></button>
+        
+        <button class="photo-carousel__dot" data-index="5" aria-label="Go to photo 6"></button>
+        
+        <button class="photo-carousel__dot" data-index="6" aria-label="Go to photo 7"></button>
+        
+        <button class="photo-carousel__dot" data-index="7" aria-label="Go to photo 8"></button>
+        
+        <button class="photo-carousel__dot" data-index="8" aria-label="Go to photo 9"></button>
+        
+        <button class="photo-carousel__dot" data-index="9" aria-label="Go to photo 10"></button>
+        
+        <button class="photo-carousel__dot" data-index="10" aria-label="Go to photo 11"></button>
+        
+        <button class="photo-carousel__dot" data-index="11" aria-label="Go to photo 12"></button>
+        
+        <button class="photo-carousel__dot" data-index="12" aria-label="Go to photo 13"></button>
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  <div class="home-featured">
+    <h2 class="home-section-label">selected work</h2>
+    <div class="featured-grid">
+      
+      <div class="featured-card" style="--card-color: #e8b4a0">
+        <div class="featured-card__media">
+          
+          <a class="yt-thumb-link" href="https://www.youtube.com/watch?v=At_FrzzTpQ0" target="_blank" rel="noopener" aria-label="Watch Protago AI — Personalised Storybook Pipeline on YouTube">
+            <img src="https://i.ytimg.com/vi/At_FrzzTpQ0/hqdefault.jpg"
+                 alt="Protago AI — Personalised Storybook Pipeline"
+                 onerror="this.src='https://i.ytimg.com/vi/At_FrzzTpQ0/mqdefault.jpg'">
+            <span class="yt-thumb-link__play">▶</span>
+          </a>
+          
+        </div>
+        <div class="featured-card__body">
+          <span class="featured-card__year">2026</span>
+          <h3 class="featured-card__title">
+            
+            <a href="https://protago.in" target="_blank" rel="noopener">Protago AI — Personalised Storybook Pipeline</a>
+            
+          </h3>
+          <p class="featured-card__desc">Built an end-to-end storybook generation product: text-to-image via Flux diffusion models with LoRA fine-tuning on Modal, combined with a BFS face-swap pipeline …</p>
+          
+          <div class="featured-card__tags">
+            <span class="featured-card__tag">Flux</span><span class="featured-card__tag">LoRA</span><span class="featured-card__tag">Diffusion Models</span>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="featured-card" style="--card-color: #a0c4e8">
+        <div class="featured-card__media">
+          
+          <a class="yt-thumb-link" href="https://www.youtube.com/watch?v=F28lZyda-MY" target="_blank" rel="noopener" aria-label="Watch iCurious AI — Voice AI Companion for Kids on YouTube">
+            <img src="https://i.ytimg.com/vi/F28lZyda-MY/hqdefault.jpg"
+                 alt="iCurious AI — Voice AI Companion for Kids"
+                 onerror="this.src='https://i.ytimg.com/vi/F28lZyda-MY/mqdefault.jpg'">
+            <span class="yt-thumb-link__play">▶</span>
+          </a>
+          
+        </div>
+        <div class="featured-card__body">
+          <span class="featured-card__year">2025–26</span>
+          <h3 class="featured-card__title">
+            
+            <a href="https://icurious.ai" target="_blank" rel="noopener">iCurious AI — Voice AI Companion for Kids</a>
+            
+          </h3>
+          <p class="featured-card__desc">Architected a real-time voice AI pipeline (STT + LLM inference + TTS) for a hardware AI companion, deployed on both edge hardware and cloud backends. Designed a …</p>
+          
+          <div class="featured-card__tags">
+            <span class="featured-card__tag">Voice AI</span><span class="featured-card__tag">Edge AI</span><span class="featured-card__tag">Memory Systems</span>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="featured-card" style="--card-color: #b4d4a0">
+        <div class="featured-card__media">
+          
+            
+            
+            <div class="mini-carousel" data-imgs='[&#34;/images/projects/hiwe-1.jpg&#34;,&#34;/images/projects/hiwe-2.jpg&#34;]'>
+              <img class="mini-carousel__img" src="/images/projects/hiwe-1.jpg" alt="HIWE — Scene Importance Weighted Encoding for NeRF"
+                   onerror="this.src=''; this.parentElement.classList.add('mini-carousel--placeholder')">
+              <button class="mini-carousel__prev" aria-label="prev">‹</button>
+              <button class="mini-carousel__next" aria-label="next">›</button>
+            </div>
+            
+          
+        </div>
+        <div class="featured-card__body">
+          <span class="featured-card__year">2023</span>
+          <h3 class="featured-card__title">
+            
+            <a href="https://openreview.net/forum?id=NLRo4qhg6t" target="_blank" rel="noopener">HIWE — Scene Importance Weighted Encoding for NeRF</a>
+            
+          </h3>
+          <p class="featured-card__desc">Research at the University of Toronto. Identified that uniform parameter allocation in grid-based NeRF encodings (like iNGP) fails on large outdoor scenes. …</p>
+          
+          <div class="featured-card__tags">
+            <span class="featured-card__tag">NeRF</span><span class="featured-card__tag">Computer Vision</span><span class="featured-card__tag">PyTorch</span>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="featured-card" style="--card-color: #d4a0a0">
+        <div class="featured-card__media">
+          
+            
+            
+            <div class="mini-carousel" data-imgs='[&#34;/images/projects/nicraft-1.jpg&#34;,&#34;/images/projects/nicraft-2.jpg&#34;]'>
+              <img class="mini-carousel__img" src="/images/projects/nicraft-1.jpg" alt="NICraft — Malicious NIC Firmware Cache Side-Channel"
+                   onerror="this.src=''; this.parentElement.classList.add('mini-carousel--placeholder')">
+              <button class="mini-carousel__prev" aria-label="prev">‹</button>
+              <button class="mini-carousel__next" aria-label="next">›</button>
+            </div>
+            
+          
+        </div>
+        <div class="featured-card__body">
+          <span class="featured-card__year">2024</span>
+          <h3 class="featured-card__title">
+            
+            <a href="https://cispa.saarland/group/rossow/papers/nicraft-esorics2025.pdf" target="_blank" rel="noopener">NICraft — Malicious NIC Firmware Cache Side-Channel</a>
+            
+          </h3>
+          <p class="featured-card__desc">Security research at CISPA Helmholtz Center. Uncovered a Prime+Probe gadget in the Linux kernel&#39;s TCP/IP stack IP reassembly path, enabling a cache side-channel …</p>
+          
+          <div class="featured-card__tags">
+            <span class="featured-card__tag">Systems Security</span><span class="featured-card__tag">Cache Side-Channels</span><span class="featured-card__tag">Linux Kernel</span>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    <a href="/projects/" class="home-more-link">all projects →</a>
+  </div>
+  
+
+  
+  
+  
+  <div class="home-recent">
+    <h2 class="home-section-label">recent writing</h2>
+    <ul class="home-recent__list">
+      
+      <li class="home-recent__item">
+        <a href="https://shoryak.substack.com/p/the-contact-is-the-asset-d2c-marketing" target="_blank" rel="noopener">The Contact is the Asset: D2C Marketing</a>
+        <span class="home-recent__date">Apr 2026</span>
+      </li>
+      
+      <li class="home-recent__item">
+        <a href="https://shoryak.substack.com/p/closed-systems-leak-a-simple-reminder" target="_blank" rel="noopener">Closed Systems Leak: A Simple Reminder</a>
+        <span class="home-recent__date">Apr 2026</span>
+      </li>
+      
+      <li class="home-recent__item">
+        <a href="https://shoryak.substack.com/p/the-production-bug-that-made-me-relearn" target="_blank" rel="noopener">The Production Bug That Made Me Relearn React</a>
+        <span class="home-recent__date">Apr 2026</span>
+      </li>
+      
+      <li class="home-recent__item">
+        <a href="https://shoryak.substack.com/p/the-physics-of-our-voice-part-1" target="_blank" rel="noopener">The Physics of our Voice: Part 1</a>
+        <span class="home-recent__date">Mar 2026</span>
+      </li>
+      
+      <li class="home-recent__item">
+        <a href="https://shoryak.substack.com/p/can-you-win-the-traders-card-game" target="_blank" rel="noopener">Can You Win the Trader&#39;s Card Game? An Inside Look at a Wall Street Interview</a>
+        <span class="home-recent__date">Sep 2025</span>
+      </li>
+      
+    </ul>
+    <a href="/posts/" class="home-more-link">all writing →</a>
+  </div>
+  
+
 </section>
 
+<script>
+(function() {
+  const track = document.getElementById('photo-carousel-track');
+  const dots  = document.querySelectorAll('#photo-dots .photo-carousel__dot');
+  const slides = track ? track.querySelectorAll('.hero-carousel__slide, .photo-carousel__slide') : [];
+  let current = 0;
 
-      </div>
+  function goTo(n) {
+    current = (n + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-        <p>Figure it out</p>
-      
-      
-        ©
-        
-          2019 -
-        
-        2022
-         Shorya Kumar 
-      
-      
-      
-        
-      
-    </section>
-  </footer>
+  document.getElementById('photo-prev')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('photo-next')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+  let autoTimer = setInterval(() => goTo(current + 1), 4500);
+
+  document.querySelectorAll('.hero-carousel__slide .photo-carousel__play, .photo-carousel__slide .photo-carousel__play').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      clearInterval(autoTimer);
+      const slide = btn.closest('.hero-carousel__slide, .photo-carousel__slide');
+      const vid = slide.dataset.vid;
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+      slide.querySelector('img').remove();
+      btn.remove();
+      slide.appendChild(iframe);
+    });
+  });
+
+  document.querySelectorAll('.mini-carousel').forEach(function(mc) {
+    const raw = mc.dataset.imgs;
+    if (!raw) return;
+    const imgs = JSON.parse(raw);
+    if (imgs.length < 2) return;
+    const img = mc.querySelector('.mini-carousel__img');
+    let idx = 0;
+    mc.querySelector('.mini-carousel__prev')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      idx = (idx - 1 + imgs.length) % imgs.length;
+      img.src = imgs[idx];
+    });
+    mc.querySelector('.mini-carousel__next')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      idx = (idx + 1) % imgs.length;
+      img.src = imgs[idx];
+    });
+  });
+
+  document.querySelectorAll('.yt-thumb').forEach(function(thumb) {
+    thumb.querySelector('.yt-thumb__play').addEventListener('click', function() {
+      const vid = thumb.dataset.vid;
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+      thumb.style.position = 'relative';
+      thumb.innerHTML = '';
+      thumb.appendChild(iframe);
+    });
+  });
+})();
+</script>
 
 
-    </main>
+    </div>
 
+    <footer class="footer">
+  <section class="container">
+    ©
     
-      
-      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+      2019 -
     
-
+    2026
+     Shorya Kumar 
+    ·
     
-
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
     
+  </section>
+</footer>
 
-    
+  </main>
 
-    
+  
 
-    
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
 
-    
+  
 
-    
+  
 
-    
-  </body>
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
 </html>

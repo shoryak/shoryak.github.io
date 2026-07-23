@@ -4,26 +4,16 @@
     <title>Series on shoryak</title>
     <link>https://shoryak.github.io/series/</link>
     <description>Recent content in Series on shoryak</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shoryak.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shoryak.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Blockchain circles</title>
+      <title>Blockchain Circles</title>
       <link>https://shoryak.github.io/series/blockchain-circles/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://shoryak.github.io/series/blockchain-circles/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Themes Guide</title>
-      <link>https://shoryak.github.io/series/themes-guide/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/series/themes-guide/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

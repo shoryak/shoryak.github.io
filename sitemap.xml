@@ -2,59 +2,95 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://shoryak.github.io/categories/blockchain/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/series/blockchain-circles/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/categories/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/tags/crypto/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/categories/crypto/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/posts/let-the-crypto-begin/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shoryak.github.io/posts/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/series/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shoryak.github.io/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/posts/the-contact-is-the-asset/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/posts/closed-systems-leak/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/posts/production-bug-react/</loc>
+    <lastmod>2026-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/noticing/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/tags/light/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/tags/morning/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/noticing/morning-light-on-water/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shoryak.github.io/tags/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/categories/disruption/</loc>
-    <lastmod>2020-06-24T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/tags/water/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/tags/technological-disruption/</loc>
-    <lastmod>2020-06-24T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/posts/physics-of-voice/</loc>
+    <lastmod>2026-03-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/posts/hacking_humans/</loc>
-    <lastmod>2020-06-24T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/curious/</loc>
+    <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/posts/getting-bored-after-watching-the-100/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/tags/emotion/</loc>
+    <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/tags/programming/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/tags/music/</loc>
+    <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/tags/cp/</loc>
-    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/tags/neuroscience/</loc>
+    <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/categories/programming/</loc>
-    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/curious/why-do-we-get-goosebumps-from-music/</loc>
+    <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/posts/why-i-got-into-competitive-programming/</loc>
-    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <loc>https://shoryak.github.io/tags/arithmetic/</loc>
+    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/tags/elementary/</loc>
+    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/math/gauss-sum-trick/</loc>
+    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/math/</loc>
+    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/tags/number-theory/</loc>
+    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/posts/traders-card-game/</loc>
+    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</loc>
+    <lastmod>2025-09-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/categories/blockchain/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/series/blockchain-circles/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/categories/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/categories/crypto/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/posts/let-the-crypto-begin/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shoryak.github.io/series/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shoryak.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
@@ -62,27 +98,13 @@
     <loc>https://shoryak.github.io/courses/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shoryak.github.io/tags/css/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/tags/html/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/tags/markdown/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/categories/syntax/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/categories/themes/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shoryak.github.io/series/themes-guide/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shoryak.github.io/authors/</loc>
   </url><url>
+    <loc>https://shoryak.github.io/books/</loc>
+  </url><url>
     <loc>https://shoryak.github.io/contact/</loc>
+  </url><url>
+    <loc>https://shoryak.github.io/expressions/</loc>
   </url><url>
     <loc>https://shoryak.github.io/projects/</loc>
   </url><url>

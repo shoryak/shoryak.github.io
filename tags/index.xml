@@ -4,71 +4,72 @@
     <title>Tags on shoryak</title>
     <link>https://shoryak.github.io/tags/</link>
     <description>Recent content in Tags on shoryak</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shoryak.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shoryak.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>crypto</title>
-      <link>https://shoryak.github.io/tags/crypto/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/crypto/</guid>
+      <title>Light</title>
+      <link>https://shoryak.github.io/tags/light/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/light/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Technological Disruption</title>
-      <link>https://shoryak.github.io/tags/technological-disruption/</link>
-      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/technological-disruption/</guid>
+      <title>Morning</title>
+      <link>https://shoryak.github.io/tags/morning/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/morning/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Programming</title>
-      <link>https://shoryak.github.io/tags/programming/</link>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/programming/</guid>
+      <title>Water</title>
+      <link>https://shoryak.github.io/tags/water/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/water/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>CP</title>
-      <link>https://shoryak.github.io/tags/cp/</link>
-      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/cp/</guid>
+      <title>Emotion</title>
+      <link>https://shoryak.github.io/tags/emotion/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/emotion/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>css</title>
-      <link>https://shoryak.github.io/tags/css/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/css/</guid>
+      <title>Music</title>
+      <link>https://shoryak.github.io/tags/music/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/music/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>html</title>
-      <link>https://shoryak.github.io/tags/html/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/html/</guid>
+      <title>Neuroscience</title>
+      <link>https://shoryak.github.io/tags/neuroscience/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/neuroscience/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>markdown</title>
-      <link>https://shoryak.github.io/tags/markdown/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/tags/markdown/</guid>
+      <title>Arithmetic</title>
+      <link>https://shoryak.github.io/tags/arithmetic/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/arithmetic/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Elementary</title>
+      <link>https://shoryak.github.io/tags/elementary/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/elementary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Number Theory</title>
+      <link>https://shoryak.github.io/tags/number-theory/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/tags/number-theory/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

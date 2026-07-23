@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arithmetic on shoryak</title>
+    <link>https://shoryak.github.io/tags/arithmetic/</link>
+    <description>Recent content in Arithmetic on shoryak</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shoryak.github.io/tags/arithmetic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gauss&#39;s sum — the trick that changes how you see arithmetic</title>
+      <link>https://shoryak.github.io/math/gauss-sum-trick/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/math/gauss-sum-trick/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Find the sum of the first $n$ natural numbers: $1 + 2 + 3 + \cdots + n$.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Write the sum twice — once forwards, once backwards, and add column by column:&lt;/p&gt;&#xA;&lt;p&gt;$$S = 1 + 2 + 3 + \cdots + n$$&#xA;$$S = n + (n-1) + (n-2) + \cdots + 1$$&#xA;$$2S = (n+1) + (n+1) + \cdots + (n+1) \quad (n \text{ times})$$&lt;/p&gt;&#xA;&lt;p&gt;Therefore:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -4,44 +4,58 @@
     <title>Posts on shoryak</title>
     <link>https://shoryak.github.io/posts/</link>
     <description>Recent content in Posts on shoryak</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shoryak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shoryak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Contact is the Asset: D2C Marketing</title>
+      <link>https://shoryak.github.io/posts/the-contact-is-the-asset/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/posts/the-contact-is-the-asset/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Closed Systems Leak: A Simple Reminder</title>
+      <link>https://shoryak.github.io/posts/closed-systems-leak/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/posts/closed-systems-leak/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The Production Bug That Made Me Relearn React</title>
+      <link>https://shoryak.github.io/posts/production-bug-react/</link>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/posts/production-bug-react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The Physics of our Voice: Part 1</title>
+      <link>https://shoryak.github.io/posts/physics-of-voice/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/posts/physics-of-voice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Can You Win the Trader&#39;s Card Game? An Inside Look at a Wall Street Interview</title>
+      <link>https://shoryak.github.io/posts/traders-card-game/</link>
+      <pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/posts/traders-card-game/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathematical Blueprint of Generative Models</title>
+      <link>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</link>
+      <pubDate>Sat, 20 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Let the Crypto begin</title>
       <link>https://shoryak.github.io/posts/let-the-crypto-begin/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://shoryak.github.io/posts/let-the-crypto-begin/</guid>
-      <description>img[src$=&#34;centerme&#34;] { display:block; margin: 0 auto; } .center { display: block; margin-left: auto; margin-right: auto; width: 90%; } .center2 { display: block; margin-left: auto; margin-right: auto; width: 80%; } .center3 { display: block; margin-left: auto; margin-right: auto; width: 60%; }  Hey there,    Dear reader, Lets get you up to speed with all the fuss around crypto in next 10 minutes. This post is somewhat about my dive into the world of blockchains and cryptocurrency but more so about why we need a community here at IIT Kanpur to encourage peer learning and make people familiar with it.</description>
+      <description>&lt;h1 id=&#34;hey-there&#34;&gt;&#xA;  Hey there,&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#hey-there&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Finally, the semester is over, and here I am motivated to start something. What can be a better way than a blog post. This post is somewhat about my dive into the world of &lt;strong&gt;blockchains&lt;/strong&gt; and &lt;strong&gt;cryptocurrency&lt;/strong&gt; but more so about why we need a community here at IIT Kanpur to make people familiar with it. At the very least, there could be more awareness among the IITK community about this new technology that is changing everything around us.&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>You have been hacked</title>
-      <link>https://shoryak.github.io/posts/hacking_humans/</link>
-      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/posts/hacking_humans/</guid>
-      <description>img[src$=&#34;centerme&#34;] { display:block; margin: 0 auto; } .center { display: block; margin-left: auto; margin-right: auto; width: 90%; } .center2 { display: block; margin-left: auto; margin-right: auto; width: 80%; } .center3 { display: block; margin-left: auto; margin-right: auto; width: 60%; }  Its quite evident that we are facing huge amount of technological disruption. The pace of change has gone to such a level that no one can make sense of what is happening around the world.</description>
-    </item>
-    
-    <item>
-      <title>Getting bored : After watching The 100</title>
-      <link>https://shoryak.github.io/posts/getting-bored-after-watching-the-100/</link>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/posts/getting-bored-after-watching-the-100/</guid>
-      <description>I recently completed 6 seasons of &amp;ldquo;The 100&amp;rdquo; , a Netflix Series, this series covers a lot of ground, making it an epitome of technological disruption. It is set in a post apocalyptic world , almost a century later an apparent nuclear war resulted in demise of the planet earth , apparently last of humanity resides on a space station , which they call the Ark. The life support at ark is dying so 100 juveniles are sent to the ground to check if it is safe.</description>
-    </item>
-    
-    <item>
-      <title>Why I got into Competitive Programming</title>
-      <link>https://shoryak.github.io/posts/why-i-got-into-competitive-programming/</link>
-      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shoryak.github.io/posts/why-i-got-into-competitive-programming/</guid>
-      <description>img[src$=&#34;centerme&#34;] { display:block; margin: 0 auto; } .center { display: block; margin-left: auto; margin-right: auto; width: 90%; } .center2 { display: block; margin-left: auto; margin-right: auto; width: 80%; } .center3 { display: block; margin-left: auto; margin-right: auto; width: 30%; }  I heard about Competitive Programming sometime during my first semester. At that time I was starting with C . So I kind of looked into CP, My only motivation being that everybody was talking about it, human nature maybe.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>crypto on shoryak</title>
+    <title>Crypto on shoryak</title>
     <link>https://shoryak.github.io/categories/crypto/</link>
-    <description>Recent content in crypto on shoryak</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Crypto on shoryak</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shoryak.github.io/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shoryak.github.io/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Let the Crypto begin</title>
       <link>https://shoryak.github.io/posts/let-the-crypto-begin/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://shoryak.github.io/posts/let-the-crypto-begin/</guid>
-      <description>img[src$=&#34;centerme&#34;] { display:block; margin: 0 auto; } .center { display: block; margin-left: auto; margin-right: auto; width: 90%; } .center2 { display: block; margin-left: auto; margin-right: auto; width: 80%; } .center3 { display: block; margin-left: auto; margin-right: auto; width: 60%; }  Hey there,    Dear reader, Lets get you up to speed with all the fuss around crypto in next 10 minutes. This post is somewhat about my dive into the world of blockchains and cryptocurrency but more so about why we need a community here at IIT Kanpur to encourage peer learning and make people familiar with it.</description>
+      <description>&lt;h1 id=&#34;hey-there&#34;&gt;&#xA;  Hey there,&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#hey-there&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Finally, the semester is over, and here I am motivated to start something. What can be a better way than a blog post. This post is somewhat about my dive into the world of &lt;strong&gt;blockchains&lt;/strong&gt; and &lt;strong&gt;cryptocurrency&lt;/strong&gt; but more so about why we need a community here at IIT Kanpur to make people familiar with it. At the very least, there could be more awareness among the IITK community about this new technology that is changing everything around us.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
