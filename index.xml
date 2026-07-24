@@ -93,18 +93,18 @@
       <description>&lt;p&gt;A brief summary of coursework during my UG studies at &lt;strong&gt;IIT Kanpur&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Books</title>
-      <link>https://shoryak.github.io/books/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/books/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Contact</title>
       <link>https://shoryak.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shoryak.github.io/contact/</guid>
       <description>&lt;p&gt;I am best reached on mail at &lt;strong&gt;&lt;a href=&#34;mailto:shoryak@iitk.ac.in&#34; &gt;shoryak@iitk.ac.in&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Follow me on twitter &lt;strong&gt;@meet_shoryak&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Library</title>
+      <link>https://shoryak.github.io/books/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shoryak.github.io/books/</guid>
+      <description></description>
     </item>
     <item>
       <title>Projects</title>

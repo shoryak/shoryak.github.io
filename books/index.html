@@ -3,7 +3,7 @@
 
 <head>
   <title>
-  Books · shoryak
+  Library · shoryak
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,19 +16,19 @@
 
 
 <meta name="author" content="Shorya Kumar">
-<meta name="description" content="What I&#39;ve been reading.">
+<meta name="description" content="300&#43; books across mathematics, computer science, philosophy, biology, and beyond.">
 <meta name="keywords" content="blog,developer,personal">
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Books">
-  <meta name="twitter:description" content="What I&#39;ve been reading.">
+  <meta name="twitter:title" content="Library">
+  <meta name="twitter:description" content="300&#43; books across mathematics, computer science, philosophy, biology, and beyond.">
 
 <meta property="og:url" content="https://shoryak.github.io/books/">
   <meta property="og:site_name" content="shoryak">
-  <meta property="og:title" content="Books">
-  <meta property="og:description" content="What I&#39;ve been reading.">
+  <meta property="og:title" content="Library">
+  <meta property="og:description" content="300&#43; books across mathematics, computer science, philosophy, biology, and beyond.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
 
@@ -60,7 +60,7 @@
   
   
     
-    <link rel="stylesheet" href="/scss/custom.min.f4115c92ff4424518646256f4a4ad9500bfb3b0398091fdedab1386eb6588aea.css" integrity="sha256-9BFckv9EJFGGRiVvSkrZUAv7OwOYCR/e2rE4brZYiuo=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/scss/custom.min.6703854f3d15e9979309e2ceb4853454a6a2c99666c7935ca07fab8b947a7ba9.css" integrity="sha256-ZwOFTz0V6ZeTCeLOtIU0VKaiyZZmx5NcoH&#43;ri5R6e6k=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -137,7 +137,7 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link " href="/books/">Books</a>
+        <a class="nav-link " href="/books/">Library</a>
       </li>
       
       <li class="nav-item">
@@ -154,16 +154,27 @@
       
 <section class="container page">
   <article class="books-page">
-    <header>
-      <h1 class="title">
-        <a class="title-link" href="https://shoryak.github.io/books/">Books</a>
-      </h1>
-      <p class="books-subtitle">What I&#39;ve been reading.</p>
+    <header class="books-header">
+      <div class="books-hero">
+        <img src="/images/desk.jpg" alt="Reading desk" class="books-hero__img" onerror="this.style.display='none'">
+        <div class="books-hero__overlay">
+          <h1 class="books-title">Library</h1>
+          <blockquote class="books-quote">
+            "Permit yourself to open a book and start reading from anywhere."
+            <cite>— Manuel Blum</cite>
+          </blockquote>
+        </div>
+      </div>
+      <p class="books-subtitle">300&#43; books across mathematics, computer science, philosophy, biology, and beyond.</p>
     </header>
+
+    
+    
+
     
     
     
-    
+      
     
       
     
@@ -175,227 +186,251 @@
     
       
     
+    
+
+    
+    
+    
+    
+    <div class="books-stats">
+      <span class="books-stat"><strong>6</strong> total</span>
+      <span class="books-stat-sep">·</span>
+      <span class="books-stat"><strong>5</strong> read</span>
       
-    
-    
-    
+      <span class="books-stat-sep">·</span>
+      <span class="books-stat books-stat--reading"><strong>1</strong> reading now</span>
       
-      <div class="books-year">
-        <h2 class="books-year__label">2026</h2>
-        <div class="books-grid">
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <div class="book-card book-card--reading">
-            <div class="book-card__spine" aria-hidden="true"></div>
-            <div class="book-card__body">
-              <div class="book-card__top">
-                <h3 class="book-card__title">The Design of Everyday Things</h3>
-                
-                <span class="book-card__status">Reading</span>
-                
-              </div>
-              <p class="book-card__author">Don Norman</p>
-              <p class="book-card__genre">Design</p>
-              
-              <div class="book-card__rating" title="4/5">
-                <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
-                
-                <span class="star star--empty">★</span>
-              </div>
-              
-              
-              <p class="book-card__notes">Halfway through. Already can&#39;t stop noticing bad door handles and confusing light switches.</p>
-              
-            </div>
+      
+    </div>
+
+    
+    <div class="books-filters" id="books-filters">
+      <button class="books-filter active" data-cat="all">All</button>
+      
+      <button class="books-filter" data-cat="Design">Design</button>
+      
+      <button class="books-filter" data-cat="Learning / Cognitive Science">Learning / Cognitive Science</button>
+      
+      <button class="books-filter" data-cat="Math">Math</button>
+      
+      <button class="books-filter" data-cat="Math / Philosophy">Math / Philosophy</button>
+      
+      <button class="books-filter" data-cat="Psychology / Behavioral Economics">Psychology / Behavioral Economics</button>
+      
+      <button class="books-filter" data-cat="Software Engineering">Software Engineering</button>
+      
+    </div>
+
+    
+    
+    
+    
+    <div class="books-category" data-cat="Design">
+      <h2 class="books-category__label">
+        Design
+        <span class="books-category__count">1</span>
+      </h2>
+      <div class="books-list">
+        
+        <div class="book-row book-row--reading">
+          <div class="book-row__main">
+            <span class="book-row__title">The Design of Everyday Things</span>
+            <span class="book-row__author">Don Norman</span>
+          </div>
+          <div class="book-row__meta">
+            
+            <span class="book-row__stars" title="4/5">
+              ★★★★<span class="star-empty">★</span>
+            </span>
+            
+            <span class="book-row__badge book-row__badge--reading">reading</span>
+            
           </div>
           
+          <p class="book-row__notes">Halfway through. Already can&#39;t stop noticing bad door handles and confusing light switches.</p>
           
         </div>
+        
       </div>
+    </div>
     
-      
-      <div class="books-year">
-        <h2 class="books-year__label">2025</h2>
-        <div class="books-grid">
-          
-          
-          
-          
-          
-          
-          
-          
-          <div class="book-card">
-            <div class="book-card__spine" aria-hidden="true"></div>
-            <div class="book-card__body">
-              <div class="book-card__top">
-                <h3 class="book-card__title">A Mind For Numbers</h3>
-                
-              </div>
-              <p class="book-card__author">Barbara Oakley</p>
-              <p class="book-card__genre">Learning / Cognitive Science</p>
-              
-              <div class="book-card__rating" title="4/5">
-                <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
-                
-                <span class="star star--empty">★</span>
-              </div>
-              
-              
-              <p class="book-card__notes">Practical neuroscience of learning. The focused vs. diffuse thinking distinction alone is worth the read.</p>
-              
-            </div>
+    
+    
+    <div class="books-category" data-cat="Learning / Cognitive Science">
+      <h2 class="books-category__label">
+        Learning / Cognitive Science
+        <span class="books-category__count">1</span>
+      </h2>
+      <div class="books-list">
+        
+        <div class="book-row">
+          <div class="book-row__main">
+            <span class="book-row__title">A Mind For Numbers</span>
+            <span class="book-row__author">Barbara Oakley</span>
+          </div>
+          <div class="book-row__meta">
+            
+            <span class="book-row__stars" title="4/5">
+              ★★★★<span class="star-empty">★</span>
+            </span>
+            
+            
+            
           </div>
           
-          
-          
-          <div class="book-card">
-            <div class="book-card__spine" aria-hidden="true"></div>
-            <div class="book-card__body">
-              <div class="book-card__top">
-                <h3 class="book-card__title">Thinking, Fast and Slow</h3>
-                
-              </div>
-              <p class="book-card__author">Daniel Kahneman</p>
-              <p class="book-card__genre">Psychology / Behavioral Economics</p>
-              
-              <div class="book-card__rating" title="4/5">
-                <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
-                
-                <span class="star star--empty">★</span>
-              </div>
-              
-              
-              <p class="book-card__notes">System 1 and System 2 are now part of my everyday vocabulary.</p>
-              
-            </div>
-          </div>
-          
-          
-          
+          <p class="book-row__notes">Practical neuroscience of learning. The focused vs. diffuse thinking distinction alone is worth the read.</p>
           
         </div>
+        
       </div>
+    </div>
     
-      
-      <div class="books-year">
-        <h2 class="books-year__label">2024</h2>
-        <div class="books-grid">
-          
-          
-          <div class="book-card">
-            <div class="book-card__spine" aria-hidden="true"></div>
-            <div class="book-card__body">
-              <div class="book-card__top">
-                <h3 class="book-card__title">Gödel, Escher, Bach</h3>
-                
-              </div>
-              <p class="book-card__author">Douglas Hofstadter</p>
-              <p class="book-card__genre">Math / Philosophy</p>
-              
-              <div class="book-card__rating" title="5/5">
-                <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
-                
-                
-              </div>
-              
-              
-              <p class="book-card__notes">Changed how I think about self-reference, formal systems, and consciousness. Took three months and it was worth every page.</p>
-              
-            </div>
+    
+    
+    <div class="books-category" data-cat="Math">
+      <h2 class="books-category__label">
+        Math
+        <span class="books-category__count">1</span>
+      </h2>
+      <div class="books-list">
+        
+        <div class="book-row">
+          <div class="book-row__main">
+            <span class="book-row__title">The Art of Problem Solving, Vol. 1</span>
+            <span class="book-row__author">Sandor Lehoczky &amp; Richard Rusczyk</span>
+          </div>
+          <div class="book-row__meta">
+            
+            <span class="book-row__stars" title="5/5">
+              ★★★★★
+            </span>
+            
+            
+            
           </div>
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+          <p class="book-row__notes">The book that made math feel like play. Every serious math enthusiast should work through this.</p>
           
         </div>
+        
       </div>
+    </div>
     
-      
-      <div class="books-year">
-        <h2 class="books-year__label">2023</h2>
-        <div class="books-grid">
-          
-          
-          
-          
-          <div class="book-card">
-            <div class="book-card__spine" aria-hidden="true"></div>
-            <div class="book-card__body">
-              <div class="book-card__top">
-                <h3 class="book-card__title">The Art of Problem Solving, Vol. 1</h3>
-                
-              </div>
-              <p class="book-card__author">Sandor Lehoczky &amp; Richard Rusczyk</p>
-              <p class="book-card__genre">Math</p>
-              
-              <div class="book-card__rating" title="5/5">
-                <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
-                
-                
-              </div>
-              
-              
-              <p class="book-card__notes">The book that made math feel like play. Every serious math enthusiast should work through this.</p>
-              
-            </div>
+    
+    
+    <div class="books-category" data-cat="Math / Philosophy">
+      <h2 class="books-category__label">
+        Math / Philosophy
+        <span class="books-category__count">1</span>
+      </h2>
+      <div class="books-list">
+        
+        <div class="book-row">
+          <div class="book-row__main">
+            <span class="book-row__title">Gödel, Escher, Bach</span>
+            <span class="book-row__author">Douglas Hofstadter</span>
+          </div>
+          <div class="book-row__meta">
+            
+            <span class="book-row__stars" title="5/5">
+              ★★★★★
+            </span>
+            
+            
+            
           </div>
           
-          
-          
-          <div class="book-card">
-            <div class="book-card__spine" aria-hidden="true"></div>
-            <div class="book-card__body">
-              <div class="book-card__top">
-                <h3 class="book-card__title">The Pragmatic Programmer</h3>
-                
-              </div>
-              <p class="book-card__author">David Thomas &amp; Andrew Hunt</p>
-              <p class="book-card__genre">Software Engineering</p>
-              
-              <div class="book-card__rating" title="4/5">
-                <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
-                
-                <span class="star star--empty">★</span>
-              </div>
-              
-              
-              <p class="book-card__notes">Timeless craft advice. DRY, tracer bullets, broken windows — these metaphors stick.</p>
-              
-            </div>
-          </div>
-          
-          
-          
-          
-          
-          
-          
+          <p class="book-row__notes">Changed how I think about self-reference, formal systems, and consciousness. Took three months and it was worth every page.</p>
           
         </div>
+        
       </div>
+    </div>
     
+    
+    
+    <div class="books-category" data-cat="Psychology / Behavioral Economics">
+      <h2 class="books-category__label">
+        Psychology / Behavioral Economics
+        <span class="books-category__count">1</span>
+      </h2>
+      <div class="books-list">
+        
+        <div class="book-row">
+          <div class="book-row__main">
+            <span class="book-row__title">Thinking, Fast and Slow</span>
+            <span class="book-row__author">Daniel Kahneman</span>
+          </div>
+          <div class="book-row__meta">
+            
+            <span class="book-row__stars" title="4/5">
+              ★★★★<span class="star-empty">★</span>
+            </span>
+            
+            
+            
+          </div>
+          
+          <p class="book-row__notes">System 1 and System 2 are now part of my everyday vocabulary.</p>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+    <div class="books-category" data-cat="Software Engineering">
+      <h2 class="books-category__label">
+        Software Engineering
+        <span class="books-category__count">1</span>
+      </h2>
+      <div class="books-list">
+        
+        <div class="book-row">
+          <div class="book-row__main">
+            <span class="book-row__title">The Pragmatic Programmer</span>
+            <span class="book-row__author">David Thomas &amp; Andrew Hunt</span>
+          </div>
+          <div class="book-row__meta">
+            
+            <span class="book-row__stars" title="4/5">
+              ★★★★<span class="star-empty">★</span>
+            </span>
+            
+            
+            
+          </div>
+          
+          <p class="book-row__notes">Timeless craft advice. DRY, tracer bullets, broken windows — these metaphors stick.</p>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+
     
   </article>
 </section>
+
+<script>
+(function() {
+  const filters = document.querySelectorAll('.books-filter');
+  const categories = document.querySelectorAll('.books-category');
+
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const cat = btn.dataset.cat;
+      filters.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      categories.forEach(function(sec) {
+        sec.style.display = (cat === 'all' || sec.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
 
     </div>
 
