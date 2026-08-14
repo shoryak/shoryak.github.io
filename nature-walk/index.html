@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics in Nature — A Field Walk</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#2d6a4f;--g2:#52b788;--dark:#1b4332;
+  --cream:#faf8f2;--warm:#bc6c25;--text:#1a180f;
+  --muted:#5c5848;--border:#e2ddd0;--card:#fff;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;
+  background:linear-gradient(160deg,#0d2b1e 0%,#1b4332 45%,#2d6a4f 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:3rem 1.6rem;position:relative;overflow:hidden;
+}
+.hero-leaves{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.leaf{position:absolute;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(100vh) rotate(0deg)}100%{transform:translateY(-100px) rotate(360deg)}}
+.hero-event{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  color:rgba(255,255,255,.92);padding:.65rem 1.4rem;border-radius:100px;
+  font-size:.95rem;font-weight:500;letter-spacing:.02em;margin-bottom:1.6rem;
+}
+.hero-event-dot{width:9px;height:9px;background:#95d5b2;border-radius:50%;flex-shrink:0;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.hero h1{font-family:'Lora',serif;font-size:clamp(2.4rem,6.5vw,4.5rem);color:#fff;line-height:1.15;margin-bottom:1.1rem;max-width:720px}
+.hero h1 em{font-style:italic;color:#95d5b2}
+.hero-sub{color:rgba(255,255,255,.78);font-size:1.08rem;max-width:560px;line-height:1.85;margin-bottom:1.4rem}
+.hero-note{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+  border-radius:14px;padding:1.4rem 1.8rem;max-width:580px;margin-bottom:2.2rem;
+  text-align:left;
+}
+.hero-note-title{font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#95d5b2;margin-bottom:.55rem}
+.hero-note p{color:rgba(255,255,255,.78);font-size:.96rem;line-height:1.8}
+.hero-note p strong{color:#c8f0da;font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;max-width:680px}
+.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:.45rem 1.1rem;border-radius:100px;font-size:.86rem;text-decoration:none;transition:background .2s}
+.pill:hover{background:rgba(255,255,255,.22)}
+.scroll-hint{position:absolute;bottom:2rem;color:rgba(255,255,255,.4);font-size:.85rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ── MODE BAR ── */
+.mode-bar{
+  position:sticky;top:0;z-index:200;
+  display:flex;justify-content:center;align-items:center;gap:.5rem;
+  padding:.75rem 1.6rem;
+  background:var(--cream);border-bottom:1px solid var(--border);
+  box-shadow:0 1px 12px rgba(0,0,0,.06);
+}
+.mode-label{font-size:.8rem;color:var(--muted);margin-right:.25rem}
+.mode-toggle{display:flex;background:#e8e4dc;border-radius:100px;padding:3px;gap:2px}
+.mode-btn{
+  padding:.45rem 1.1rem;border:none;border-radius:100px;font-size:.86rem;font-family:'DM Sans',sans-serif;
+  font-weight:500;cursor:pointer;transition:background .18s,color .18s,box-shadow .18s;
+  background:transparent;color:var(--muted);
+}
+.mode-btn.active{background:#fff;color:var(--dark);box-shadow:0 1px 6px rgba(0,0,0,.12)}
+.learn-progress{font-size:.8rem;color:var(--g1);font-weight:500;margin-left:.5rem;display:none}
+body.mode-learn .learn-progress{display:inline}
+
+/* ── SECTION LAYOUT ── */
+.topic{max-width:920px;margin:4.5rem auto;padding:0 1.6rem}
+.topic-label{font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);margin-bottom:.5rem}
+.topic h2{font-family:'Lora',serif;font-size:clamp(1.7rem,4vw,2.4rem);color:var(--dark);margin-bottom:.4rem}
+.topic-tagline{color:var(--muted);font-size:1.02rem;margin-bottom:2rem;font-style:italic}
+.topic-body{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;align-items:start}
+@media(max-width:640px){.topic-body{grid-template-columns:1fr}}
+.anim-box{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);border:1px solid var(--border);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.anim-box svg{width:100%;height:100%}
+.topic-text h3{font-family:'Lora',serif;font-size:1.15rem;color:var(--dark);margin-bottom:.7rem}
+.topic-text p{color:var(--muted);line-height:1.75;font-size:.95rem;margin-bottom:1rem}
+.fact{background:#e8f5ee;border-left:3px solid var(--g2);padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dark);margin-top:.4rem;line-height:1.6}
+.fact strong{color:var(--g1)}
+.nat-hist{background:#fef9ec;border-left:3px solid #e9a43a;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.87rem;color:var(--dark);margin-top:.8rem;line-height:1.6}
+.nat-hist strong{color:#7c5c10}
+
+/* ── MODE VISIBILITY ── */
+.read-only{display:block}
+.learn-only{display:none}
+body.mode-learn .read-only{display:none}
+body.mode-learn .learn-only{display:block}
+
+/* refs & inline quiz are read-only */
+.refs,.inline-quiz{display:block}
+body.mode-learn .refs,body.mode-learn .inline-quiz{display:none}
+
+/* ── REFS ── */
+.refs{max-width:920px;margin:2rem auto 0;padding:0 1.6rem}
+.refs-label{font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+.refs ol{padding-left:1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.refs li{font-size:.83rem;color:var(--muted);line-height:1.55}
+.refs li em{font-style:italic}
+
+/* ── READ MODE QUIZ ── */
+.inline-quiz{max-width:920px;margin:2.5rem auto 0;padding:1.5rem 1.6rem;background:var(--dark);border-radius:14px}
+.inline-quiz .q-tag{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g2);margin-bottom:.5rem}
+.inline-quiz .q-text{color:#fff;font-size:1rem;line-height:1.55;margin-bottom:1.1rem}
+
+/* ── SHARED OPTS ── */
+.opts{display:flex;flex-direction:column;gap:.5rem}
+.opt{
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.88);padding:.75rem 1.1rem;border-radius:8px;
+  cursor:pointer;text-align:left;font-size:.9rem;font-family:'DM Sans',sans-serif;
+  transition:background .15s,border-color .15s;
+}
+.opt:hover:not(:disabled){background:rgba(255,255,255,.16)}
+.opt.correct{background:rgba(82,183,136,.28);border-color:var(--g2);color:#fff}
+.opt.wrong{background:rgba(220,80,80,.25);border-color:#e06060;color:#fff}
+.opt:disabled{cursor:default}
+.q-feedback{margin-top:.9rem;padding:.75rem 1rem;border-radius:8px;font-size:.87rem;display:none;line-height:1.55}
+.q-feedback.show-c{display:block;background:rgba(82,183,136,.18);color:#a8f0c0}
+.q-feedback.show-w{display:block;background:rgba(220,80,80,.18);color:#ffbbbb}
+
+/* ── LEARN MODE FLOW ── */
+.learn-flow{
+  max-width:920px;margin:1.5rem auto 0;padding:0 1.6rem;
+}
+.learn-step{background:var(--dark);border-radius:16px;padding:1.6rem 1.8rem;margin-bottom:1rem}
+.ls-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.ls-num{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--g2)}
+.ls-title{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase}
+.ls-question{color:#fff;font-size:1rem;line-height:1.6;margin-bottom:1.1rem}
+.ls-tryagain{color:#ff9a9a;font-size:.85rem;margin-top:.6rem;display:none;padding:.5rem .75rem;background:rgba(220,80,80,.15);border-radius:6px}
+.ls-reveal{
+  margin-top:1.1rem;padding:1rem 1.1rem;border-radius:10px;
+  background:rgba(82,183,136,.14);border:1px solid rgba(82,183,136,.3);
+  color:rgba(255,255,255,.88);font-size:.9rem;line-height:1.7;
+  display:none;
+}
+.ls-reveal strong{color:#a8f0c0}
+.ls-next{
+  display:inline-block;margin-top:1rem;background:var(--g2);border:none;
+  color:#0d2b1e;padding:.55rem 1.3rem;border-radius:8px;font-size:.88rem;
+  font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:background .15s;
+}
+.ls-next:hover{background:#74d4a3}
+.learn-complete{
+  background:#e8f5ee;border-radius:14px;padding:1.4rem 1.6rem;
+  border:1px solid #b7e4c7;margin-top:.5rem;display:none;
+}
+.learn-complete h4{font-family:'Lora',serif;color:var(--dark);font-size:1rem;margin-bottom:.8rem}
+.learn-complete .fact,.learn-complete .nat-hist{margin-top:.6rem}
+.lc-done{
+  display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--g1);
+  font-weight:500;margin-bottom:.8rem;
+}
+.lc-done::before{content:'✓';background:var(--g2);color:#fff;width:1.3rem;height:1.3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+
+/* ── LEARN SCORE ── */
+.learn-score-banner{
+  max-width:920px;margin:3rem auto;padding:2rem 1.6rem;
+  background:var(--dark);border-radius:16px;text-align:center;display:none;
+}
+body.mode-learn .learn-score-banner.show{display:block}
+.learn-score-banner h2{font-family:'Lora',serif;color:#fff;font-size:1.6rem;margin-bottom:.3rem}
+.lsb-num{font-family:'Lora',serif;font-size:4rem;color:var(--g2);line-height:1;margin:.5rem 0 .2rem}
+.lsb-msg{color:rgba(255,255,255,.72);font-style:italic;font-size:.95rem}
+
+/* ── READ SCORE BANNER ── */
+.score-banner{
+  max-width:920px;margin:4rem auto;padding:2.5rem 2rem;
+  background:var(--dark);border-radius:16px;text-align:center;
+}
+.score-banner h2{font-family:'Lora',serif;color:#fff;font-size:1.8rem;margin-bottom:.3rem}
+.score-num{font-family:'Lora',serif;font-size:4.5rem;color:var(--g2);line-height:1;margin:.6rem 0 .3rem}
+.score-msg{color:rgba(255,255,255,.75);font-style:italic;font-size:1rem;margin-bottom:1.2rem}
+.restart{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:.6rem 1.4rem;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;transition:background .2s}
+.restart:hover{background:rgba(255,255,255,.22)}
+body.mode-learn .score-banner{display:none}
+body.mode-read .learn-score-banner{display:none!important}
+
+/* ── FURTHER READING ── */
+.reading{max-width:920px;margin:3rem auto 5rem;padding:0 1.6rem}
+.reading h2{font-family:'Lora',serif;font-size:1.8rem;color:var(--dark);margin-bottom:.4rem}
+.reading-intro{color:var(--muted);margin-bottom:1.8rem;font-size:.93rem}
+.read-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.read-card{border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;background:var(--card)}
+.read-tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--g2);font-weight:500;margin-bottom:.3rem}
+.read-card h4{font-size:.93rem;font-weight:500;margin-bottom:.25rem;color:var(--dark)}
+.read-card p{font-size:.83rem;color:var(--muted);line-height:1.55}
+
+hr.sep{max-width:920px;margin:4rem auto 0;border:none;border-top:1px solid var(--border)}
+
+footer{text-align:center;padding:3rem 1.6rem;color:var(--muted);font-size:.84rem;border-top:1px solid var(--border)}
+footer a{color:var(--g2);text-decoration:none}
+
+/* ── SVG ANIMATIONS ── */
+.droplet-anim{animation:roll 4s ease-in-out infinite}
+@keyframes roll{0%,15%{transform:translateX(0)}70%{transform:translateX(110px)}85%,100%{transform:translateX(0)}}
+.water-narrow{animation:rise 3.5s ease-out infinite}
+@keyframes rise{0%{transform:translateY(0)}65%{transform:translateY(-70px)}100%{transform:translateY(-70px)}}
+.water-wide-anim{animation:rise2 3.5s ease-out infinite}
+@keyframes rise2{0%{transform:translateY(0)}65%{transform:translateY(-22px)}100%{transform:translateY(-22px)}}
+.kite-bird{animation:soar 5s ease-in-out infinite}
+@keyframes soar{0%{transform:translate(0,0)}25%{transform:translate(20px,-25px)}50%{transform:translate(40px,0)}75%{transform:translate(20px,20px)}100%{transform:translate(0,0)}}
+.thermal{animation:rise-thermal 2s ease-in-out infinite}
+@keyframes rise-thermal{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.6;transform:scaleY(1.04)}}
+.silk-draw{stroke-dasharray:200;stroke-dashoffset:200;animation:draw 3s ease-out infinite}
+@keyframes draw{0%{stroke-dashoffset:200}60%,100%{stroke-dashoffset:0}}
+.spider-up{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,10%{transform:translate(0,0)}80%,100%{transform:translate(-15px,-80px)}}
+.spore-launch{animation:launch 3.2s ease-in-out infinite}
+@keyframes launch{0%,30%{transform:translate(0,0);opacity:1}60%{transform:translate(-38px,-18px);opacity:.9}90%,100%{transform:translate(-60px,40px);opacity:.3}}
+.drop-grow{animation:grow-drop 3.2s ease-in-out infinite}
+@keyframes grow-drop{0%{r:2;opacity:.6}25%{r:6;opacity:1}35%{r:7;opacity:1}40%,100%{r:1;opacity:.3}}
+.gill-spore{animation:release 3.2s ease-in-out infinite}
+@keyframes release{0%,20%{transform:translateY(0);opacity:1}50%,100%{transform:translateY(22px);opacity:0}}
+.seta-grip{transform-origin:top center;animation:grip 2s ease-in-out infinite}
+@keyframes grip{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-8deg)}}
+.vdw{animation:vdw-pulse 1.8s ease-in-out infinite}
+@keyframes vdw-pulse{0%,100%{opacity:.4}50%{opacity:1}}
+</style>
+</head>
+<body class="mode-read">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-leaves" id="leaves"></div>
+  <div class="hero-event">
+    <span class="hero-event-dot"></span>
+    VITM &times; The Naturalist School — Physics in Nature Walk
+  </div>
+  <div class="topic-label" style="color:#95d5b2;margin-bottom:1rem">A companion guide</div>
+  <h1>When <em>Nature</em> does Physics</h1>
+  <p class="hero-sub">Six phenomena you walked past today — from the lotus leaf that never gets wet to the gecko that reads quantum mechanics with its feet.</p>
+  <div class="hero-note">
+    <div class="hero-note-title">📖 For further reading</div>
+    <p>The walk today was just a beginning. This page goes deeper into the physics, the ecology, and the natural history behind each phenomenon so you can stay immersed long after you leave the trail. <strong>Switch to Learn mode</strong> to have the concepts taught to you step by step with guided questions, or stay in Read mode for the full reference. I volunteered on this walk because I genuinely believe this is some of the most beautiful physics anywhere — no lab required.</p>
+  </div>
+  <div class="pills">
+    <a class="pill" href="#lotus">🌿 Lotus Leaf</a>
+    <a class="pill" href="#capillary">🌳 Capillary Action</a>
+    <a class="pill" href="#kite">🦅 Kite Bird</a>
+    <a class="pill" href="#spider">🕷 Spider Ballooning</a>
+    <a class="pill" href="#mushroom">🍄 Mushroom Spores</a>
+    <a class="pill" href="#gecko">🦎 Gecko Walking</a>
+  </div>
+  <div class="scroll-hint">scroll to explore</div>
+</div>
+
+<!-- MODE BAR -->
+<div class="mode-bar">
+  <span class="mode-label">Mode:</span>
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="btn-read" onclick="setMode('read')">📖 Read</button>
+    <button class="mode-btn" id="btn-learn" onclick="setMode('learn')">🧠 Learn</button>
+  </div>
+  <span class="learn-progress" id="learn-progress">0 / 6 complete</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     01 — LOTUS
+════════════════════════════════════════════════ -->
+<section class="topic" id="lotus">
+  <div class="topic-label">Phenomenon 01</div>
+  <h2>Hydrophobicity of the Lotus Leaf</h2>
+  <p class="topic-tagline">The self-cleaning leaf that stays pristine in a muddy pond.</p>
+  <div class="topic-body">
+    <div class="anim-box">
+      <svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="210" fill="#e8f5e9"/>
+        <path d="M10,150 Q25,130 40,150 Q55,130 70,150 Q85,130 100,150 Q115,130 130,150 Q145,130 160,150 Q175,130 190,150 Q205,130 220,150 Q235,130 250,150 Q265,130 270,150 L270,175 L10,175 Z" fill="#40916c"/>
+        <ellipse cx="55" cy="152" rx="8" ry="4" fill="#b7e4c7" opacity="0.6"/>
+        <ellipse cx="85" cy="152" rx="8" ry="4" fill="#b7e4c7" opacity="0.6"/>
+        <text x="42" y="148" font-size="7" fill="#d8f3dc" text-anchor="middle" font-family="DM Sans,sans-serif">waxy papillae</text>
+        <text x="70" y="167" font-size="7" fill="#fff" text-anchor="middle" font-family="DM Sans,sans-serif">trapped air</text>
+        <g class="droplet-anim">
+          <ellipse cx="80" cy="118" rx="22" ry="26" fill="#74c0fc" opacity="0.85"/>
+          <ellipse cx="72" cy="108" rx="7" ry="5" fill="#a5d8ff" opacity="0.6"/>
+          <path d="M58,144 A30,30 0 0,1 102,144" fill="none" stroke="#1c7ed6" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <text x="80" y="164" font-size="8" fill="#1c7ed6" text-anchor="middle" font-family="DM Sans,sans-serif">~160°</text>
+        </g>
+        <text x="140" y="195" font-size="8.5" fill="#2d6a4f" text-anchor="middle" font-family="DM Sans,sans-serif">Superhydrophobic — water rolls off, carrying dirt with it</text>
+      </svg>
+    </div>
+    <div class="topic-text read-only">
+      <h3>The Lotus Effect</h3>
+      <p>The lotus leaf is covered in microscopic waxy bumps called papillae (10 to 20 µm tall). When a water droplet lands, it sits on the tips of these peaks with air trapped beneath — the Cassie-Baxter state. The contact area is tiny, so water beads into a near-perfect sphere and rolls off at the slightest tilt, sweeping up dust and bacteria as it goes.</p>
+      <p>On flat wax the contact angle is roughly 105°. The micro-texture pushes this to about 160°. The lotus arrived at this solution hundreds of millions of years before materials scientists did. Botanist Wilhelm Barthlott named it the Lotus Effect in 1975 after years of scanning electron microscope work in Bonn.</p>
+      <div class="fact">
+        <strong>In the field:</strong> Taro and nasturtium leaves show the same effect. Tilt any of them and watch droplets race across without wetting the surface at all. A lotus in a muddy monsoon pond stays spotless because it is never truly wet.
+      </div>
+      <div class="nat-hist">
+        <strong>Natural history:</strong> The sacred lotus (<em>Nelumbo nucifera</em>) has appeared in Hindu and Buddhist art for over 3,000 years as a symbol of purity emerging from mud — a description that turns out to be precise physics. Lotus seeds found in a dry lake bed in China germinated after an estimated 1,300 years, the longest confirmed seed viability of any plant. The lotus also generates its own heat (thermogenesis) to attract pollinators on cool mornings, making it one of the very few plants known to actively regulate its own temperature like a warm-blooded animal.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="refs">
+  <div class="refs-label">References</div>
+  <ol>
+    <li>Barthlott, W. &amp; Neinhuis, C. (1997). Purity of the sacred lotus. <em>Planta</em>, 202(1), 1–8.</li>
+    <li>Cassie, A.B.D. &amp; Baxter, S. (1944). Wettability of porous surfaces. <em>Trans. Faraday Soc.</em>, 40, 546–551.</li>
+    <li>Koch, K., Bhushan, B. &amp; Barthlott, W. (2009). Multifunctional surface structures of plants. <em>Progress in Polymer Science</em>, 34(1), 89–175.</li>
+  </ol>
+</div>
+
+<div class="inline-quiz" id="q-lotus">
+  <div class="q-tag">Quick check — Lotus Leaf</div>
+  <div class="q-text">A lotus leaf has a contact angle of ~160°. What creates this superhydrophobic effect?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(this,'w','lotus')">A thick layer of waterproof wax alone</button>
+    <button class="opt" onclick="ans(this,'c','lotus')">Microscopic waxy bumps that trap air, drastically reducing the contact area</button>
+    <button class="opt" onclick="ans(this,'w','lotus')">Chemical repulsion between water and chlorophyll</button>
+    <button class="opt" onclick="ans(this,'w','lotus')">Static electricity on the leaf surface</button>
+  </div>
+  <div class="q-feedback" id="fb-lotus-c">Correct. The Cassie-Baxter state: the droplet rests on solid peaks and trapped air pockets. Flat wax alone achieves only ~105°; the microstructure amplifies the effect to ~160°.</div>
+  <div class="q-feedback" id="fb-lotus-w">Not quite. Flat wax alone achieves only ~105°. The microstructure (papillae and trapped air) is what pushes the contact angle to ~160° and creates true superhydrophobicity.</div>
+</div>
+
+<!-- LEARN FLOW: LOTUS -->
+<div class="learn-flow learn-only" id="lf-lotus">
+
+  <div class="learn-step" id="ls-lotus-1">
+    <div class="ls-header">
+      <span class="ls-num">Step 1 of 2</span>
+      <span class="ls-title">Observe the animation</span>
+    </div>
+    <p class="ls-question">The water droplet rolls off the lotus leaf without spreading or wetting it at all. Which of these best describes what the leaf surface is actually like at a microscopic scale?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','lotus',1)">Perfectly flat, coated in a thick chemical repellent</button>
+      <button class="opt" onclick="lans(this,'c','lotus',1)">Covered in tiny waxy peaks with pockets of trapped air between them</button>
+      <button class="opt" onclick="lans(this,'w','lotus',1)">Slightly porous, so water sinks in and stays hidden</button>
+      <button class="opt" onclick="lans(this,'w','lotus',1)">Electrically charged, pushing water molecules away</button>
+    </div>
+    <div class="ls-tryagain" id="lta-lotus-1">Not quite — look at the animation again and try once more.</div>
+    <div class="ls-reveal" id="lr-lotus-1">
+      <strong>Exactly right.</strong> The leaf surface is a forest of microscopic waxy bumps (papillae, 10–20 µm tall). A water droplet rests only on the very tips of these peaks, with pockets of trapped air beneath. The droplet's contact area with the solid is tiny — so tiny it beads into a near-perfect sphere and rolls off at the slightest tilt, sweeping up any dust it touches.
+      <br><br>Flat wax gives a contact angle of about 105°. The micro-bumps push this to ~160°. The lotus has been exploiting this physics for hundreds of millions of years.
+      <br><button class="ls-next" onclick="nextStep('lotus',2)">Next question</button>
+    </div>
+  </div>
+
+  <div class="learn-step" id="ls-lotus-2" style="display:none">
+    <div class="ls-header">
+      <span class="ls-num">Step 2 of 2</span>
+      <span class="ls-title">The physics name</span>
+    </div>
+    <p class="ls-question">A droplet resting on a composite of solid tips and trapped air — rather than on solid alone — is called the Cassie-Baxter state. Why does this state produce a much higher contact angle than flat wax?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','lotus',2)">The air beneath the droplet is warmer and lifts it up</button>
+      <button class="opt" onclick="lans(this,'w','lotus',2)">The wax on the peaks is chemically different from flat wax</button>
+      <button class="opt" onclick="lans(this,'c','lotus',2)">The air pockets replace solid contact, so the droplet barely touches the surface and cannot spread</button>
+      <button class="opt" onclick="lans(this,'w','lotus',2)">The bumps create electrical charges that repel the water surface</button>
+    </div>
+    <div class="ls-tryagain" id="lta-lotus-2">Almost — think about what happens to spreading when the droplet barely touches solid at all.</div>
+    <div class="ls-reveal" id="lr-lotus-2">
+      <strong>Correct.</strong> Spreading requires the water to wet the solid. In the Cassie-Baxter state, most of what the droplet "sees" is air, not solid — so it cannot spread. The effective contact becomes dominated by the water-air interface, which has a contact angle of 180°. The composite of wax tips and air brings the real angle to ~160°, which is why water rolls off so readily.
+      <br><br>This is why coating a surface with the same wax in a flat film gives only ~105°. The geometry of the microstructure is doing most of the work.
+      <br><button class="ls-next" onclick="completeLearn('lotus')">See full natural history</button>
+    </div>
+  </div>
+
+  <div class="learn-complete" id="lc-lotus">
+    <div class="lc-done">Lotus Leaf complete</div>
+    <div class="fact">
+      <strong>In the field:</strong> Taro and nasturtium leaves show the same effect. Tilt one and watch droplets race across without wetting it at all. A lotus in a muddy monsoon pond stays spotless because it is never truly wet.
+    </div>
+    <div class="nat-hist">
+      <strong>Natural history:</strong> The sacred lotus (<em>Nelumbo nucifera</em>) has appeared in Hindu and Buddhist art for over 3,000 years as a symbol of purity emerging from mud — a description that turns out to be precise physics. Lotus seeds found in a dry lake bed in China germinated after an estimated 1,300 years, the longest confirmed seed viability of any plant. The lotus also generates its own heat (thermogenesis) to attract pollinators on cool mornings — one of the very few plants known to actively regulate its own temperature.
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════════════
+     02 — CAPILLARY
+════════════════════════════════════════════════ -->
+<section class="topic" id="capillary">
+  <div class="topic-label">Phenomenon 02</div>
+  <h2>Capillary Action in the Silk Cotton Tree</h2>
+  <p class="topic-tagline">How a tree lifts water 40 metres against gravity, with no pump and no energy cost.</p>
+  <div class="topic-body">
+    <div class="anim-box">
+      <svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="210" fill="#f0f9ff"/>
+        <rect x="20" y="168" width="240" height="28" fill="#74c0fc" opacity="0.35" rx="4"/>
+        <text x="140" y="184" font-size="8.5" fill="#1971c2" text-anchor="middle" font-family="DM Sans,sans-serif">water in soil</text>
+        <rect x="48" y="60" width="40" height="112" fill="none" stroke="#868e96" stroke-width="2" rx="3"/>
+        <text x="68" y="52" font-size="8" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif">wide xylem</text>
+        <g class="water-wide-anim">
+          <rect x="50" y="143" width="36" height="25" fill="#74c0fc" opacity="0.55"/>
+          <path d="M50,143 Q68,136 86,143" fill="#74c0fc" opacity="0.55"/>
+        </g>
+        <rect x="114" y="28" width="24" height="144" fill="none" stroke="#868e96" stroke-width="2" rx="3"/>
+        <text x="126" y="20" font-size="8" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif">narrow xylem</text>
+        <g class="water-narrow">
+          <rect x="116" y="143" width="20" height="25" fill="#339af0" opacity="0.75"/>
+          <path d="M116,143 Q126,133 136,143" fill="#339af0" opacity="0.75"/>
+        </g>
+        <line x1="152" y1="70" x2="178" y2="70" stroke="#e03131" stroke-width="1" stroke-dasharray="3,2"/>
+        <line x1="152" y1="143" x2="178" y2="143" stroke="#e03131" stroke-width="1" stroke-dasharray="3,2"/>
+        <line x1="173" y1="72" x2="173" y2="141" stroke="#e03131" stroke-width="2"/>
+        <polygon points="173,68 169,78 177,78" fill="#e03131"/>
+        <polygon points="173,145 169,135 177,135" fill="#e03131"/>
+        <text x="184" y="108" font-size="9" fill="#e03131" font-family="DM Sans,sans-serif">h ∝ 1/r</text>
+        <text x="220" y="148" font-size="8" fill="#2c2c2c" font-family="DM Sans,sans-serif">h = 2γ cosθ</text>
+        <line x1="214" y1="152" x2="258" y2="152" stroke="#aaa" stroke-width="1"/>
+        <text x="236" y="163" font-size="8" fill="#2c2c2c" font-family="DM Sans,sans-serif">ρ g r</text>
+        <text x="68" y="205" font-size="7.5" fill="#868e96" text-anchor="middle" font-family="DM Sans,sans-serif">low rise</text>
+        <text x="126" y="205" font-size="7.5" fill="#1971c2" text-anchor="middle" font-family="DM Sans,sans-serif">high rise</text>
+      </svg>
+    </div>
+    <div class="topic-text read-only">
+      <h3>Adhesion, Cohesion and the Meniscus</h3>
+      <p>Inside a tree's xylem — tubes 20 to 500 µm wide — three forces cooperate: <strong>adhesion</strong> pulls water toward the tube walls, <strong>cohesion</strong> pulls water molecules toward each other, and <strong>surface tension</strong> creates a concave meniscus that acts like a tiny upward-pulling membrane. The capillary rise formula h = 2γ cosθ / ρgr says the narrower the tube, the higher water rises.</p>
+      <p>The silk cotton tree (<em>Bombax ceiba</em>, called Semal in Hindi) can stand 30 metres tall. Its finest xylem channels, working together with transpiration pull from millions of open stomata, sustain a continuous water column against gravity throughout the day.</p>
+      <div class="fact">
+        <strong>Try it:</strong> Place a celery stalk in coloured water. Within 30 minutes you can see the dye climbing the xylem channels. Slice the stalk crosswise to see exactly where the water travels.
+      </div>
+      <div class="nat-hist">
+        <strong>Natural history:</strong> The silk cotton tree is the state tree of Gujarat and appears in ancient Sanskrit texts. Its crimson flowers bloom in February before any leaf appears, attracting purple-rumped sunbirds and fruit bats that pollinate it at night. Elephants have been documented travelling long distances specifically to eat Semal flowers. The fluffy seed cotton was used for centuries as mattress stuffing and insulation, and briefly for World War I life jackets. The tree hosts the larvae of the Crimson Rose butterfly, one of India's most striking swallowtails.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="refs">
+  <div class="refs-label">References</div>
+  <ol>
+    <li>Tyree, M.T. &amp; Zimmermann, M.H. (2002). <em>Xylem Structure and the Ascent of Sap</em>. Springer.</li>
+    <li>Stroock, A.D. et al. (2014). The physicochemical hydrodynamics of vascular plants. <em>Annual Review of Fluid Mechanics</em>, 46, 615–642.</li>
+    <li>Nobel, P.S. (2009). <em>Physicochemical and Environmental Plant Physiology</em> (4th ed.). Academic Press.</li>
+  </ol>
+</div>
+
+<div class="inline-quiz" id="q-cap">
+  <div class="q-tag">Quick check — Capillary Action</div>
+  <div class="q-text">In the formula h = 2γ cosθ / ρgr, what happens to the capillary rise height when the tube radius r is halved?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(this,'w','cap')">The height halves</button>
+    <button class="opt" onclick="ans(this,'w','cap')">The height stays the same</button>
+    <button class="opt" onclick="ans(this,'c','cap')">The height doubles</button>
+    <button class="opt" onclick="ans(this,'w','cap')">The water rises faster but to the same final height</button>
+  </div>
+  <div class="q-feedback" id="fb-cap-c">Correct. h ∝ 1/r — halving the radius doubles the rise. Tree xylem tubes (some as narrow as 20 µm) exploit this to move water tens of metres upward.</div>
+  <div class="q-feedback" id="fb-cap-w">Think about the formula: h = 2γcosθ / ρgr. As r decreases, 1/r increases, so h increases. Narrower tubes give higher capillary rise.</div>
+</div>
+
+<!-- LEARN FLOW: CAPILLARY -->
+<div class="learn-flow learn-only" id="lf-cap">
+
+  <div class="learn-step" id="ls-cap-1">
+    <div class="ls-header">
+      <span class="ls-num">Step 1 of 2</span>
+      <span class="ls-title">Read the formula</span>
+    </div>
+    <p class="ls-question">The animation shows water rising higher in the narrower xylem tube. The formula for how high water rises is: <strong>h = 2γ cosθ / ρgr</strong>, where r is the tube radius. If you halve the tube radius, what happens to the rise height?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','cap',1)">The height halves — smaller tube, less contact with the water</button>
+      <button class="opt" onclick="lans(this,'w','cap',1)">The height stays the same — radius doesn't appear to matter</button>
+      <button class="opt" onclick="lans(this,'c','cap',1)">The height doubles — h is inversely proportional to r</button>
+      <button class="opt" onclick="lans(this,'w','cap',1)">The height quadruples — the effect is squared</button>
+    </div>
+    <div class="ls-tryagain" id="lta-cap-1">Try again — look at where r appears in the formula and think about what happens when r gets smaller.</div>
+    <div class="ls-reveal" id="lr-cap-1">
+      <strong>Right.</strong> Because r is in the denominator, h ∝ 1/r. Halve the radius, double the rise. This is sometimes called Jurin's Law. Tree xylem tubes exploit this by being extremely narrow — some as fine as 20 µm. The finest tubes rise the most.
+      <br><button class="ls-next" onclick="nextStep('cap',2)">Next question</button>
+    </div>
+  </div>
+
+  <div class="learn-step" id="ls-cap-2" style="display:none">
+    <div class="ls-header">
+      <span class="ls-num">Step 2 of 2</span>
+      <span class="ls-title">Name the forces</span>
+    </div>
+    <p class="ls-question">Three forces cooperate to lift water in a xylem tube. Match them: "water clinging to the tube wall" is ___. "water molecules pulling each other" is ___.</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','cap',2)">Cohesion and adhesion</button>
+      <button class="opt" onclick="lans(this,'w','cap',2)">Osmosis and diffusion</button>
+      <button class="opt" onclick="lans(this,'c','cap',2)">Adhesion and cohesion</button>
+      <button class="opt" onclick="lans(this,'w','cap',2)">Tension and compression</button>
+    </div>
+    <div class="ls-tryagain" id="lta-cap-2">Almost — adhesion is attraction to a different material, cohesion is attraction between like molecules.</div>
+    <div class="ls-reveal" id="lr-cap-2">
+      <strong>Correct.</strong> Adhesion (water to wall) and cohesion (water to water) work together with surface tension to create the upward-curved meniscus. The meniscus acts like a stretched membrane pulling the water column upward. This, combined with transpiration pull from millions of open leaf stomata, sustains a water column dozens of metres tall — no pump required.
+      <br><button class="ls-next" onclick="completeLearn('cap')">See full natural history</button>
+    </div>
+  </div>
+
+  <div class="learn-complete" id="lc-cap">
+    <div class="lc-done">Capillary Action complete</div>
+    <div class="fact">
+      <strong>Try it:</strong> Place a celery stalk in coloured water. Within 30 minutes you can see the dye climbing the xylem channels. Slice the stalk crosswise to see exactly where the water travelled.
+    </div>
+    <div class="nat-hist">
+      <strong>Natural history:</strong> The silk cotton tree (<em>Bombax ceiba</em>) is the state tree of Gujarat. Its crimson flowers bloom in February before any leaf appears, attracting sunbirds and fruit bats. Elephants have been documented travelling specifically to eat Semal flowers. The fluffy seed cotton was used for centuries as stuffing and insulation. The tree hosts the Crimson Rose butterfly.
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════════════
+     03 — KITE BIRD
+════════════════════════════════════════════════ -->
+<section class="topic" id="kite">
+  <div class="topic-label">Phenomenon 03</div>
+  <h2>Flight of the Kite Bird Over Open Spaces</h2>
+  <p class="topic-tagline">How a bird climbs kilometres into the sky without a single wingbeat.</p>
+  <div class="topic-body">
+    <div class="anim-box">
+      <svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="thermal-grad" cx="50%" cy="100%" r="60%">
+            <stop offset="0%" stop-color="#ffec99" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#ffec99" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="280" height="210" fill="#d0ebff"/>
+        <rect x="0" y="182" width="280" height="28" fill="#a9e34b" opacity="0.6"/>
+        <text x="140" y="197" font-size="8" fill="#5c940d" text-anchor="middle" font-family="DM Sans,sans-serif">open sun-heated field</text>
+        <ellipse class="thermal" cx="120" cy="100" rx="38" ry="82" fill="url(#thermal-grad)"/>
+        <text x="82" y="185" font-size="7.5" fill="#e67700" text-anchor="middle" font-family="DM Sans,sans-serif">thermal</text>
+        <line x1="110" y1="170" x2="110" y2="60" stroke="#ffa94d" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+        <line x1="122" y1="175" x2="122" y2="55" stroke="#ffa94d" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+        <line x1="134" y1="170" x2="134" y2="60" stroke="#ffa94d" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+        <polygon points="110,56 106,68 114,68" fill="#ffa94d" opacity="0.7"/>
+        <polygon points="122,51 118,63 126,63" fill="#ffa94d" opacity="0.7"/>
+        <polygon points="134,56 130,68 138,68" fill="#ffa94d" opacity="0.7"/>
+        <g class="kite-bird">
+          <path d="M120,80 L100,88 L112,84 L116,92 L120,84 L124,92 L128,84 L140,88 Z" fill="#212529"/>
+          <path d="M116,84 L112,95 M124,84 L128,95" fill="none" stroke="#212529" stroke-width="1.5"/>
+          <ellipse cx="120" cy="79" rx="4" ry="3" fill="#343a40"/>
+        </g>
+        <ellipse cx="120" cy="90" rx="35" ry="22" fill="none" stroke="#adb5bd" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+        <path d="M155,88 Q200,100 230,75" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+        <polygon points="230,73 224,78 228,84" fill="#495057" opacity="0.6"/>
+        <text x="200" y="65" font-size="7.5" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif">glide to next thermal</text>
+        <text x="228" y="145" font-size="8" fill="#1971c2" text-anchor="end" font-family="DM Sans,sans-serif">glide ratio</text>
+        <text x="230" y="157" font-size="11" fill="#1971c2" font-weight="500" text-anchor="end" font-family="DM Sans,sans-serif">~20 : 1</text>
+      </svg>
+    </div>
+    <div class="topic-text read-only">
+      <h3>Thermal Soaring</h3>
+      <p>Open sunlit fields absorb solar radiation and heat the air above them. This warm, less-dense air rises in columns called <strong>thermals</strong>. The Black Kite (<em>Milvus migrans</em>) detects thermals by watching dust devils, following other soaring birds, and sensing pressure changes on its wing feathers. Once inside a thermal it circles slowly, climbing hundreds of metres per minute with no wingbeat.</p>
+      <p>Its long, high-aspect-ratio wings and deeply forked tail give fine directional control at low speed. The glide ratio is roughly 20:1 — for every metre it descends it travels 20 metres forward. It connects thermal to thermal across the landscape, prospecting for food at 300 to 600 metres above the ground.</p>
+      <div class="fact">
+        <strong>Why open spaces?</strong> Forests and buildings break thermals into turbulent patches. An open field allows a clean, tall thermal column to form undisturbed. That is why you see kite flocks circling over harvested fields, river banks, and city dumps rather than over dense canopy — the birds are reading the invisible architecture of the heated air below them.
+      </div>
+      <div class="nat-hist">
+        <strong>Natural history:</strong> The Black Kite is one of the most abundant raptors on Earth — its global population may exceed six million. In Indian cities it is closely associated with garbage grounds and fish markets, and has been filmed snatching food offerings from pilgrims near temples in Delhi. Kites nesting in urban Spain have been documented carrying lit cigarette butts into their nests — nicotine from the smouldering material appears to fumigate against nest parasites. During grassland fires, hundreds of kites gather at the flame front to hunt fleeing prey; in indigenous Australian tradition this earned them the name "fire hawks."
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="refs">
+  <div class="refs-label">References</div>
+  <ol>
+    <li>Pennycuick, C.J. (1989). <em>Bird Flight Performance</em>. Oxford University Press.</li>
+    <li>Bildstein, K.L. (2006). <em>Migrating Raptors of the World</em>. Cornell University Press.</li>
+    <li>Rutz, C. &amp; Troscianko, J. (2020). Tool use in non-human animals. <em>Current Biology</em>, 30(7), R314–R318.</li>
+  </ol>
+</div>
+
+<div class="inline-quiz" id="q-kite">
+  <div class="q-tag">Quick check — Kite Bird</div>
+  <div class="q-text">A kite bird gains hundreds of metres of altitude over an open field without flapping. What makes this possible?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(this,'w','kite')">Strong horizontal winds push the bird upward at field edges</button>
+    <button class="opt" onclick="ans(this,'c','kite')">Rising columns of warm air (thermals) from solar heating of the open ground</button>
+    <button class="opt" onclick="ans(this,'w','kite')">The bird's hollow bones give it enough buoyancy to rise passively</button>
+    <button class="opt" onclick="ans(this,'w','kite')">Bernoulli lift from wind flowing over the stationary spread wings</button>
+  </div>
+  <div class="q-feedback" id="fb-kite-c">Correct. Solar radiation heats the open ground, warm air rises in a thermal column, and the kite circles within it — gaining altitude for free.</div>
+  <div class="q-feedback" id="fb-kite-w">The key mechanism is thermal soaring. Solar heating of open ground produces rising warm-air columns. The bird circles within these thermals, gaining altitude without flapping.</div>
+</div>
+
+<!-- LEARN FLOW: KITE -->
+<div class="learn-flow learn-only" id="lf-kite">
+
+  <div class="learn-step" id="ls-kite-1">
+    <div class="ls-header">
+      <span class="ls-num">Step 1 of 2</span>
+      <span class="ls-title">Energy source</span>
+    </div>
+    <p class="ls-question">A Black Kite circles over an open field for 15 minutes without a single wingbeat and gains 400 metres of altitude. The energy to climb must ultimately come from somewhere. Where?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','kite',1)">The bird's fat reserves, burned very slowly</button>
+      <button class="opt" onclick="lans(this,'c','kite',1)">The sun, via air heated above the open ground and rising</button>
+      <button class="opt" onclick="lans(this,'w','kite',1)">Horizontal wind pushing it upward at the field boundary</button>
+      <button class="opt" onclick="lans(this,'w','kite',1)">Earth's magnetic field</button>
+    </div>
+    <div class="ls-tryagain" id="lta-kite-1">Not quite — the bird isn't burning fuel and there's no obvious wind. Look at what's happening at the ground level in the animation.</div>
+    <div class="ls-reveal" id="lr-kite-1">
+      <strong>Correct.</strong> Solar radiation heats the open ground. The air directly above warms, becomes less dense than the surrounding air, and rises in a column called a <strong>thermal</strong>. The kite locks onto this rising air and spirals within it — gaining altitude at zero metabolic cost. The energy comes from the sun, via the ground, via the heated air. The bird is just a very efficient passenger.
+      <br><button class="ls-next" onclick="nextStep('kite',2)">Next question</button>
+    </div>
+  </div>
+
+  <div class="learn-step" id="ls-kite-2" style="display:none">
+    <div class="ls-header">
+      <span class="ls-num">Step 2 of 2</span>
+      <span class="ls-title">Apply the glide ratio</span>
+    </div>
+    <p class="ls-question">The Black Kite has a glide ratio of 20:1 — for every metre it descends it travels 20 metres horizontally. It finds a thermal at 600 m altitude and then glides to find the next one. How far can it travel horizontally before it needs another thermal?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','kite',2)">600 m</button>
+      <button class="opt" onclick="lans(this,'w','kite',2)">3,000 m</button>
+      <button class="opt" onclick="lans(this,'c','kite',2)">12,000 m (12 km)</button>
+      <button class="opt" onclick="lans(this,'w','kite',2)">120,000 m (120 km)</button>
+    </div>
+    <div class="ls-tryagain" id="lta-kite-2">Try again — multiply the altitude by the glide ratio.</div>
+    <div class="ls-reveal" id="lr-kite-2">
+      <strong>Right.</strong> 600 m altitude × 20 (glide ratio) = 12,000 m = 12 km of free horizontal travel. By chaining thermals this way, a kite can cross hundreds of kilometres in a day without burning meaningful fat. This is also how migratory raptors cross mountain ranges and deserts — they wait for thermals, not wind.
+      <br><button class="ls-next" onclick="completeLearn('kite')">See full natural history</button>
+    </div>
+  </div>
+
+  <div class="learn-complete" id="lc-kite">
+    <div class="lc-done">Kite Bird complete</div>
+    <div class="fact">
+      <strong>Why open spaces?</strong> Forests and buildings create turbulent, broken thermals. Open fields let a clean, tall column form undisturbed — which is why kites favour harvested fields, river banks, and open city dumps over dense canopy.
+    </div>
+    <div class="nat-hist">
+      <strong>Natural history:</strong> The Black Kite's global population may exceed six million — one of the world's most abundant raptors. In Indian cities it is closely associated with garbage grounds and fish markets. Kites in urban Spain have been documented carrying lit cigarette butts into their nests — nicotine from the smouldering stub appears to fumigate against nest parasites. During grassland fires, hundreds gather at the flame front to hunt fleeing prey; Australian indigenous tradition calls them "fire hawks."
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════════════
+     04 — SPIDER
+════════════════════════════════════════════════ -->
+<section class="topic" id="spider">
+  <div class="topic-label">Phenomenon 04</div>
+  <h2>Spider Ballooning</h2>
+  <p class="topic-tagline">Spiders recorded at 5 km altitude — understood by Darwin, fully explained only in 2018.</p>
+  <div class="topic-body">
+    <div class="anim-box">
+      <svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d0ebff"/>
+            <stop offset="100%" stop-color="#e8f5e9"/>
+          </linearGradient>
+        </defs>
+        <rect width="280" height="210" fill="url(#sky2)"/>
+        <rect x="0" y="182" width="280" height="28" fill="#a9e34b" opacity="0.5"/>
+        <rect x="20" y="165" width="90" height="10" rx="4" fill="#6d4c41"/>
+        <rect x="20" y="118" width="10" height="52" rx="3" fill="#5d4037"/>
+        <g class="spider-up">
+          <ellipse cx="75" cy="162" rx="8" ry="6" fill="#212529"/>
+          <ellipse cx="72" cy="157" rx="5" ry="4" fill="#343a40"/>
+          <line x1="67" y1="160" x2="55" y2="154" stroke="#212529" stroke-width="1.5"/>
+          <line x1="67" y1="162" x2="54" y2="163" stroke="#212529" stroke-width="1.5"/>
+          <line x1="83" y1="160" x2="95" y2="154" stroke="#212529" stroke-width="1.5"/>
+          <line x1="83" y1="162" x2="96" y2="163" stroke="#212529" stroke-width="1.5"/>
+          <line class="silk-draw" x1="72" y1="153" x2="50" y2="18" stroke="#ced4da" stroke-width="1" opacity="0.9"/>
+          <line class="silk-draw" x1="73" y1="152" x2="75" y2="8" stroke="#dee2e6" stroke-width="1" opacity="0.8" style="animation-delay:.35s"/>
+          <line class="silk-draw" x1="75" y1="152" x2="100" y2="12" stroke="#ced4da" stroke-width="1" opacity="0.7" style="animation-delay:.7s"/>
+        </g>
+        <line x1="28" y1="8" x2="28" y2="172" stroke="#74c0fc" stroke-width="1" stroke-dasharray="4,4" opacity="0.45"/>
+        <line x1="245" y1="8" x2="245" y2="172" stroke="#74c0fc" stroke-width="1" stroke-dasharray="4,4" opacity="0.45"/>
+        <polygon points="28,8 24,20 32,20" fill="#74c0fc" opacity="0.45"/>
+        <polygon points="245,8 241,20 249,20" fill="#74c0fc" opacity="0.45"/>
+        <text x="14" y="7" font-size="7" fill="#1971c2" font-family="DM Sans,sans-serif" opacity="0.8">E field</text>
+        <text x="140" y="38" font-size="8" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif" font-style="italic">silk threads acquire charge, repel each other</text>
+        <text x="140" y="50" font-size="8" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif" font-style="italic">fan out and are lifted by the atmospheric field</text>
+        <text x="200" y="100" font-size="8" fill="#868e96" text-anchor="middle" font-family="DM Sans,sans-serif">recorded at</text>
+        <text x="200" y="112" font-size="9.5" fill="#e03131" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">5,000 m altitude</text>
+      </svg>
+    </div>
+    <div class="topic-text read-only">
+      <h3>The Electric Sky Surfer</h3>
+      <p>For centuries, spider ballooning was attributed to wind alone. In 2018 Morley and Robert showed the real mechanism: the Earth maintains a global <strong>atmospheric electric field</strong> of roughly 100 V/m near the ground. When a spider releases silk, the threads pick up charge from the air. They repel each other (same sign charge), fan into a triangle, and the electric field exerts a net upward force — lifting the spider even on windless days.</p>
+      <p>The spider first tiptoes, raising its abdomen to sense conditions, then releases its silk. Baby spiders weighing under a milligram have been caught at 4,500 metres altitude. Darwin recorded thousands landing on HMS Beagle far out at sea and was genuinely baffled by the absence of wind.</p>
+      <div class="fact">
+        <strong>The silk:</strong> Each ballooning thread is 1 to 3 µm in diameter — thinner than a human hair and stronger by weight than steel. A spider may release dozens simultaneously, each electrostatically repelling the others to form the characteristic fan shape visible in morning light.
+      </div>
+      <div class="nat-hist">
+        <strong>Natural history:</strong> A single field can receive thousands of spiders per day during ballooning season — ecologists call this "aerial plankton." Farmers value ballooning spiders enormously: after a flood wipes out a field, spiderlings balloon back in within days and re-establish predator populations faster than almost any other arthropod, giving them outsized importance as natural pest control. Silk fibres from ballooning events have been found hundreds of kilometres out at sea and deep in Arctic ice cores.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="refs">
+  <div class="refs-label">References</div>
+  <ol>
+    <li>Morley, E.L. &amp; Robert, D. (2018). Electric fields elicit ballooning in spiders. <em>Current Biology</em>, 28(16), 2324–2330.</li>
+    <li>Reynolds, A.M. et al. (2006). Ballooning dispersal using silk. <em>Bulletin of Entomological Research</em>, 96(1), 69–114.</li>
+    <li>Gorham, P. (2013). Ballooning spiders: the case for electrostatic flight. <em>arXiv</em>:1309.4731.</li>
+  </ol>
+</div>
+
+<div class="inline-quiz" id="q-spider">
+  <div class="q-tag">Quick check — Spider Ballooning</div>
+  <div class="q-text">A 2018 study identified a force beyond wind that enables spider ballooning. What is it?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(this,'w','spider')">Thermal updrafts from warm soil</button>
+    <button class="opt" onclick="ans(this,'w','spider')">Earth's magnetic field repelling iron in the silk</button>
+    <button class="opt" onclick="ans(this,'c','spider')">The atmospheric electric field exerting an upward force on charged silk threads</button>
+    <button class="opt" onclick="ans(this,'w','spider')">Humidity causing silk fibres to swell and become buoyant</button>
+  </div>
+  <div class="q-feedback" id="fb-spider-c">Correct. The Earth's ~100 V/m atmospheric field pushes charged silk upward — even on completely windless days.</div>
+  <div class="q-feedback" id="fb-spider-w">The surprising answer is electrostatics. The atmospheric electric field (always present in fair weather) exerts a net upward force on the negatively charged silk.</div>
+</div>
+
+<!-- LEARN FLOW: SPIDER -->
+<div class="learn-flow learn-only" id="lf-spider">
+
+  <div class="learn-step" id="ls-spider-1">
+    <div class="ls-header">
+      <span class="ls-num">Step 1 of 2</span>
+      <span class="ls-title">A mystery force</span>
+    </div>
+    <p class="ls-question">A spider releases silk on a completely calm, windless day with no measurable thermal activity. It still floats upward. An invisible field must be exerting an upward force on the silk. Which field?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','spider',1)">Earth's gravitational field (reversed at the spider's small scale)</button>
+      <button class="opt" onclick="lans(this,'w','spider',1)">Earth's magnetic field</button>
+      <button class="opt" onclick="lans(this,'c','spider',1)">Earth's atmospheric electric field</button>
+      <button class="opt" onclick="lans(this,'w','spider',1)">Infrared radiation pressure from the warm ground</button>
+    </div>
+    <div class="ls-tryagain" id="lta-spider-1">Not quite — look at the animation and the label on the dashed lines. Which field is always present in fair weather?</div>
+    <div class="ls-reveal" id="lr-spider-1">
+      <strong>Exactly.</strong> In fair weather, Earth maintains an atmospheric electric field of about 100 V/m pointing downward. Spider silk picks up negative charge from the air as it is released. The field exerts an upward force on this negative charge — and the spider goes with it. This was confirmed by Erica Morley and Daniel Robert at Bristol in 2018, who showed spiders can balloon even in laboratory conditions with no wind or thermals, as long as an artificial electric field is present.
+      <br><button class="ls-next" onclick="nextStep('spider',2)">Next question</button>
+    </div>
+  </div>
+
+  <div class="learn-step" id="ls-spider-2" style="display:none">
+    <div class="ls-header">
+      <span class="ls-num">Step 2 of 2</span>
+      <span class="ls-title">Why the threads fan out</span>
+    </div>
+    <p class="ls-question">Before launch, the spider raises its abdomen and releases multiple silk threads. They fan out into a wide triangle rather than hanging together. Why?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','spider',2)">Wind catches them at slightly different angles</button>
+      <button class="opt" onclick="lans(this,'w','spider',2)">They heat up and expand outward</button>
+      <button class="opt" onclick="lans(this,'c','spider',2)">Each thread carries the same sign of electric charge, so they repel each other (Coulomb repulsion)</button>
+      <button class="opt" onclick="lans(this,'w','spider',2)">The spider actively pushes them apart with its spinnerets</button>
+    </div>
+    <div class="ls-tryagain" id="lta-spider-2">Think about what happens between objects that carry the same electric charge.</div>
+    <div class="ls-reveal" id="lr-spider-2">
+      <strong>Correct.</strong> Coulomb's law: like charges repel. Each silk thread carries the same sign of charge, so they push away from each other and fan out. This is actually beneficial — a wider silk fan presents more surface area to the electric field, generating more total lift. The spider is using electrostatic self-assembly to build a better "sail." Darwin observed the fan shape but had no explanation for it; it was the first clue that something more than wind was involved.
+      <br><button class="ls-next" onclick="completeLearn('spider')">See full natural history</button>
+    </div>
+  </div>
+
+  <div class="learn-complete" id="lc-spider">
+    <div class="lc-done">Spider Ballooning complete</div>
+    <div class="fact">
+      <strong>The silk:</strong> Each ballooning thread is 1–3 µm in diameter — thinner than a human hair and stronger by weight than steel. Baby spiders weighing under a milligram have been recorded at 4,500 m altitude.
+    </div>
+    <div class="nat-hist">
+      <strong>Natural history:</strong> A field can receive thousands of ballooning spiders per day — ecologists call this "aerial plankton." After a flood wipes out a field's predator community, spiderlings balloon back in within days, making them one of nature's fastest ecosystem recovery agents. Silk has been found hundreds of kilometres out at sea and in Arctic ice cores.
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════════════
+     05 — MUSHROOM
+════════════════════════════════════════════════ -->
+<section class="topic" id="mushroom">
+  <div class="topic-label">Phenomenon 05</div>
+  <h2>How Mushrooms Shoot Spores with Water</h2>
+  <p class="topic-tagline">A two-droplet catapult powered purely by surface tension — at 25,000 g acceleration.</p>
+  <div class="topic-body">
+    <div class="anim-box">
+      <svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="210" fill="#f8f0e8"/>
+        <path d="M55,130 Q70,68 140,64 Q210,68 225,130 Z" fill="#bc6c25" opacity="0.85"/>
+        <path d="M55,130 Q70,73 140,69 Q210,73 225,130" fill="#dda15e" opacity="0.45"/>
+        <rect x="118" y="130" width="44" height="58" rx="8" fill="#e0c097"/>
+        <rect x="0" y="185" width="280" height="25" fill="#a9e34b" opacity="0.4"/>
+        <line x1="100" y1="130" x2="108" y2="90" stroke="#9c6c3a" stroke-width="1.5" opacity="0.6"/>
+        <line x1="120" y1="130" x2="124" y2="78" stroke="#9c6c3a" stroke-width="1.5" opacity="0.6"/>
+        <line x1="140" y1="130" x2="140" y2="76" stroke="#9c6c3a" stroke-width="1.5" opacity="0.6"/>
+        <line x1="160" y1="130" x2="156" y2="78" stroke="#9c6c3a" stroke-width="1.5" opacity="0.6"/>
+        <line x1="180" y1="130" x2="172" y2="90" stroke="#9c6c3a" stroke-width="1.5" opacity="0.6"/>
+        <rect x="148" y="68" width="118" height="92" rx="8" fill="#fff" stroke="#dee2e6" stroke-width="1"/>
+        <text x="207" y="80" font-size="7.5" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">Buller's drop mechanism</text>
+        <rect x="152" y="118" width="112" height="8" rx="2" fill="#bc6c25" opacity="0.4"/>
+        <text x="207" y="145" font-size="7" fill="#9c6c3a" text-anchor="middle" font-family="DM Sans,sans-serif">gill surface</text>
+        <ellipse cx="200" cy="107" rx="16" ry="10" fill="#6d4c41" opacity="0.75"/>
+        <text x="200" y="110" font-size="6.5" fill="#fff" text-anchor="middle" font-family="DM Sans,sans-serif">spore</text>
+        <ellipse cx="200" cy="118" rx="16" ry="3" fill="#74c0fc" opacity="0.5"/>
+        <text x="232" y="122" font-size="6" fill="#1971c2" font-family="DM Sans,sans-serif">adaxial film</text>
+        <circle class="drop-grow" cx="188" cy="115" r="4" fill="#339af0" opacity="0.85"/>
+        <text x="168" y="112" font-size="6" fill="#1971c2" text-anchor="middle" font-family="DM Sans,sans-serif">Buller's drop</text>
+        <text x="207" y="96" font-size="6.5" fill="#e03131" text-anchor="middle" font-family="DM Sans,sans-serif">coalescence releases surface energy</text>
+        <g class="spore-launch">
+          <ellipse cx="248" cy="108" rx="10" ry="6" fill="#6d4c41" opacity="0.7"/>
+          <polygon points="238,108 232,105 232,111" fill="#e03131" opacity="0.6"/>
+        </g>
+        <g class="gill-spore"><circle cx="105" cy="132" r="3" fill="#6d4c41" opacity="0.6"/></g>
+        <g class="gill-spore" style="animation-delay:.6s"><circle cx="135" cy="133" r="3" fill="#6d4c41" opacity="0.6"/></g>
+        <g class="gill-spore" style="animation-delay:1.2s"><circle cx="162" cy="132" r="3" fill="#6d4c41" opacity="0.6"/></g>
+        <text x="60" y="180" font-size="8" fill="#bc6c25" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">launch: ~25,000 g</text>
+        <text x="60" y="192" font-size="7" fill="#868e96" text-anchor="middle" font-family="DM Sans,sans-serif">fastest process in fungi</text>
+      </svg>
+    </div>
+    <div class="topic-text read-only">
+      <h3>The Buller's Drop Catapult</h3>
+      <p>Most mushroom spores are launched by the <strong>Buller's drop</strong> mechanism. Water vapour condenses at the base of each spore (the hilar appendix) as a tiny spherical droplet. Simultaneously, a thin film of water forms on the flat face of the spore. When the Buller's drop grows large enough to touch this film, the two water surfaces <strong>coalesce</strong>.</p>
+      <p>Coalescence releases surface energy equal to γ × ΔA (surface tension multiplied by the reduction in surface area). This converts almost entirely to kinetic energy, launching the spore sideways off the gill at ~1 m/s with an acceleration near 25,000 g. The spore falls into the still air beneath the cap and drifts away on the faintest current. The whole mechanism requires no metabolic energy — just ambient moisture.</p>
+      <div class="fact">
+        <strong>Why vertical gills?</strong> Gills hang vertically so the launched spore immediately enters free air below the cap and falls away cleanly. A mushroom tilted sideways will reorient its gills using gravity sensing — always keeping them vertical to preserve the launch geometry.
+      </div>
+      <div class="nat-hist">
+        <strong>Natural history:</strong> A single giant puffball (<em>Calvatia gigantea</em>) can produce up to 7 trillion spores. Mushroom spores have been collected in the stratosphere and in Arctic ice cores. They also actively modify local weather by releasing hygroscopic compounds that seed cloud droplets, making mushrooms a measurable contributor to rainfall. The Buller's drop was first described by Reginald Buller in 1909 but not confirmed by high-speed imaging until 2010. Some bioluminescent mushrooms in India's Western Ghats glow green at night, attracting nocturnal insects that carry spores elsewhere — layering a second dispersal strategy on top of the ballistic launch.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="refs">
+  <div class="refs-label">References</div>
+  <ol>
+    <li>Stolze-Rybczynski, J.L. et al. (2009). Adaptation of the spore discharge mechanism in the Basidiomycota. <em>PLoS ONE</em>, 4(1), e4163.</li>
+    <li>Pringle, A. et al. (2005). The captured launch of a ballistospore. <em>Mycologia</em>, 97(4), 866–871.</li>
+    <li>de Gennes, P.G., Brochard-Wyart, F. &amp; Quéré, D. (2004). <em>Capillarity and Wetting Phenomena</em>. Springer.</li>
+  </ol>
+</div>
+
+<div class="inline-quiz" id="q-mushroom">
+  <div class="q-tag">Quick check — Mushroom Spores</div>
+  <div class="q-text">The Buller's drop launches a mushroom spore at ~25,000 g. What is the energy source?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(this,'w','mushroom')">Chemical energy in the fungal cell wall</button>
+    <button class="opt" onclick="ans(this,'w','mushroom')">Osmotic pressure building behind the spore</button>
+    <button class="opt" onclick="ans(this,'c','mushroom')">Surface energy released when two water droplets coalesce</button>
+    <button class="opt" onclick="ans(this,'w','mushroom')">Wind pressure beneath the cap</button>
+  </div>
+  <div class="q-feedback" id="fb-mushroom-c">Correct. Coalescence reduces surface area; E = γΔA is released as kinetic energy. An entirely passive catapult, no metabolic input required.</div>
+  <div class="q-feedback" id="fb-mushroom-w">The energy source is surface tension. When two water surfaces coalesce, total area decreases and surface energy (E = γΔA) is released as kinetic energy of the spore.</div>
+</div>
+
+<!-- LEARN FLOW: MUSHROOM -->
+<div class="learn-flow learn-only" id="lf-mushroom">
+
+  <div class="learn-step" id="ls-mushroom-1">
+    <div class="ls-header">
+      <span class="ls-num">Step 1 of 2</span>
+      <span class="ls-title">Identify the energy source</span>
+    </div>
+    <p class="ls-question">A mushroom spore launches sideways at ~1 m/s with 25,000 g acceleration. No muscle, no chemical reaction, no pressure build-up is responsible. What physical process converts ambient moisture into this kinetic energy?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','mushroom',1)">Osmotic pressure building up behind the spore until it bursts free</button>
+      <button class="opt" onclick="lans(this,'c','mushroom',1)">The surface energy released when two water droplets merge into one</button>
+      <button class="opt" onclick="lans(this,'w','mushroom',1)">Air pressure differences on the two faces of the spore</button>
+      <button class="opt" onclick="lans(this,'w','mushroom',1)">Photosynthesis storing energy that is then released as motion</button>
+    </div>
+    <div class="ls-tryagain" id="lta-mushroom-1">Not quite — look at the animation and what is forming at the base of the spore before launch.</div>
+    <div class="ls-reveal" id="lr-mushroom-1">
+      <strong>Correct.</strong> Surface energy (E = γ × A) is stored in every water surface. When two water surfaces merge into one, the total surface area decreases, and the stored energy is released. The mushroom has arranged two water surfaces — the Buller's drop and the adaxial film — so that when the drop grows enough to touch the film, the coalescence happens and the released energy launches the spore. The fungus converts ambient humidity into a precision catapult with zero metabolic cost.
+      <br><button class="ls-next" onclick="nextStep('mushroom',2)">Next question</button>
+    </div>
+  </div>
+
+  <div class="learn-step" id="ls-mushroom-2" style="display:none">
+    <div class="ls-header">
+      <span class="ls-num">Step 2 of 2</span>
+      <span class="ls-title">The geometry of gills</span>
+    </div>
+    <p class="ls-question">Mushroom gills always hang vertically, even if the mushroom grows sideways on a tree. They even reorient if a mushroom is tilted. Why does gill orientation matter so much for spore dispersal?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','mushroom',2)">Vertical gills dry out more slowly and can produce spores for longer</button>
+      <button class="opt" onclick="lans(this,'w','mushroom',2)">Vertical gills maximise the surface area exposed to sunlight</button>
+      <button class="opt" onclick="lans(this,'c','mushroom',2)">The spore launches sideways off the gill, then must fall into free air below the cap — vertical gills keep this path clear</button>
+      <button class="opt" onclick="lans(this,'w','mushroom',2)">Vertical gills allow raindrops to wash spores away more efficiently</button>
+    </div>
+    <div class="ls-tryagain" id="lta-mushroom-2">Think about where the spore goes after it launches — it has to reach open air to be carried away.</div>
+    <div class="ls-reveal" id="lr-mushroom-2">
+      <strong>Right.</strong> The Buller's drop launches the spore sideways and slightly downward. The spore then enters the still air beneath the cap and falls away by gravity, eventually reaching a gentle air current that carries it elsewhere. If the gills were tilted, the launched spore would hit the adjacent gill face rather than reaching the air. Vertical gills are precision engineering — the fungus has to keep them vertical even as it grows on curved bark or slanted ground. It does this via statocytes, gravity-sensing cells, throughout the stipe.
+      <br><button class="ls-next" onclick="completeLearn('mushroom')">See full natural history</button>
+    </div>
+  </div>
+
+  <div class="learn-complete" id="lc-mushroom">
+    <div class="lc-done">Mushroom Spores complete</div>
+    <div class="fact">
+      <strong>Why vertical gills?</strong> The launched spore must fall into free air below the cap. Any tilt and the spore hits the next gill instead of escaping. Mushrooms use gravity-sensing cells to keep gills vertical even on slanted surfaces.
+    </div>
+    <div class="nat-hist">
+      <strong>Natural history:</strong> A single giant puffball can produce 7 trillion spores. Mushroom spores have been collected in the stratosphere and in Arctic ice cores — they travel as far as spider silk. They also seed cloud droplets, making fungi a small but real contributor to local rainfall. Reginald Buller first described the drop mechanism in 1909; high-speed cameras confirmed it in 2010.
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════════════
+     06 — GECKO
+════════════════════════════════════════════════ -->
+<section class="topic" id="gecko">
+  <div class="topic-label">Phenomenon 06</div>
+  <h2>How a Gecko Walks on the Ceiling</h2>
+  <p class="topic-tagline">No glue, no suction. Six million nanohairs and a quantum mechanical force.</p>
+  <div class="topic-body">
+    <div class="anim-box">
+      <svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="210" fill="#f8f9fa"/>
+        <rect x="0" y="0" width="280" height="22" fill="#495057"/>
+        <text x="140" y="15" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Sans,sans-serif">glass ceiling surface</text>
+        <ellipse cx="140" cy="68" rx="42" ry="28" fill="#74b816" opacity="0.85"/>
+        <ellipse cx="140" cy="40" rx="22" ry="18" fill="#5c940d" opacity="0.9"/>
+        <circle cx="133" cy="36" r="4" fill="#1a1a1a"/>
+        <circle cx="147" cy="36" r="4" fill="#1a1a1a"/>
+        <path d="M100,56 Q80,42 68,34" fill="none" stroke="#5c940d" stroke-width="5" stroke-linecap="round"/>
+        <path d="M180,56 Q200,42 212,34" fill="none" stroke="#5c940d" stroke-width="5" stroke-linecap="round"/>
+        <path d="M98,80 Q76,86 65,97" fill="none" stroke="#5c940d" stroke-width="5" stroke-linecap="round"/>
+        <path d="M182,80 Q204,86 215,97" fill="none" stroke="#5c940d" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="65" cy="36" rx="10" ry="6" fill="#a9e34b"/>
+        <ellipse cx="215" cy="36" rx="10" ry="6" fill="#a9e34b"/>
+        <ellipse cx="63" cy="99" rx="10" ry="6" fill="#a9e34b"/>
+        <ellipse cx="217" cy="99" rx="10" ry="6" fill="#a9e34b"/>
+        <rect x="163" y="120" width="108" height="82" rx="8" fill="#fff" stroke="#dee2e6" stroke-width="1"/>
+        <text x="217" y="132" font-size="7.5" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">seta to spatulae (zoomed)</text>
+        <g class="seta-grip"><line x1="183" y1="148" x2="183" y2="170" stroke="#5c940d" stroke-width="2.5"/><line x1="183" y1="170" x2="176" y2="176" stroke="#5c940d" stroke-width="1.5"/><line x1="183" y1="170" x2="190" y2="176" stroke="#5c940d" stroke-width="1.5"/></g>
+        <g class="seta-grip" style="animation-delay:.2s"><line x1="198" y1="145" x2="198" y2="168" stroke="#5c940d" stroke-width="2.5"/><line x1="198" y1="168" x2="191" y2="174" stroke="#5c940d" stroke-width="1.5"/><line x1="198" y1="168" x2="205" y2="174" stroke="#5c940d" stroke-width="1.5"/></g>
+        <g class="seta-grip" style="animation-delay:.4s"><line x1="213" y1="147" x2="213" y2="170" stroke="#5c940d" stroke-width="2.5"/><line x1="213" y1="170" x2="206" y2="176" stroke="#5c940d" stroke-width="1.5"/><line x1="213" y1="170" x2="220" y2="176" stroke="#5c940d" stroke-width="1.5"/></g>
+        <g class="seta-grip" style="animation-delay:.6s"><line x1="228" y1="145" x2="228" y2="168" stroke="#5c940d" stroke-width="2.5"/><line x1="228" y1="168" x2="221" y2="174" stroke="#5c940d" stroke-width="1.5"/><line x1="228" y1="168" x2="235" y2="174" stroke="#5c940d" stroke-width="1.5"/></g>
+        <g class="seta-grip" style="animation-delay:.8s"><line x1="243" y1="148" x2="243" y2="171" stroke="#5c940d" stroke-width="2.5"/><line x1="243" y1="171" x2="236" y2="177" stroke="#5c940d" stroke-width="1.5"/><line x1="243" y1="171" x2="250" y2="177" stroke="#5c940d" stroke-width="1.5"/></g>
+        <rect x="166" y="178" width="102" height="8" rx="2" fill="#adb5bd"/>
+        <g class="vdw">
+          <line x1="183" y1="176" x2="183" y2="178" stroke="#e03131" stroke-width="2"/>
+          <line x1="198" y1="174" x2="198" y2="178" stroke="#e03131" stroke-width="2"/>
+          <line x1="213" y1="176" x2="213" y2="178" stroke="#e03131" stroke-width="2"/>
+          <line x1="228" y1="174" x2="228" y2="178" stroke="#e03131" stroke-width="2"/>
+          <line x1="243" y1="177" x2="243" y2="178" stroke="#e03131" stroke-width="2"/>
+        </g>
+        <text x="217" y="198" font-size="7.5" fill="#e03131" text-anchor="middle" font-family="DM Sans,sans-serif">Van der Waals adhesion</text>
+        <text x="80" y="158" font-size="8.5" fill="#495057" text-anchor="middle" font-family="DM Sans,sans-serif">~6.5 million setae</text>
+        <text x="80" y="172" font-size="8.5" fill="#2f9e44" text-anchor="middle" font-family="DM Sans,sans-serif">can support ~133 kg</text>
+        <text x="80" y="185" font-size="7.5" fill="#868e96" text-anchor="middle" font-family="DM Sans,sans-serif">per 4 feet combined</text>
+      </svg>
+    </div>
+    <div class="topic-text read-only">
+      <h3>Geometry as Glue</h3>
+      <p>Each gecko toe has millions of hair-like <strong>setae</strong> (about 100 µm long), each splitting at the tip into hundreds of nanoscale pads called <strong>spatulae</strong>. These pads approach the surface to within ~0.3 nm, at which point <strong>Van der Waals forces</strong> — transient induced dipoles between electron clouds — create a real attractive force. Each spatula contributes around 10 nN. Across a billion spatulae per foot, the total can support 133 kg.</p>
+      <p>The gecko detaches by hyperextending its toes, changing the spatula angle past a critical threshold — adhesion collapses instantly, like peeling tape from its leading edge rather than its face. No residue, no wear, self-cleaning, infinitely reusable.</p>
+      <div class="fact">
+        <strong>One limitation:</strong> Van der Waals forces are disrupted by a thin water film on the surface. A gecko walks perfectly on dry glass but loses grip on wet glass — which is why you never see geckos on glass during heavy rain. Their adhesion is geometric, not chemical; a water layer physically prevents the spatulae from getting close enough.
+      </div>
+      <div class="nat-hist">
+        <strong>Natural history:</strong> Geckos evolved this adhesion system independently at least 11 times across different lineages — convergent evolution driven by the same physical constraint. The house gecko (<em>Hemidactylus</em>) on Indian walls communicates by clicking; pairs hold territory conversations in the dark. Geckos clean their setae by licking their feet — watch long enough and you will see this. The tokay gecko of Southeast Asia, large enough to eat small birds, can hang upside down from a single toe. A single foot has been measured generating forces equivalent to over 200 times its body weight. Inspired engineering has produced gecko-adhesive panels from carbon nanotube forests: a 0.05 m² patch supports an adult human, with no adhesive chemicals.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="refs">
+  <div class="refs-label">References</div>
+  <ol>
+    <li>Autumn, K. et al. (2002). Evidence for van der Waals adhesion in gecko setae. <em>PNAS</em>, 99(19), 12252–12256.</li>
+    <li>Autumn, K. et al. (2000). Adhesive force of a single gecko foot-hair. <em>Nature</em>, 405, 681–685.</li>
+    <li>Geim, A.K. et al. (2003). Microfabricated adhesive mimicking gecko foot-hair. <em>Nature Materials</em>, 2, 461–463.</li>
+  </ol>
+</div>
+
+<div class="inline-quiz" id="q-gecko">
+  <div class="q-tag">Quick check — Gecko</div>
+  <div class="q-text">Gecko adhesion uses no glue or suction. What is the actual mechanism, and why does it fail on wet glass?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(this,'w','gecko')">Suction cups that lose seal when water fills the gap</button>
+    <button class="opt" onclick="ans(this,'w','gecko')">Electrostatic charge on toe pads, neutralised by water</button>
+    <button class="opt" onclick="ans(this,'c','gecko')">Van der Waals forces that require ~0.3 nm proximity — a water film prevents this</button>
+    <button class="opt" onclick="ans(this,'w','gecko')">A fast-drying adhesive secreted by the toe pads</button>
+  </div>
+  <div class="q-feedback" id="fb-gecko-c">Correct. Van der Waals forces act only at sub-nanometre distances. A water film keeps the spatulae too far away, shutting off the adhesion completely.</div>
+  <div class="q-feedback" id="fb-gecko-w">The answer is Van der Waals forces — quantum mechanical transient dipole interactions at ~0.3 nm. A water film increases the gap past the range of the force, which is why wet glass defeats gecko adhesion.</div>
+</div>
+
+<!-- LEARN FLOW: GECKO -->
+<div class="learn-flow learn-only" id="lf-gecko">
+
+  <div class="learn-step" id="ls-gecko-1">
+    <div class="ls-header">
+      <span class="ls-num">Step 1 of 2</span>
+      <span class="ls-title">What type of adhesion?</span>
+    </div>
+    <p class="ls-question">A gecko walks perfectly on dry glass but cannot grip wet glass. No glue or suction is involved. What does the wet glass observation tell us about the nature of its adhesion?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','gecko',1)">It uses a chemical glue that dissolves in water</button>
+      <button class="opt" onclick="lans(this,'w','gecko',1)">It uses suction cups that lose their seal when water fills the gap</button>
+      <button class="opt" onclick="lans(this,'c','gecko',1)">It relies on a force that only works at extremely close distances — a thin water film is enough to break it</button>
+      <button class="opt" onclick="lans(this,'w','gecko',1)">It uses electrostatic charge that is neutralised by the conducting water</button>
+    </div>
+    <div class="ls-tryagain" id="lta-gecko-1">Think about what a thin water film does to the distance between the gecko's toe and the glass surface.</div>
+    <div class="ls-reveal" id="lr-gecko-1">
+      <strong>Correct.</strong> The gecko's spatulae need to approach the glass to within about 0.3 nm for Van der Waals forces to act. A single molecular layer of water (~0.3 nm thick) is enough to push the spatulae past this distance and switch off the force entirely. The adhesion is purely geometric — it requires physical proximity, not chemistry. This is why the gecko is helpless on wet glass but holds 133 kg on dry glass.
+      <br><button class="ls-next" onclick="nextStep('gecko',2)">Next question</button>
+    </div>
+  </div>
+
+  <div class="learn-step" id="ls-gecko-2" style="display:none">
+    <div class="ls-header">
+      <span class="ls-num">Step 2 of 2</span>
+      <span class="ls-title">Instant detachment</span>
+    </div>
+    <p class="ls-question">The gecko can detach from the ceiling in milliseconds by hyperextending its toes — bending them backward past their normal angle. How does a simple change of angle cause instant release from a force strong enough to support 133 kg?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','gecko',2)">Hyperextension stretches the setae until they snap off the surface</button>
+      <button class="opt" onclick="lans(this,'w','gecko',2)">Muscle contraction generates an electrical field that repels the surface</button>
+      <button class="opt" onclick="lans(this,'c','gecko',2)">Changing the spatula angle past a critical threshold causes the Van der Waals force to collapse — the same geometry that creates adhesion also controls it</button>
+      <button class="opt" onclick="lans(this,'w','gecko',2)">The gecko secretes a release chemical when it wants to detach</button>
+    </div>
+    <div class="ls-tryagain" id="lta-gecko-2">Think about how tape behaves — peeling from the end vs. pulling straight off the face.</div>
+    <div class="ls-reveal" id="lr-gecko-2">
+      <strong>Right.</strong> Van der Waals adhesion is strongly angle-dependent. When the spatula lies flat against the surface, the contact area is maximised and the force is strong. When the angle is changed past a critical threshold (hyperextension), the contact area at each spatula tip collapses to nearly zero and the force vanishes — exactly like peeling tape from its leading edge rather than pulling it straight off. The gecko controls a force equivalent to 133 kg using only the geometry of its toes, with no energy expenditure on detachment.
+      <br><button class="ls-next" onclick="completeLearn('gecko')">See full natural history</button>
+    </div>
+  </div>
+
+  <div class="learn-complete" id="lc-gecko">
+    <div class="lc-done">Gecko Walking complete</div>
+    <div class="fact">
+      <strong>In the field:</strong> The small house gecko (<em>Hemidactylus</em>) on your wall tonight uses exactly this mechanism. Watch it clean its feet by licking them — that is how it clears dust from the setae. Watch it stop and start: it is toggling adhesion with geometry, not chemistry.
+    </div>
+    <div class="nat-hist">
+      <strong>Natural history:</strong> Geckos evolved this system independently at least 11 times — convergent evolution driven by the same physical constraint. The tokay gecko can hang upside down from a single toe. A single foot generates force equivalent to 200 times its body weight. Gecko-inspired adhesive panels from carbon nanotube forests can support an adult human with no adhesive chemicals.
+    </div>
+  </div>
+</div>
+
+<!-- ── SCORE BANNERS ── -->
+<div class="score-banner read-only" id="score-banner" style="display:none;margin:4rem 1.6rem">
+  <h2>Your score</h2>
+  <div class="score-num" id="score-num">0 / 6</div>
+  <div class="score-msg" id="score-msg"></div>
+  <button class="restart" onclick="restartAll()">Try again</button>
+</div>
+
+<div class="learn-score-banner" id="learn-score-banner">
+  <h2>Walk complete</h2>
+  <div class="lsb-num" id="lsb-num">0 / 6</div>
+  <div class="lsb-msg" id="lsb-msg"></div>
+</div>
+
+<!-- FURTHER READING -->
+<section class="reading">
+  <h2>Keep Going</h2>
+  <p class="reading-intro">The walk ends here, but the curiosity does not have to.</p>
+  <div class="read-grid">
+    <div class="read-card"><div class="read-tag">Book</div><h4>The Feynman Lectures on Physics</h4><p>Volumes I and II cover surface tension, capillarity, and electrostatics with unmatched clarity. Freely available at feynmanlectures.caltech.edu.</p></div>
+    <div class="read-card"><div class="read-tag">Book</div><h4>Biomimicry — Janine Benyus</h4><p>How engineers copy the lotus, gecko, spider, and bird to solve human problems. The book that launched biomimetics as a discipline.</p></div>
+    <div class="read-card"><div class="read-tag">Book</div><h4>Bird Flight Performance — Colin Pennycuick</h4><p>The definitive quantitative treatment of soaring, thermal detection, and glide ratios.</p></div>
+    <div class="read-card"><div class="read-tag">Book</div><h4>The Hidden Life of Trees — Peter Wohlleben</h4><p>Rich natural history of how trees move water, communicate, and respond to their environment over long timescales.</p></div>
+    <div class="read-card"><div class="read-tag">Experiment</div><h4>Five things to try this week</h4><p>Float a needle on still water · Celery stalk in food dye · Watch kites circling at noon over open ground · Test a taro leaf with water · Leave a mushroom cap face-down on paper overnight to see a spore print.</p></div>
+    <div class="read-card"><div class="read-tag">Video</div><h4>Veritasium — How Plants Got Water to the Top</h4><p>Derek Muller's explainer on capillary action and transpiration pull using real trees. One of the clearest visual treatments available online.</p></div>
+  </div>
+</section>
+
+<footer>
+  Physics in Nature Walk &nbsp;·&nbsp; VITM &times; The Naturalist School &nbsp;·&nbsp; <a href="https://shoryak.github.io">shoryak.github.io</a>
+</footer>
+
+<script>
+/* ── LEAVES ── */
+(function(){
+  const c=document.getElementById('leaves'),e=['🍃','🌿','🍂','🌱'];
+  for(let i=0;i<14;i++){
+    const d=document.createElement('div');
+    d.style.cssText=`position:absolute;left:${Math.random()*100}%;font-size:${14+Math.random()*20}px;animation-duration:${8+Math.random()*14}s;animation-delay:${-Math.random()*12}s;opacity:0.08`;
+    d.className='leaf';d.textContent=e[Math.floor(Math.random()*e.length)];
+    c.appendChild(d);
+  }
+})();
+
+/* ── MODE SWITCH ── */
+function setMode(m){
+  document.body.className='mode-'+m;
+  document.getElementById('btn-read').classList.toggle('active',m==='read');
+  document.getElementById('btn-learn').classList.toggle('active',m==='learn');
+  if(m==='learn')updateLearnProgress();
+}
+
+/* ══════════════════════════════════════
+   READ MODE QUIZ
+══════════════════════════════════════ */
+const rState={};let rCorrect=0;
+const rQuestions=['lotus','cap','kite','spider','mushroom','gecko'];
+
+function ans(btn,result,qId){
+  if(rState[qId]!==undefined)return;
+  rState[qId]=result;
+  if(result==='c')rCorrect++;
+  const block=document.getElementById('q-'+qId);
+  block.querySelectorAll('.opt').forEach(o=>{
+    o.disabled=true;
+    if(o===btn)o.classList.add(result==='c'?'correct':'wrong');
+  });
+  if(result==='w'){
+    block.querySelectorAll('.opt').forEach(o=>{
+      if(o.getAttribute('onclick')&&o.getAttribute('onclick').includes("'c'"))o.classList.add('correct');
+    });
+  }
+  document.getElementById('fb-'+qId+'-'+(result==='c'?'c':'w')).classList.add(result==='c'?'show-c':'show-w');
+  if(Object.keys(rState).length===rQuestions.length){
+    const b=document.getElementById('score-banner');
+    b.style.display='block';
+    document.getElementById('score-num').textContent=rCorrect+' / 6';
+    const msgs=['Keep walking — every wrong answer is something new to notice.','Good start. The natural world rewards patient observation.','Solid. You are beginning to see physics everywhere.','Nice. Three right — and three more reasons to look again.','Great. You were paying close attention today.','Perfect. Nature would approve.'];
+    document.getElementById('score-msg').textContent=msgs[rCorrect];
+    b.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
+function restartAll(){
+  Object.keys(rState).forEach(k=>delete rState[k]);rCorrect=0;
+  document.getElementById('score-banner').style.display='none';
+  rQuestions.forEach(qId=>{
+    const b=document.getElementById('q-'+qId);
+    b.querySelectorAll('.opt').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong')});
+    b.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ══════════════════════════════════════
+   LEARN MODE
+══════════════════════════════════════ */
+const topics=['lotus','cap','kite','spider','mushroom','gecko'];
+const lDone={};      // lDone[topicId] = true when complete
+const lWrong={};     // lWrong[topicId+step] = attempts
+
+function lans(btn,result,topicId,step){
+  const key=topicId+step;
+  // Wrong answer: flash red, show try-again message
+  if(result==='w'){
+    btn.classList.add('wrong');
+    setTimeout(()=>btn.classList.remove('wrong'),700);
+    const ta=document.getElementById('lta-'+topicId+'-'+step);
+    if(ta)ta.style.display='block';
+    return;
+  }
+  // Correct
+  const step_el=document.getElementById('ls-'+topicId+'-'+step);
+  step_el.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+  btn.classList.add('correct');
+  const ta=document.getElementById('lta-'+topicId+'-'+step);
+  if(ta)ta.style.display='none';
+  const reveal=document.getElementById('lr-'+topicId+'-'+step);
+  if(reveal)reveal.style.display='block';
+}
+
+function nextStep(topicId,step){
+  // Hide the previous step's reveal next button (already shown)
+  const prev=document.getElementById('ls-'+topicId+'-'+(step-1));
+  if(prev){const btn=prev.querySelector('.ls-next');if(btn)btn.style.display='none';}
+  const next=document.getElementById('ls-'+topicId+'-'+step);
+  if(next)next.style.display='block';
+  next.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function completeLearn(topicId){
+  lDone[topicId]=true;
+  const complete=document.getElementById('lc-'+topicId);
+  if(complete)complete.style.display='block';
+  const lastStep=document.getElementById('ls-'+topicId+'-2');
+  if(lastStep){const btn=lastStep.querySelector('.ls-next');if(btn)btn.style.display='none';}
+  complete.scrollIntoView({behavior:'smooth',block:'start'});
+  updateLearnProgress();
+  // Show final banner if all done
+  if(Object.keys(lDone).length===topics.length){
+    const banner=document.getElementById('learn-score-banner');
+    banner.classList.add('show');
+    document.getElementById('lsb-num').textContent='6 / 6';
+    document.getElementById('lsb-msg').textContent='You have walked through all six phenomena. Go look at the world differently.';
+    banner.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
+function updateLearnProgress(){
+  const n=Object.keys(lDone).length;
+  const el=document.getElementById('learn-progress');
+  if(el)el.textContent=n+' / 6 complete';
+}
+</script>
+</body>
+</html>
