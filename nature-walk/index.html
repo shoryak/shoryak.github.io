@@ -141,6 +141,7 @@ body.mode-learn .refs,body.mode-learn .inline-quiz{display:none}
 .q-feedback{margin-top:.9rem;padding:.75rem 1rem;border-radius:8px;font-size:.87rem;display:none;line-height:1.55}
 .q-feedback.show-c{display:block;background:rgba(82,183,136,.18);color:#a8f0c0}
 .q-feedback.show-w{display:block;background:rgba(220,80,80,.18);color:#ffbbbb}
+.quiz-q+.quiz-q{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.12)}
 
 /* ── LEARN FLOW ── */
 .learn-flow{max-width:920px;margin:1.5rem auto 0;padding:0 1.6rem}
@@ -307,22 +308,48 @@ footer a{color:var(--g2);text-decoration:none}
 </div>
 
 <div class="inline-quiz" id="q-lotus">
-  <div class="q-tag">Quick check, Lotus Leaf</div>
-  <div class="q-text">The lotus leaf stays clean in a muddy pond. What actually stops the water from wetting it?</div>
-  <div class="opts">
-    <button class="opt" onclick="ans(this,'w','lotus')">A thick chemical coating that repels water</button>
-    <button class="opt" onclick="ans(this,'c','lotus')">Tiny wax towers that trap air, so the droplet barely touches the leaf at all</button>
-    <button class="opt" onclick="ans(this,'w','lotus')">Electrical charge on the leaf surface</button>
-    <button class="opt" onclick="ans(this,'w','lotus')">A waxy substance that absorbs water before it spreads</button>
+  <div class="quiz-q" id="qq-lotus-1">
+    <div class="q-tag">Question 1 of 3 · Lotus Leaf</div>
+    <div class="q-text">The lotus leaf stays clean in a muddy pond. What actually stops the water from wetting it?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','lotus',1)">A thick chemical coating that repels water</button>
+      <button class="opt" onclick="ans(this,'c','lotus',1)">Tiny wax towers that trap air, so the droplet barely touches the leaf at all</button>
+      <button class="opt" onclick="ans(this,'w','lotus',1)">Electrical charge on the leaf surface</button>
+      <button class="opt" onclick="ans(this,'w','lotus',1)">A waxy substance that absorbs water before it spreads</button>
+    </div>
+    <div class="q-feedback" id="fb-lotus-1-c">Correct. The droplet rests on wax tips and trapped air, never reaching the leaf itself. Without real contact, it cannot wet the surface, so it balls up and rolls off.</div>
+    <div class="q-feedback" id="fb-lotus-1-w">Not quite. The microscopic towers trap air below the droplet so it never truly touches the leaf. Flat wax alone is mildly repellent but nowhere near enough to make a droplet roll off freely.</div>
   </div>
-  <div class="q-feedback" id="fb-lotus-c">Correct. The droplet rests on wax tips and trapped air, never reaching the leaf itself. Without real contact, it can't wet the surface, so it balls up and rolls off.</div>
-  <div class="q-feedback" id="fb-lotus-w">Not quite. Flat wax alone is not enough. The microscopic towers are the key, they trap air beneath the droplet so it never truly touches the leaf, and rolls off taking all the dirt with it.</div>
+  <div class="quiz-q" id="qq-lotus-2" style="display:none">
+    <div class="q-tag">Question 2 of 3 · Lotus Leaf</div>
+    <div class="q-text">If you flattened the lotus leaf's microscopic towers, leaving only smooth wax, what would happen to a water droplet landing on it?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','lotus',2)">It would repel water even better since there is less texture to get wet</button>
+      <button class="opt" onclick="ans(this,'w','lotus',2)">It would still repel water almost as well, since the chemistry is the same</button>
+      <button class="opt" onclick="ans(this,'c','lotus',2)">Water would wet it much more easily, spreading across the surface instead of beading up and rolling off</button>
+      <button class="opt" onclick="ans(this,'w','lotus',2)">The leaf would absorb water like a sponge</button>
+    </div>
+    <div class="q-feedback" id="fb-lotus-2-c">Right. Flat wax gives a contact angle of about 105 degrees, mildly repellent but far from superhydrophobic. The towers push it to 160 degrees by trapping air below the droplet. The structure, not just the chemistry, is what makes the lotus remarkable.</div>
+    <div class="q-feedback" id="fb-lotus-2-w">Flat wax is only mildly water repellent (about 105 degrees contact angle). The microscopic towers are what push the lotus to 160 degrees by trapping air below the droplet. Without them, water would spread and wet the surface much more easily.</div>
+  </div>
+  <div class="quiz-q" id="qq-lotus-3" style="display:none">
+    <div class="q-tag">Question 3 of 3 · Lotus Leaf</div>
+    <div class="q-text">The lotus is described as self cleaning. Why does a rolling droplet carry dirt away rather than just rolling off and leaving the dirt behind?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','lotus',3)">The dirt is magnetically attracted to water molecules</button>
+      <button class="opt" onclick="ans(this,'c','lotus',3)">Dirt clings to the water droplet's surface more strongly than to the weakly adhesive wax tips, so it leaves with the droplet</button>
+      <button class="opt" onclick="ans(this,'w','lotus',3)">Lotus leaves have tiny hairs that brush dirt into passing droplets</button>
+      <button class="opt" onclick="ans(this,'w','lotus',3)">The rolling motion generates static electricity that attracts dirt</button>
+    </div>
+    <div class="q-feedback" id="fb-lotus-3-c">Correct. The wax tips are so weakly adhesive that the water droplet wins the grip contest. Dirt picked up by the droplet travels with it as it rolls away. The leaf engineers itself to lose the tug of war against water, on purpose.</div>
+    <div class="q-feedback" id="fb-lotus-3-w">It is about adhesion hierarchy. Dirt sticks to the weakly adhesive wax tips very loosely. The passing water droplet grabs it more strongly. So when the droplet rolls, the dirt goes with it. The leaf's secret is making itself less sticky than water.</div>
+  </div>
 </div>
 
 <!-- LEARN FLOW: LOTUS -->
 <div class="learn-flow learn-only" id="lf-lotus">
   <div class="learn-step" id="ls-lotus-1">
-    <div class="ls-header"><span class="ls-num">Step 1 of 2</span><span class="ls-title">Observe</span></div>
+    <div class="ls-header"><span class="ls-num">Step 1 of 3</span><span class="ls-title">Observe</span></div>
     <p class="ls-question">The water droplet in the animation rolls off without wetting the leaf at all. The leaf surface looks smooth to the eye, but it isn't. What do you think it looks like up close, at a scale too small to see?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','lotus',1)">Perfectly smooth, coated in a thick chemical layer</button>
@@ -337,7 +364,7 @@ footer a{color:var(--g2);text-decoration:none}
     </div>
   </div>
   <div class="learn-step" id="ls-lotus-2" style="display:none">
-    <div class="ls-header"><span class="ls-num">Step 2 of 2</span><span class="ls-title">Why it works so well</span></div>
+    <div class="ls-header"><span class="ls-num">Step 2 of 3</span><span class="ls-title">Why it works so well</span></div>
     <p class="ls-question">Plain wax is already a little water repellent. But the lotus leaf is much, much better at it than plain wax. What does the layer of tiny peaks add that flat wax alone cannot?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','lotus',2)">More wax in total, spread across a larger area</button>
@@ -348,6 +375,21 @@ footer a{color:var(--g2);text-decoration:none}
     <div class="ls-tryagain" id="lta-lotus-2">Think about what sits between the peaks, and what replaces solid contact.</div>
     <div class="ls-reveal" id="lr-lotus-2">
       <strong>Right.</strong> The trapped air is the key. When a droplet rests on peaks with air below, most of what it "sees" is air, not solid. Air and water don't bond, so spreading is impossible. The droplet becomes nearly spherical (the shape that minimises surface area) and rolls off freely. Flat wax gives some repellency, but add the air pockets and you get something far more powerful, a surface the water genuinely cannot grip.
+      <br><button class="ls-next" onclick="nextStep('lotus',3)">Next question</button>
+    </div>
+  </div>
+  <div class="learn-step" id="ls-lotus-3" style="display:none">
+    <div class="ls-header"><span class="ls-num">Step 3 of 3</span><span class="ls-title">Structure beats chemistry</span></div>
+    <p class="ls-question">Scientists can coat surfaces with extremely water repellent chemicals and still not match the lotus leaf's performance. What does the lotus add on top of the chemistry that a simple coating cannot replicate?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','lotus',3)">The lotus leaf continuously regenerates its surface so it is always fresh</button>
+      <button class="opt" onclick="lans(this,'w','lotus',3)">Lotus wax is chemically unique and cannot be synthesised artificially</button>
+      <button class="opt" onclick="lans(this,'c','lotus',3)">The lotus adds a physical microstructure of tiny towers that trap air, something chemistry alone cannot create</button>
+      <button class="opt" onclick="lans(this,'w','lotus',3)">The lotus leaf vibrates at a frequency that prevents water from settling</button>
+    </div>
+    <div class="ls-tryagain" id="lta-lotus-3">Think about what the towers add that is not present in a flat wax coating, even a very good one.</div>
+    <div class="ls-reveal" id="lr-lotus-3">
+      <strong>Right.</strong> The lotus effect requires both chemistry (water repellent wax) and physical structure (the towers that trap air). The chemistry alone gives about 105 degrees contact angle, mildly repellent. Add the microstructure and air pockets and you reach 160 degrees. This is why the most effective artificial superhydrophobic surfaces, used in self cleaning glass, waterproof fabrics, and anti-icing coatings, mimic the physical structure rather than just the chemistry. Nature figured this out 100 million years before materials scientists did.
       <br><button class="ls-next" onclick="completeLearn('lotus')">See natural history</button>
     </div>
   </div>
@@ -426,22 +468,48 @@ footer a{color:var(--g2);text-decoration:none}
 </div>
 
 <div class="inline-quiz" id="q-cap">
-  <div class="q-tag">Quick check, Capillary Action</div>
-  <div class="q-text">The narrower the tube inside the tree, the higher the water climbs. What pulls the water upward?</div>
-  <div class="opts">
-    <button class="opt" onclick="ans(this,'w','cap')">A pump at the base of the trunk pushing water up</button>
-    <button class="opt" onclick="ans(this,'c','cap')">Water clinging to the tube walls and to itself, with a curved surface at the top pulling the column up</button>
-    <button class="opt" onclick="ans(this,'w','cap')">Gravity acting differently inside narrow tubes</button>
-    <button class="opt" onclick="ans(this,'w','cap')">Chemical reactions in the wood generating upward pressure</button>
+  <div class="quiz-q" id="qq-cap-1">
+    <div class="q-tag">Question 1 of 3 · Capillary Action</div>
+    <div class="q-text">The narrower the tube inside the tree, the higher the water climbs. What pulls the water upward?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','cap',1)">A pump at the base of the trunk pushing water up</button>
+      <button class="opt" onclick="ans(this,'c','cap',1)">Water clinging to the tube walls and to itself, with a curved surface at the top pulling the column up</button>
+      <button class="opt" onclick="ans(this,'w','cap',1)">Gravity acting differently inside narrow tubes</button>
+      <button class="opt" onclick="ans(this,'w','cap',1)">Chemical reactions in the wood generating upward pressure</button>
+    </div>
+    <div class="q-feedback" id="fb-cap-1-c">Correct. Adhesion (water to wall), cohesion (water to water), and the upward curved meniscus work together, no pump required. The narrower the tube, the stronger the pull and the higher the water climbs.</div>
+    <div class="q-feedback" id="fb-cap-1-w">No pump is involved at all. Water rises because it clings to the tube walls (adhesion) and to itself (cohesion), with the curved top surface acting like a stretched membrane pulling the whole column upward.</div>
   </div>
-  <div class="q-feedback" id="fb-cap-c">Correct. Adhesion (water to wall), cohesion (water to water), and the upward curved meniscus work together, no pump required. The narrower the tube, the stronger the pull and the higher the water climbs.</div>
-  <div class="q-feedback" id="fb-cap-w">No pump is involved at all. Water rises because it is attracted to the tube walls (adhesion) and to itself (cohesion), with the curved top surface acting like a stretched membrane that pulls the whole column upward.</div>
+  <div class="quiz-q" id="qq-cap-2" style="display:none">
+    <div class="q-tag">Question 2 of 3 · Capillary Action</div>
+    <div class="q-text">A tree's leaves release water vapour through tiny pores called stomata. Why would this help water climb from the roots?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','cap',2)">The vapour cools the tree, making the water denser and easier to lift</button>
+      <button class="opt" onclick="ans(this,'c','cap',2)">Releasing water at the top keeps the column under tension, pulling more water up from below</button>
+      <button class="opt" onclick="ans(this,'w','cap',2)">The vapour creates pressure that pushes water upward through the trunk</button>
+      <button class="opt" onclick="ans(this,'w','cap',2)">The stomata act like pumps that suck water from the trunk into the leaves</button>
+    </div>
+    <div class="q-feedback" id="fb-cap-2-c">Right. Think of it like a straw. Each water molecule that evaporates from a leaf pulls the one behind it. That pull travels all the way down through an unbroken water column to the roots. The tree is always pulling from the top, through millions of leaf pores simultaneously.</div>
+    <div class="q-feedback" id="fb-cap-2-w">When a water molecule leaves a leaf as vapour, it pulls the molecule behind it. That pull passes down through an unbroken column of water all the way to the roots. Releasing water at the top is what keeps the pull going, not what creates pressure from below.</div>
+  </div>
+  <div class="quiz-q" id="qq-cap-3" style="display:none">
+    <div class="q-tag">Question 3 of 3 · Capillary Action</div>
+    <div class="q-text">Why would a single air bubble inside a xylem tube be so damaging to a tree on a hot dry day?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','cap',3)">Air is lighter than water and floats to the top, blocking the tube</button>
+      <button class="opt" onclick="ans(this,'w','cap',3)">Air reacts with xylem walls and dissolves them over time</button>
+      <button class="opt" onclick="ans(this,'c','cap',3)">The water column is one unbroken chain, and a bubble snaps it, so the pull from above can no longer reach the water below</button>
+      <button class="opt" onclick="ans(this,'w','cap',3)">Air bubbles reflect light inside the tree and disrupt photosynthesis</button>
+    </div>
+    <div class="q-feedback" id="fb-cap-3-c">Correct. This is called cavitation. The pull from the leaves can only travel through a continuous water chain. Break the chain and that section of xylem goes dead. On hot dry days when water is scarce, cavitation spreads through many tubes at once, and a tree may drop its leaves to reduce demand before permanent damage sets in.</div>
+    <div class="q-feedback" id="fb-cap-3-w">The key is continuity. The upward pull only works because every water molecule is connected to the one below it. A bubble breaks that connection completely, so the pull from the leaves can no longer reach any water below the break. This is called cavitation, and it is a genuine threat to trees under drought stress.</div>
+  </div>
 </div>
 
 <!-- LEARN FLOW: CAPILLARY -->
 <div class="learn-flow learn-only" id="lf-cap">
   <div class="learn-step" id="ls-cap-1">
-    <div class="ls-header"><span class="ls-num">Step 1 of 2</span><span class="ls-title">The mystery</span></div>
+    <div class="ls-header"><span class="ls-num">Step 1 of 3</span><span class="ls-title">The mystery</span></div>
     <p class="ls-question">A 30 metre silk cotton tree is moving water from its roots to its topmost leaves right now, against gravity, without any pump. Where does the energy for this come from?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','cap',1)">A chemical reaction in the bark that generates pressure</button>
@@ -456,7 +524,7 @@ footer a{color:var(--g2);text-decoration:none}
     </div>
   </div>
   <div class="learn-step" id="ls-cap-2" style="display:none">
-    <div class="ls-header"><span class="ls-num">Step 2 of 2</span><span class="ls-title">Narrower goes higher</span></div>
+    <div class="ls-header"><span class="ls-num">Step 2 of 3</span><span class="ls-title">Narrower goes higher</span></div>
     <p class="ls-question">Look at the animation: water rises higher in the narrower tube. If you made the tube half as wide, what would happen to the height the water reaches?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','cap',2)">The height halves, less tube wall for the water to cling to</button>
@@ -467,6 +535,21 @@ footer a{color:var(--g2);text-decoration:none}
     <div class="ls-tryagain" id="lta-cap-2">Look at the two tubes in the animation, the narrower one clearly rises higher. If you halved the width again, what direction would that continue?</div>
     <div class="ls-reveal" id="lr-cap-2">
       <strong>Correct.</strong> Halving the tube width doubles the rise height. The finer the tube, the stronger the upward pull relative to the weight of water in it. This is why the finest xylem channels inside a tall tree, thinner than a human hair, carry water the highest. The tree has evolved progressively finer tubes as it grew taller over millions of years.
+      <br><button class="ls-next" onclick="nextStep('cap',3)">Next question</button>
+    </div>
+  </div>
+  <div class="learn-step" id="ls-cap-3" style="display:none">
+    <div class="ls-header"><span class="ls-num">Step 3 of 3</span><span class="ls-title">The physical ceiling</span></div>
+    <p class="ls-question">The tallest trees on Earth (coastal redwoods) reach about 115 metres. Physics predicts capillary action combined with transpiration pull should be able to move water to around 120 metres. What might be stopping trees from growing taller?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','cap',3)">The roots cannot anchor a taller tree against wind and storms</button>
+      <button class="opt" onclick="lans(this,'w','cap',3)">Photosynthesis becomes less efficient at greater heights above the forest floor</button>
+      <button class="opt" onclick="lans(this,'c','cap',3)">The water column is under increasing tension the taller the tree, and beyond a certain height that tension snaps the column, forming an air bubble that breaks the pull permanently</button>
+      <button class="opt" onclick="lans(this,'w','cap',3)">Taller trees lose heat faster at night and cannot survive the cold at great altitude</button>
+    </div>
+    <div class="ls-tryagain" id="lta-cap-3">Think about what happens to the water column as the tree grows taller and the pull from the leaves has to reach further and further down.</div>
+    <div class="ls-reveal" id="lr-cap-3">
+      <strong>Correct.</strong> The water column in a very tall tree is under enormous tension, essentially being stretched upward. The taller the tree, the greater that tension. At some point the tension exceeds the cohesive strength of water and the column snaps, creating a cavitation bubble that breaks the pull. This appears to be a genuine physical ceiling on tree height, and the 115 metre redwood sits astonishingly close to it. Life has reached the theoretical limit set by the physics of water.
       <br><button class="ls-next" onclick="completeLearn('cap')">See natural history</button>
     </div>
   </div>
@@ -549,22 +632,48 @@ footer a{color:var(--g2);text-decoration:none}
 </div>
 
 <div class="inline-quiz" id="q-kite">
-  <div class="q-tag">Quick check, Kite Bird</div>
-  <div class="q-text">A Black Kite gains 400 metres of altitude over an open field without flapping once. Where is the energy coming from?</div>
-  <div class="opts">
-    <button class="opt" onclick="ans(this,'w','kite')">The bird's fat reserves, burned very slowly</button>
-    <button class="opt" onclick="ans(this,'w','kite')">Horizontal wind pushing it upward at field edges</button>
-    <button class="opt" onclick="ans(this,'c','kite')">The sun, it heats the open ground, which heats the air, which rises and carries the bird up</button>
-    <button class="opt" onclick="ans(this,'w','kite')">The bird's hollow bones giving it natural buoyancy</button>
+  <div class="quiz-q" id="qq-kite-1">
+    <div class="q-tag">Question 1 of 3 · Kite Bird</div>
+    <div class="q-text">A Black Kite gains 400 metres of altitude over an open field without flapping once. Where is the energy coming from?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','kite',1)">The bird's fat reserves, burned very slowly</button>
+      <button class="opt" onclick="ans(this,'w','kite',1)">Horizontal wind pushing it upward at field edges</button>
+      <button class="opt" onclick="ans(this,'c','kite',1)">The sun, it heats the open ground, which heats the air, which rises and carries the bird up</button>
+      <button class="opt" onclick="ans(this,'w','kite',1)">The bird's hollow bones giving it natural buoyancy</button>
+    </div>
+    <div class="q-feedback" id="fb-kite-1-c">Correct. The sun heats the ground, which heats the air, which rises in a thermal. The kite finds this invisible column and spirals inside it, gaining altitude for free, powered entirely by sunlight.</div>
+    <div class="q-feedback" id="fb-kite-1-w">The energy traces back to the sun. Sun heats the ground, ground heats the air above it, warm air rises in a thermal column, kite spirals inside it. All for free, with no fat burned at all.</div>
   </div>
-  <div class="q-feedback" id="fb-kite-c">Correct. The sun heats the ground, which heats the air, which rises in a thermal. The kite finds this invisible column and spirals inside it, gaining altitude for free, powered entirely by sunlight.</div>
-  <div class="q-feedback" id="fb-kite-w">The energy traces back to the sun. Sun heats the ground → ground heats the air above it → warm air rises in a thermal column → kite spirals inside it. All for free, with no fat burned at all.</div>
+  <div class="quiz-q" id="qq-kite-2" style="display:none">
+    <div class="q-tag">Question 2 of 3 · Kite Bird</div>
+    <div class="q-text">A Black Kite at 600 metres altitude has a glide ratio of 20:1. If it glides to the next thermal without flapping, how far can it travel?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','kite',2)">About 600 metres</button>
+      <button class="opt" onclick="ans(this,'w','kite',2)">About 3 kilometres</button>
+      <button class="opt" onclick="ans(this,'c','kite',2)">About 12 kilometres</button>
+      <button class="opt" onclick="ans(this,'w','kite',2)">As far as it wants, since gliding costs no energy at all</button>
+    </div>
+    <div class="q-feedback" id="fb-kite-2-c">Right. 600 metres altitude times 20 metres forward per metre of height lost equals 12,000 metres. Migratory raptors chain thermals across continents using exactly this arithmetic, crossing thousands of kilometres on almost no stored fat at all.</div>
+    <div class="q-feedback" id="fb-kite-2-w">600 metres altitude times 20 metres of glide per metre dropped equals 12 kilometres. Gliding does cost a little energy (the bird slowly loses altitude), but finding another thermal before it runs out of height resets the clock. That is how raptors cross continents.</div>
+  </div>
+  <div class="quiz-q" id="qq-kite-3" style="display:none">
+    <div class="q-tag">Question 3 of 3 · Kite Bird</div>
+    <div class="q-text">Soaring birds like kites and eagles have broad wide wings. Swallows, which catch insects in fast agile flight, have narrow pointed wings. What does this tell you?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','kite',3)">Soaring birds are more evolved, broad wings come with age</button>
+      <button class="opt" onclick="ans(this,'c','kite',3)">Wing shape is a precise physical trade off between the bird's lifestyle and the aerodynamics it needs</button>
+      <button class="opt" onclick="ans(this,'w','kite',3)">Broad wings are always better but fast birds have not evolved them yet</button>
+      <button class="opt" onclick="ans(this,'w','kite',3)">Wing shape is mostly determined by body weight, not flying style</button>
+    </div>
+    <div class="q-feedback" id="fb-kite-3-c">Correct. Broad wings generate lift at low speeds, perfect for riding thermals. Narrow wings cut through air cleanly for fast maneuvering. Neither is better, they are different physical answers to different problems. Shape tells you exactly what physics problem the bird is solving with its life.</div>
+    <div class="q-feedback" id="fb-kite-3-w">Wing shape is determined by aerodynamics, not evolutionary rank. Broad wings generate lift at low speeds for slow soaring. Narrow wings reduce drag for fast direction changes. They are different answers to different problems, and an ornithologist can often identify a bird's feeding strategy from its wing silhouette alone.</div>
+  </div>
 </div>
 
 <!-- LEARN FLOW: KITE -->
 <div class="learn-flow learn-only" id="lf-kite">
   <div class="learn-step" id="ls-kite-1">
-    <div class="ls-header"><span class="ls-num">Step 1 of 2</span><span class="ls-title">Free energy</span></div>
+    <div class="ls-header"><span class="ls-num">Step 1 of 3</span><span class="ls-title">Free energy</span></div>
     <p class="ls-question">A Black Kite circles over an open field for 15 minutes, gains 400 metres of altitude, and never once flaps its wings. The energy to climb must come from somewhere. Where?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','kite',1)">Fat stored in the bird's body, burned very efficiently</button>
@@ -579,7 +688,7 @@ footer a{color:var(--g2);text-decoration:none}
     </div>
   </div>
   <div class="learn-step" id="ls-kite-2" style="display:none">
-    <div class="ls-header"><span class="ls-num">Step 2 of 2</span><span class="ls-title">Why open spaces?</span></div>
+    <div class="ls-header"><span class="ls-num">Step 2 of 3</span><span class="ls-title">Why open spaces?</span></div>
     <p class="ls-question">Kites circle over open fields and riverbanks, but almost never over dense forest. Why would the type of ground below make a difference?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','kite',2)">Forests are harder to search for food in, so kites avoid them</button>
@@ -590,6 +699,21 @@ footer a{color:var(--g2);text-decoration:none}
     <div class="ls-tryagain" id="lta-kite-2">Think about what shade does to ground temperature, and what that does to the air above it.</div>
     <div class="ls-reveal" id="lr-kite-2">
       <strong>Correct.</strong> Bare open ground absorbs sunlight directly and heats up strongly. Dense forest canopy intercepts the sunlight before it reaches the ground, keeping the air beneath cooler. No heat difference means no thermal. Open fields, bare earth, and city dumps all create strong, tall, well defined thermals, which is exactly what the kite is reading when it chooses where to soar.
+      <br><button class="ls-next" onclick="nextStep('kite',3)">Next question</button>
+    </div>
+  </div>
+  <div class="learn-step" id="ls-kite-3" style="display:none">
+    <div class="ls-header"><span class="ls-num">Step 3 of 3</span><span class="ls-title">Reading invisible information</span></div>
+    <p class="ls-question">A Black Kite can find a thermal from hundreds of metres away before flying into it. What sense is it most likely using to detect the rising column of warm air?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','kite',3)">It smells the warm air rising from the heated ground below</button>
+      <button class="opt" onclick="lans(this,'w','kite',3)">It sees the heat haze shimmering above the hot ground and flies toward it</button>
+      <button class="opt" onclick="lans(this,'c','kite',3)">It feels tiny pressure differences across its wing feathers using specialised mechanoreceptors, detecting the edge of rising air before entering it</button>
+      <button class="opt" onclick="lans(this,'w','kite',3)">It watches other kites already circling and simply follows them</button>
+    </div>
+    <div class="ls-tryagain" id="lta-kite-3">Think about what changes physically as one wing tip enters a rising thermal before the other, and what kind of sensor could detect that.</div>
+    <div class="ls-reveal" id="lr-kite-3">
+      <strong>Right.</strong> Kites have Herbst corpuscles in their wing feathers, mechanoreceptors sensitive enough to detect tiny pressure differences across the wingspan. As one wing tip enters a rising thermal before the other, the bird feels an asymmetric push and banks into it. They also read visual cues like rising dust and shimmering air. And yes, they watch other birds too, which is why a single kite finding a thermal can attract a dozen more within minutes. Information spreads socially through the flock as well as physically through the air.
       <br><button class="ls-next" onclick="completeLearn('kite')">See natural history</button>
     </div>
   </div>
@@ -673,22 +797,48 @@ footer a{color:var(--g2);text-decoration:none}
 </div>
 
 <div class="inline-quiz" id="q-spider">
-  <div class="q-tag">Quick check, Spider Ballooning</div>
-  <div class="q-text">Darwin saw spiders on his ship far at sea with no wind blowing. What force was actually lifting them?</div>
-  <div class="opts">
-    <button class="opt" onclick="ans(this,'w','spider')">Tiny thermal updrafts from warm ocean water</button>
-    <button class="opt" onclick="ans(this,'w','spider')">Static electricity built up by the spiders walking on the ground</button>
-    <button class="opt" onclick="ans(this,'c','spider')">Earth's atmospheric electric field pushing upward on the charged silk threads</button>
-    <button class="opt" onclick="ans(this,'w','spider')">The spider's silk trapping air bubbles that act like tiny balloons</button>
+  <div class="quiz-q" id="qq-spider-1">
+    <div class="q-tag">Question 1 of 3 · Spider Ballooning</div>
+    <div class="q-text">Darwin saw spiders on his ship far out at sea with no wind blowing. What force was actually lifting them?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','spider',1)">Tiny thermal updrafts from warm ocean water</button>
+      <button class="opt" onclick="ans(this,'w','spider',1)">Static electricity built up by the spiders walking on the ground</button>
+      <button class="opt" onclick="ans(this,'c','spider',1)">Earth's atmospheric electric field pushing upward on the charged silk threads</button>
+      <button class="opt" onclick="ans(this,'w','spider',1)">The spider's silk trapping air bubbles that act like tiny balloons</button>
+    </div>
+    <div class="q-feedback" id="fb-spider-1-c">Correct. Earth maintains a faint electric field in fair weather. Silk picks up charge from the air, and the field pushes that charged silk upward, even with no wind at all.</div>
+    <div class="q-feedback" id="fb-spider-1-w">The surprising answer is Earth's electric field. In fair weather, a faint field always runs through the air. Spider silk picks up charge, and the field pushes it upward. Confirmed in 2018 by switching an artificial field on and off with no wind present at all.</div>
   </div>
-  <div class="q-feedback" id="fb-spider-c">Correct. Earth maintains a faint electric field in fair weather. Silk picks up charge from the air, and the field pushes that charged silk upward, even with no wind at all.</div>
-  <div class="q-feedback" id="fb-spider-w">The surprising answer is Earth's electric field. In fair weather, a faint field always runs through the air above us. Spider silk picks up charge, and the field pushes it upward, confirmed in lab experiments in 2018 with no wind present.</div>
+  <div class="quiz-q" id="qq-spider-2" style="display:none">
+    <div class="q-tag">Question 2 of 3 · Spider Ballooning</div>
+    <div class="q-text">Before launching, a spider releases several silk threads and they fan out into a wide triangle rather than clumping together. Why do they spread apart?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','spider',2)">Wind catches each thread at a slightly different angle</button>
+      <button class="opt" onclick="ans(this,'w','spider',2)">The spider deliberately aims each thread in a different direction</button>
+      <button class="opt" onclick="ans(this,'c','spider',2)">All threads carry the same electric charge, so they push each other away, like charges repel</button>
+      <button class="opt" onclick="ans(this,'w','spider',2)">The threads cool and contract at the tips, pulling sideways as they dry</button>
+    </div>
+    <div class="q-feedback" id="fb-spider-2-c">Right. All the silk picks up the same sign of charge from the air, so each thread repels the others and they fan outward. This is not just a curiosity, a wider fan presents more surface to the electric field and generates more total lift. The spider accidentally builds a better sail through electrostatics.</div>
+    <div class="q-feedback" id="fb-spider-2-w">Like charges repel. All the silk threads pick up the same sign of charge from the surrounding air, so they push each other outward and form a fan. That fan is not just decorative, it presents more surface area to the electric field and increases lift.</div>
+  </div>
+  <div class="quiz-q" id="qq-spider-3" style="display:none">
+    <div class="q-tag">Question 3 of 3 · Spider Ballooning</div>
+    <div class="q-text">After a flood wipes out all the spiders and insects in a field, ballooning spiders arrive back within days. Why does this matter so much to farmers?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','spider',3)">Spiders pollinate the flowers that regrow after floods</button>
+      <button class="opt" onclick="ans(this,'w','spider',3)">Spiders aerate the waterlogged soil by burrowing after they land</button>
+      <button class="opt" onclick="ans(this,'c','spider',3)">Spiders are fast arriving natural pest controllers, re-establishing predator populations before crop pests have time to explode</button>
+      <button class="opt" onclick="ans(this,'w','spider',3)">Spiders eat the flood debris, clearing the field for new growth</button>
+    </div>
+    <div class="q-feedback" id="fb-spider-3-c">Correct. Most pest control takes weeks to deploy. Ballooning spiders recolonise a field in days, arriving before pest insect populations have time to build up. Some farmers now deliberately leave wild edges to maintain spider populations and reduce pesticide use.</div>
+    <div class="q-feedback" id="fb-spider-3-w">The key is speed. Pest insects breed fast. Ballooning spiders arrive even faster, within days of a flood. They re-establish the natural predator population before pests can explode unchecked. Nature's pest management, delivered by atmospheric electricity.</div>
+  </div>
 </div>
 
 <!-- LEARN FLOW: SPIDER -->
 <div class="learn-flow learn-only" id="lf-spider">
   <div class="learn-step" id="ls-spider-1">
-    <div class="ls-header"><span class="ls-num">Step 1 of 2</span><span class="ls-title">Darwin's mystery</span></div>
+    <div class="ls-header"><span class="ls-num">Step 1 of 3</span><span class="ls-title">Darwin's mystery</span></div>
     <p class="ls-question">Darwin saw thousands of spiders land on his ship in the middle of the ocean, no land nearby, no wind blowing. A mystery for 185 years. What invisible force was actually lifting them?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','spider',1)">Tiny thermals rising from the warm ocean surface</button>
@@ -703,7 +853,7 @@ footer a{color:var(--g2);text-decoration:none}
     </div>
   </div>
   <div class="learn-step" id="ls-spider-2" style="display:none">
-    <div class="ls-header"><span class="ls-num">Step 2 of 2</span><span class="ls-title">The fan of silk</span></div>
+    <div class="ls-header"><span class="ls-num">Step 2 of 3</span><span class="ls-title">The fan of silk</span></div>
     <p class="ls-question">Before launching, a spider releases many silk threads and they fan out into a wide triangle rather than clumping together. Why do they spread apart?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','spider',2)">Wind catches them at slightly different angles</button>
@@ -714,6 +864,21 @@ footer a{color:var(--g2);text-decoration:none}
     <div class="ls-tryagain" id="lta-spider-2">The threads are all electrically charged. Think about what happens when two objects carry the same type of charge.</div>
     <div class="ls-reveal" id="lr-spider-2">
       <strong>Correct.</strong> Like charges repel. All the silk threads pick up the same sign of charge from the air, so they push away from each other and fan outward. This is not just a curiosity, a wider fan presents more surface to the electric field and generates more total lift. The spider is accidentally using electrostatic self-assembly to build a better sail. Darwin saw the fan shape but had no framework to explain it; the electric field explanation makes it obvious in hindsight.
+      <br><button class="ls-next" onclick="nextStep('spider',3)">Next question</button>
+    </div>
+  </div>
+  <div class="learn-step" id="ls-spider-3" style="display:none">
+    <div class="ls-header"><span class="ls-num">Step 3 of 3</span><span class="ls-title">Colonising the world</span></div>
+    <p class="ls-question">Ballooning spiders have been found in Arctic ice cores and 500 kilometres out at sea. When Krakatau erupted in 1883 and wiped every living thing off the island, the first animals to arrive were ballooning spiders, within months. What does this tell us about how ecosystems recover from catastrophe?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','spider',3)">Ecosystems recover slowly, taking centuries for species to walk or swim back in</button>
+      <button class="opt" onclick="lans(this,'w','spider',3)">Only very small organisms can survive long journeys, so recovery is always incomplete</button>
+      <button class="opt" onclick="lans(this,'c','spider',3)">The atmosphere acts as an ocean that carries organisms over vast distances, allowing remote or devastated places to be recolonised surprisingly quickly from distant survivors</button>
+      <button class="opt" onclick="lans(this,'w','spider',3)">Recovery only happens when humans deliberately reintroduce species to damaged ecosystems</button>
+    </div>
+    <div class="ls-tryagain" id="lta-spider-3">Think of the atmosphere as a transport network. What can it carry that a forest floor or ocean cannot?</div>
+    <div class="ls-reveal" id="lr-spider-3">
+      <strong>Exactly.</strong> The atmosphere is an ocean with its own currents, and ballooning spiders are its plankton. After Krakatau, spiders arrived within months from hundreds of kilometres away. After floods, they arrive within days. This aerial dispersal is one of the fundamental mechanisms by which ecosystems recover and life spreads across the planet. The spore print technique Darwin saw in his journal, the fan of silk on the rigging, was a window into one of nature's most important transport systems.
       <br><button class="ls-next" onclick="completeLearn('spider')">See natural history</button>
     </div>
   </div>
@@ -797,22 +962,48 @@ footer a{color:var(--g2);text-decoration:none}
 </div>
 
 <div class="inline-quiz" id="q-mushroom">
-  <div class="q-tag">Quick check, Mushroom Spores</div>
-  <div class="q-text">A mushroom launches its spores at 25,000 times the force of gravity using no muscles and no stored chemicals. What provides the energy?</div>
-  <div class="opts">
-    <button class="opt" onclick="ans(this,'w','mushroom')">Pressure building up inside the gill until it bursts</button>
-    <button class="opt" onclick="ans(this,'w','mushroom')">The mushroom's own metabolism releasing a burst of energy</button>
-    <button class="opt" onclick="ans(this,'c','mushroom')">Two tiny water droplets merging, the surface energy released by their coalescence</button>
-    <button class="opt" onclick="ans(this,'w','mushroom')">Wind pressure beneath the cap creating a pressure difference</button>
+  <div class="quiz-q" id="qq-mushroom-1">
+    <div class="q-tag">Question 1 of 3 · Mushroom Spores</div>
+    <div class="q-text">A mushroom launches its spores at 25,000 times the force of gravity using no muscles and no stored chemicals. What provides the energy?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','mushroom',1)">Pressure building up inside the gill until it bursts</button>
+      <button class="opt" onclick="ans(this,'w','mushroom',1)">The mushroom's own metabolism releasing a burst of energy</button>
+      <button class="opt" onclick="ans(this,'c','mushroom',1)">Two tiny water droplets merging, the surface energy released by their coalescence</button>
+      <button class="opt" onclick="ans(this,'w','mushroom',1)">Wind pressure beneath the cap creating a pressure difference</button>
+    </div>
+    <div class="q-feedback" id="fb-mushroom-1-c">Correct. When two water surfaces merge into one, the total surface area decreases and the stored surface energy is released, firing the spore sideways. The mushroom converts ambient humidity into a catapult with no metabolic cost at all.</div>
+    <div class="q-feedback" id="fb-mushroom-1-w">The energy comes from water. Two tiny drops merge, reducing total surface area, and that releases surface energy as a burst of kinetic energy. The mushroom builds a precision catapult out of nothing but moisture in the air.</div>
   </div>
-  <div class="q-feedback" id="fb-mushroom-c">Correct. When two water surfaces merge into one, the total surface area decreases and the stored surface energy is released, firing the spore sideways. The mushroom converts ambient humidity into a catapult with no metabolic cost at all.</div>
-  <div class="q-feedback" id="fb-mushroom-w">The energy comes from water. Two tiny drops merge, reducing total surface area, and that releases surface energy as a burst of kinetic energy. The mushroom builds a precision catapult out of nothing but moisture in the air.</div>
+  <div class="quiz-q" id="qq-mushroom-2" style="display:none">
+    <div class="q-tag">Question 2 of 3 · Mushroom Spores</div>
+    <div class="q-text">Mushroom gills always hang vertically, even when the mushroom grows sideways from a tree. The stem has gravity sensing cells that continuously reorient the cap. Why is vertical so critical?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','mushroom',2)">Vertical gills stay moister and can condense water droplets more effectively</button>
+      <button class="opt" onclick="ans(this,'w','mushroom',2)">Vertical gills are more attractive to animals that eat and spread mushrooms</button>
+      <button class="opt" onclick="ans(this,'c','mushroom',2)">The spore launches sideways off a vertical gill and then falls into free air below the cap. If the gill tilted, the spore would hit the next gill instead of escaping</button>
+      <button class="opt" onclick="ans(this,'w','mushroom',2)">Vertical gills dry out more slowly in wind, giving spores longer to develop</button>
+    </div>
+    <div class="q-feedback" id="fb-mushroom-2-c">Correct. The spore launches sideways, then drops by gravity into the still air beneath the cap where it can drift away. This only works if there is free space directly below. The mushroom invests in gravity sensing precisely to protect this geometry.</div>
+    <div class="q-feedback" id="fb-mushroom-2-w">Picture where the spore goes after the launch. It flies sideways, then falls. For it to reach open air and drift away, the gills must hang straight down. If they tilted, the launched spore would fly straight into the adjacent gill instead of escaping. Precision geometry, enforced by gravity sensing cells.</div>
+  </div>
+  <div class="quiz-q" id="qq-mushroom-3" style="display:none">
+    <div class="q-tag">Question 3 of 3 · Mushroom Spores</div>
+    <div class="q-text">The spore travels only about 1 metre per second, yet the acceleration reaches 25,000 g. How is that possible?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','mushroom',3)">The spore is extremely heavy so even a fast speed requires huge force</button>
+      <button class="opt" onclick="ans(this,'w','mushroom',3)">25,000 g is not actually that much, most biological systems reach similar values</button>
+      <button class="opt" onclick="ans(this,'c','mushroom',3)">The spore goes from rest to 1 m/s across a distance of less than half a millimetre, so the acceleration is enormous even though the final speed is modest</button>
+      <button class="opt" onclick="ans(this,'w','mushroom',3)">The spore accelerates slowly at first then reaches 25,000 g at the very end of its travel</button>
+    </div>
+    <div class="q-feedback" id="fb-mushroom-3-c">Exactly right. High acceleration does not require high speed, it requires rapid change in speed over a short distance. The spore goes from zero to 1 m/s in about 0.04 millimetres. That rate of change is comparable to a bullet leaving a gun barrel, from two drops of water meeting.</div>
+    <div class="q-feedback" id="fb-mushroom-3-w">Acceleration is about how quickly speed changes, not how fast the final speed is. The spore goes from zero to 1 m/s across less than half a millimetre. That rapid change over a tiny distance is what produces 25,000 g, even though the final speed itself is modest. A cheetah runs faster but accelerates far more gently.</div>
+  </div>
 </div>
 
 <!-- LEARN FLOW: MUSHROOM -->
 <div class="learn-flow learn-only" id="lf-mushroom">
   <div class="learn-step" id="ls-mushroom-1">
-    <div class="ls-header"><span class="ls-num">Step 1 of 2</span><span class="ls-title">A free catapult</span></div>
+    <div class="ls-header"><span class="ls-num">Step 1 of 3</span><span class="ls-title">A free catapult</span></div>
     <p class="ls-question">A mushroom spore launches at 25,000 times the force of gravity. No muscles, no chemicals, no stored energy in the cell. What, in everyday terms, is powering this launch?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','mushroom',1)">Pressure building behind the spore until the gill wall snaps</button>
@@ -827,7 +1018,7 @@ footer a{color:var(--g2);text-decoration:none}
     </div>
   </div>
   <div class="learn-step" id="ls-mushroom-2" style="display:none">
-    <div class="ls-header"><span class="ls-num">Step 2 of 2</span><span class="ls-title">Why gills hang down</span></div>
+    <div class="ls-header"><span class="ls-num">Step 2 of 3</span><span class="ls-title">Why gills hang down</span></div>
     <p class="ls-question">Mushroom gills always hang vertically, even when a mushroom grows sideways on a tree. If you tilt a mushroom, the gills slowly reorient to stay vertical. Why does this matter so much?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','mushroom',2)">Vertical gills stay moister and can produce spores for longer</button>
@@ -838,6 +1029,21 @@ footer a{color:var(--g2);text-decoration:none}
     <div class="ls-tryagain" id="lta-mushroom-2">Picture where the spore goes after it launches sideways, it needs to reach open air beneath the cap. What would happen if the gills were tilted?</div>
     <div class="ls-reveal" id="lr-mushroom-2">
       <strong>Right.</strong> The spore launches sideways off the gill face, drops into the still air beneath the cap, and drifts away. If the gills were tilted, the launched spore would fly straight into the next gill rather than into the open air, wasted. Keeping gills vertical is so important that mushrooms have gravity sensing cells running through their stems, continuously correcting for any tilt. It is precision engineering at the scale of a centimetre.
+      <br><button class="ls-next" onclick="nextStep('mushroom',3)">Next question</button>
+    </div>
+  </div>
+  <div class="learn-step" id="ls-mushroom-3" style="display:none">
+    <div class="ls-header"><span class="ls-num">Step 3 of 3</span><span class="ls-title">The organism beneath</span></div>
+    <p class="ls-question">The mushroom you see above ground is just the fruiting body, temporary and purely for spore dispersal. The real organism is underground. What is it, and how large can it get?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','mushroom',3)">A root system like a plant's, anchoring the mushroom and absorbing water</button>
+      <button class="opt" onclick="lans(this,'w','mushroom',3)">A dense mass of dormant spores waiting underground for the right conditions</button>
+      <button class="opt" onclick="lans(this,'c','mushroom',3)">A network of fine threads called mycelium that can spread across entire forests and live for thousands of years</button>
+      <button class="opt" onclick="lans(this,'w','mushroom',3)">Most mushrooms have no underground part, the mushroom cap is the whole organism</button>
+    </div>
+    <div class="ls-tryagain" id="lta-mushroom-3">Think about what a fungus actually needs to live and grow. The mushroom cap appears briefly and then is gone, but something has to persist through the year.</div>
+    <div class="ls-reveal" id="lr-mushroom-3">
+      <strong>Right.</strong> The mycelium is the organism. A single fungal individual in Oregon covers 8.8 square kilometres and is estimated to be over 8,000 years old, making it one of the largest and oldest living things on Earth. The mycelium quietly decomposes wood, cycles nutrients, and in many forests connects tree roots in networks that transfer sugars and signals between trees. The ballistic spore launch you have been studying serves this vast underground network, its only way to move to new territory.
       <br><button class="ls-next" onclick="completeLearn('mushroom')">See natural history</button>
     </div>
   </div>
@@ -926,22 +1132,48 @@ footer a{color:var(--g2);text-decoration:none}
 </div>
 
 <div class="inline-quiz" id="q-gecko">
-  <div class="q-tag">Quick check, Gecko</div>
-  <div class="q-text">A gecko grips the ceiling with no glue and no suction. What is actually holding it up, and why does it fail on wet glass?</div>
-  <div class="opts">
-    <button class="opt" onclick="ans(this,'w','gecko')">Tiny suction cups, water fills them and breaks the seal</button>
-    <button class="opt" onclick="ans(this,'w','gecko')">An adhesive secreted by the feet, dissolved by water</button>
-    <button class="opt" onclick="ans(this,'c','gecko')">Billions of nanoscale tips getting close enough to the wall that electrons attract each other, water film keeps them too far away</button>
-    <button class="opt" onclick="ans(this,'w','gecko')">Electrostatic charge on the toes, discharged by water</button>
+  <div class="quiz-q" id="qq-gecko-1">
+    <div class="q-tag">Question 1 of 3 · Gecko</div>
+    <div class="q-text">A gecko grips the ceiling with no glue and no suction. What is actually holding it up, and why does it fail on wet glass?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','gecko',1)">Tiny suction cups, water fills them and breaks the seal</button>
+      <button class="opt" onclick="ans(this,'w','gecko',1)">An adhesive secreted by the feet, dissolved by water</button>
+      <button class="opt" onclick="ans(this,'c','gecko',1)">Billions of nanoscale tips getting close enough to the wall that electrons attract each other, water film keeps them too far away</button>
+      <button class="opt" onclick="ans(this,'w','gecko',1)">Electrostatic charge on the toes, discharged by water</button>
+    </div>
+    <div class="q-feedback" id="fb-gecko-1-c">Correct. The attraction is between shifting electrons in the toe tips and in the wall, but it only works at very close range. A thin film of water is enough to push the tips too far away for the force to act.</div>
+    <div class="q-feedback" id="fb-gecko-1-w">There is no glue or suction. Billions of tiny tips get close enough to the wall's surface that shifting electrons in both materials attract each other. One thin film of water increases the gap just enough to switch that force off entirely.</div>
   </div>
-  <div class="q-feedback" id="fb-gecko-c">Correct. The attraction is between shifting electrons in the toe tips and in the wall, but it only works at very close range. A thin film of water is enough to push the tips too far away for the force to act.</div>
-  <div class="q-feedback" id="fb-gecko-w">There is no glue or suction. Billions of tiny tips get close enough to the wall's surface that shifting electrons in both materials attract each other. One thin film of water increases the gap just enough to switch that force off entirely.</div>
+  <div class="quiz-q" id="qq-gecko-2" style="display:none">
+    <div class="q-tag">Question 2 of 3 · Gecko</div>
+    <div class="q-text">Gecko adhesion works in vacuum (no air at all), but fails on wet surfaces. What does working in vacuum tell us about the force involved?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','gecko',2)">The gecko must use magnetic attraction since suction needs air pressure</button>
+      <button class="opt" onclick="ans(this,'c','gecko',2)">The adhesion must involve direct contact between surfaces since it needs no medium at all, only closeness</button>
+      <button class="opt" onclick="ans(this,'w','gecko',2)">The gecko secretes a chemical bond that does not require air to form</button>
+      <button class="opt" onclick="ans(this,'w','gecko',2)">Gravity is weaker in vacuum, making it easier for the gecko to hold on</button>
+    </div>
+    <div class="q-feedback" id="fb-gecko-2-c">Right. Suction cups rely on air pressure and fail in vacuum. Glue relies on a solvent medium. Van der Waals forces require only that two surfaces get close enough, with no medium needed. Working in vacuum was one of the key clues that ruled out suction and glue and pointed researchers toward this force.</div>
+    <div class="q-feedback" id="fb-gecko-2-w">Suction cups need air pressure to work and fail in vacuum. But the gecko's grip survives vacuum, which means the force does not depend on any medium at all. Only direct contact between surfaces, close enough for electrons to feel each other, can explain this. That is Van der Waals adhesion.</div>
+  </div>
+  <div class="quiz-q" id="qq-gecko-3" style="display:none">
+    <div class="q-tag">Question 3 of 3 · Gecko</div>
+    <div class="q-text">Gecko toe pads stay clean after thousands of steps across dusty walls, while artificial sticky materials clog with dust almost immediately. Why do the spatulae resist picking up dust?</div>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'w','gecko',3)">The gecko continuously secretes an oil from its feet that dissolves dust</button>
+      <button class="opt" onclick="ans(this,'w','gecko',3)">The Van der Waals force is too weak to attract dust particles, which are heavier than molecules</button>
+      <button class="opt" onclick="ans(this,'c','gecko',3)">Each spatula is smaller than a typical dust particle, so a particle rests on many tips and is never strongly gripped by any single one, then transfers to the wall</button>
+      <button class="opt" onclick="ans(this,'w','gecko',3)">Geckos lick their feet clean between every few steps</button>
+    </div>
+    <div class="q-feedback" id="fb-gecko-3-c">Correct. Each spatula is about 200 nanometres wide. Most dust particles are micrometres wide, far larger. A dust particle rests on top of many spatulae but is weakly held by each. When the gecko presses its foot to the wall, the wall grabs the spatulae more strongly than the dust does, and the particle is left behind. The gecko wipes its feet on every step.</div>
+    <div class="q-feedback" id="fb-gecko-3-w">It is about scale. Each spatula is about 200 nanometres wide. Dust particles are micrometres wide, much larger. A dust particle rests across many spatulae and is never gripped firmly by any single one. When the gecko presses its foot against the wall, the wall wins the grip contest and the dust transfers off. Self cleaning through geometry.</div>
+  </div>
 </div>
 
 <!-- LEARN FLOW: GECKO -->
 <div class="learn-flow learn-only" id="lf-gecko">
   <div class="learn-step" id="ls-gecko-1">
-    <div class="ls-header"><span class="ls-num">Step 1 of 2</span><span class="ls-title">No glue, no suction</span></div>
+    <div class="ls-header"><span class="ls-num">Step 1 of 3</span><span class="ls-title">No glue, no suction</span></div>
     <p class="ls-question">A gecko walks on dry glass perfectly, but slips on wet glass. It leaves no residue, no sticky coating. What does the fact that it fails on wet glass tell us about how it grips?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','gecko',1)">It uses a glue that dissolves in water</button>
@@ -956,7 +1188,7 @@ footer a{color:var(--g2);text-decoration:none}
     </div>
   </div>
   <div class="learn-step" id="ls-gecko-2" style="display:none">
-    <div class="ls-header"><span class="ls-num">Step 2 of 2</span><span class="ls-title">Instant release</span></div>
+    <div class="ls-header"><span class="ls-num">Step 2 of 3</span><span class="ls-title">Instant release</span></div>
     <p class="ls-question">The gecko can release from the ceiling in milliseconds by bending its toes backward. If the grip is so strong, how can a simple toe bend release it instantly?</p>
     <div class="opts">
       <button class="opt" onclick="lans(this,'w','gecko',2)">Bending the toes stretches the hairs until they snap off</button>
@@ -967,6 +1199,21 @@ footer a{color:var(--g2);text-decoration:none}
     <div class="ls-tryagain" id="lta-gecko-2">Think about peeling tape: pulling it straight off is hard, but peeling from the edge is easy. What changes?</div>
     <div class="ls-reveal" id="lr-gecko-2">
       <strong>Correct.</strong> This force is extremely sensitive to the angle of contact. When the toe hairs lie flat against the surface, the contact is maximised and the grip is strong. Bend the toes backward past a critical angle and the hairs peel away from the leading edge, the same reason tape peels easily from its end but resists being pulled straight off. All the billions of tiny contacts break simultaneously, and release is instant. The gecko controls enormous grip strength using only the angle of its toes.
+      <br><button class="ls-next" onclick="nextStep('gecko',3)">Next question</button>
+    </div>
+  </div>
+  <div class="learn-step" id="ls-gecko-3" style="display:none">
+    <div class="ls-header"><span class="ls-num">Step 3 of 3</span><span class="ls-title">The scaling problem</span></div>
+    <p class="ls-question">Researchers trying to build a human sized gecko glove found that small samples worked perfectly, but scaling up to hand size failed. Why would making the adhesive surface larger break the system?</p>
+    <div class="opts">
+      <button class="opt" onclick="lans(this,'w','gecko',3)">Larger surfaces cannot be manufactured with the required precision at nanoscale</button>
+      <button class="opt" onclick="lans(this,'w','gecko',3)">The Van der Waals force weakens with distance and larger surfaces are further from the wall on average</button>
+      <button class="opt" onclick="lans(this,'c','gecko',3)">A human is much heavier relative to their hand area than a gecko is relative to its toe pads. Adhesive force scales with area but body weight scales with volume, so a human needs far more force per square centimetre</button>
+      <button class="opt" onclick="lans(this,'w','gecko',3)">Human skin is too flexible to maintain the precise angle needed for Van der Waals contact</button>
+    </div>
+    <div class="ls-tryagain" id="lta-gecko-3">Think about how weight changes as an animal gets bigger versus how the area of its feet changes. Do they grow at the same rate?</div>
+    <div class="ls-reveal" id="lr-gecko-3">
+      <strong>Correct.</strong> Weight grows as the cube of size (volume), but the area of your hands grows only as the square. A gecko is light enough that its toe pads cover a sufficient fraction of its body surface. A human scaled up to the same system would need proportionally far more adhesive area than two hands can provide. Stanford researchers eventually solved this in 2014 using directional microstructures that maximise contact, but it required careful engineering to overcome a scaling problem that evolution never had to face, because no gecko ever grew to human size.
       <br><button class="ls-next" onclick="completeLearn('gecko')">See natural history</button>
     </div>
   </div>
@@ -987,7 +1234,7 @@ footer a{color:var(--g2);text-decoration:none}
 
 <div class="learn-score-banner" id="learn-score-banner">
   <h2>Walk complete</h2>
-  <div class="lsb-num">6 / 6</div>
+  <div class="lsb-num">18 / 18</div>
   <div class="lsb-msg">You have walked through all six phenomena. Go look at the world differently.</div>
 </div>
 
@@ -1028,31 +1275,66 @@ function setMode(m){
 
 /* READ QUIZ */
 const rState={};let rCorrect=0;
-const rQs=['lotus','cap','kite','spider','mushroom','gecko'];
-function ans(btn,result,qId){
-  if(rState[qId]!==undefined)return;
-  rState[qId]=result;if(result==='c')rCorrect++;
-  const block=document.getElementById('q-'+qId);
-  block.querySelectorAll('.opt').forEach(o=>{
+const rQCounts={lotus:3,cap:3,kite:3,spider:3,mushroom:3,gecko:3};
+const rTotal=Object.values(rQCounts).reduce((a,b)=>a+b,0);
+function ans(btn,result,qId,qNum){
+  const key=qId+'-'+qNum;
+  if(rState[key]!==undefined)return;
+  rState[key]=result;if(result==='c')rCorrect++;
+  const qBlock=document.getElementById('qq-'+qId+'-'+qNum);
+  qBlock.querySelectorAll('.opt').forEach(o=>{
     o.disabled=true;if(o===btn)o.classList.add(result==='c'?'correct':'wrong');
   });
-  if(result==='w')block.querySelectorAll('.opt').forEach(o=>{if(o.getAttribute('onclick')&&o.getAttribute('onclick').includes("'c'"))o.classList.add('correct');});
-  document.getElementById('fb-'+qId+'-'+(result==='c'?'c':'w')).classList.add(result==='c'?'show-c':'show-w');
-  if(Object.keys(rState).length===rQs.length){
+  if(result==='w')qBlock.querySelectorAll('.opt').forEach(o=>{if(o.getAttribute('onclick')&&o.getAttribute('onclick').includes(",'c',"))o.classList.add('correct');});
+  const fb=document.getElementById('fb-'+qId+'-'+qNum+'-'+(result==='c'?'c':'w'));
+  if(fb)fb.classList.add(result==='c'?'show-c':'show-w');
+  const total=rQCounts[qId]||1;
+  if(qNum<total){
+    setTimeout(()=>{
+      const next=document.getElementById('qq-'+qId+'-'+(qNum+1));
+      if(next){next.style.display='block';next.scrollIntoView({behavior:'smooth',block:'nearest'});}
+    },1200);
+  }
+  if(Object.keys(rState).length===rTotal){
     const b=document.getElementById('score-banner');b.style.display='block';
-    document.getElementById('score-num').textContent=rCorrect+' / 6';
-    const msgs=['Keep walking, every wrong answer is something new to notice.','Good start. The natural world rewards patient observation.','Solid. You are beginning to see physics everywhere.','Nice. Three right, and three more reasons to look again.','Great. You were paying close attention today.','Perfect. Nature would approve.'];
-    document.getElementById('score-msg').textContent=msgs[rCorrect];
+    document.getElementById('score-num').textContent=rCorrect+' / '+rTotal;
+    const msgs={
+      0:'Keep walking, every wrong answer is something new to notice.',
+      1:'One right. The natural world rewards patient observation.',
+      2:'Two right. Something to look more closely at next time.',
+      3:'Three right. You are starting to see the physics in things.',
+      4:'Four right. Good eye, keep going.',
+      5:'Five right. You were paying attention today.',
+      6:'Six right. Solid, well over a third of the way.',
+      7:'Seven right. Good, you are seeing patterns others miss.',
+      8:'Eight right. Strong. You understood most of what you walked past.',
+      9:'Nine right. Half marks, and the curious half at that.',
+      10:'Ten right. You have a real feel for how things work.',
+      11:'Eleven right. Impressive. The physics is sticking.',
+      12:'Twelve right. Great. Nature would be pleased.',
+      13:'Thirteen right. Excellent. You see what most people walk past entirely.',
+      14:'Fourteen right. Outstanding.',
+      15:'Fifteen right. Remarkable. Very few get this far.',
+      16:'Sixteen right. Near perfect.',
+      17:'Seventeen right. Almost perfect. One small thing to revisit.',
+      18:'Eighteen right. Perfect. The natural world has no secrets from you today.'
+    };
+    document.getElementById('score-msg').textContent=msgs[rCorrect]||'';
     b.scrollIntoView({behavior:'smooth',block:'center'});
   }
 }
 function restartAll(){
   Object.keys(rState).forEach(k=>delete rState[k]);rCorrect=0;
   document.getElementById('score-banner').style.display='none';
-  rQs.forEach(qId=>{
-    const b=document.getElementById('q-'+qId);
-    b.querySelectorAll('.opt').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong')});
-    b.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  Object.keys(rQCounts).forEach(qId=>{
+    for(let i=1;i<=rQCounts[qId];i++){
+      const qb=document.getElementById('qq-'+qId+'-'+i);
+      if(qb){
+        qb.querySelectorAll('.opt').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong')});
+        qb.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+        if(i>1)qb.style.display='none';
+      }
+    }
   });
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -1084,7 +1366,7 @@ function nextStep(topicId,step){
 }
 function completeLearn(topicId){
   lDone[topicId]=true;
-  const lastStep=document.getElementById('ls-'+topicId+'-2');
+  const lastStep=document.getElementById('ls-'+topicId+'-3');
   if(lastStep){const b=lastStep.querySelector('.ls-next');if(b)b.style.display='none';}
   const complete=document.getElementById('lc-'+topicId);
   if(complete){complete.style.display='block';complete.scrollIntoView({behavior:'smooth',block:'start'});}
