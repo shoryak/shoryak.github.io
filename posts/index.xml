@@ -1,61 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on shoryak</title>
-    <link>https://shoryak.github.io/posts/</link>
-    <description>Recent content in Posts on shoryak</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://shoryak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Contact is the Asset: D2C Marketing</title>
-      <link>https://shoryak.github.io/posts/the-contact-is-the-asset/</link>
-      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/the-contact-is-the-asset/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Closed Systems Leak: A Simple Reminder</title>
-      <link>https://shoryak.github.io/posts/closed-systems-leak/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/closed-systems-leak/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>The Production Bug That Made Me Relearn React</title>
-      <link>https://shoryak.github.io/posts/production-bug-react/</link>
-      <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/production-bug-react/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>The Physics of our Voice: Part 1</title>
-      <link>https://shoryak.github.io/posts/physics-of-voice/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/physics-of-voice/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Can You Win the Trader&#39;s Card Game? An Inside Look at a Wall Street Interview</title>
-      <link>https://shoryak.github.io/posts/traders-card-game/</link>
-      <pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/traders-card-game/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Mathematical Blueprint of Generative Models</title>
-      <link>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</link>
-      <pubDate>Sat, 20 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Let the Crypto begin</title>
-      <link>https://shoryak.github.io/posts/let-the-crypto-begin/</link>
-      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/let-the-crypto-begin/</guid>
-      <description>&lt;h1 id=&#34;hey-there&#34;&gt;&#xA;  Hey there,&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#hey-there&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Finally, the semester is over, and here I am motivated to start something. What can be a better way than a blog post. This post is somewhat about my dive into the world of &lt;strong&gt;blockchains&lt;/strong&gt; and &lt;strong&gt;cryptocurrency&lt;/strong&gt; but more so about why we need a community here at IIT Kanpur to make people familiar with it. At the very least, there could be more awareness among the IITK community about this new technology that is changing everything around us.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on shoryak</title><link>https://shoryak.github.io/posts/</link><description>Recent content in Posts on shoryak</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://shoryak.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>The Contact is the Asset: D2C Marketing</title><link>https://shoryak.github.io/posts/the-contact-is-the-asset/</link><pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/the-contact-is-the-asset/</guid><description/></item><item><title>Closed Systems Leak: A Simple Reminder</title><link>https://shoryak.github.io/posts/closed-systems-leak/</link><pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/closed-systems-leak/</guid><description/></item><item><title>The Production Bug That Made Me Relearn React</title><link>https://shoryak.github.io/posts/production-bug-react/</link><pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/production-bug-react/</guid><description/></item><item><title>The Physics of our Voice: Part 1</title><link>https://shoryak.github.io/posts/physics-of-voice/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/physics-of-voice/</guid><description/></item><item><title>Can You Win the Trader's Card Game? An Inside Look at a Wall Street Interview</title><link>https://shoryak.github.io/posts/traders-card-game/</link><pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/traders-card-game/</guid><description/></item><item><title>Mathematical Blueprint of Generative Models</title><link>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</link><pubDate>Sat, 20 Sep 2025 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/mathematical-blueprint-generative-models/</guid><description/></item><item><title>Let the Crypto begin</title><link>https://shoryak.github.io/posts/let-the-crypto-begin/</link><pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/let-the-crypto-begin/</guid><description>&lt;h1 id="hey-there"&gt;
+ Hey there,
+ &lt;a class="heading-link" href="#hey-there"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Finally, the semester is over, and here I am motivated to start something. What can be a better way than a blog post. This post is somewhat about my dive into the world of &lt;strong&gt;blockchains&lt;/strong&gt; and &lt;strong&gt;cryptocurrency&lt;/strong&gt; but more so about why we need a community here at IIT Kanpur to make people familiar with it. At the very least, there could be more awareness among the IITK community about this new technology that is changing everything around us.&lt;/p&gt;</description></item></channel></rss>

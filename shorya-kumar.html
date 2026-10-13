@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Shorya Kumar · Datasheet</title>
+<meta name="description" content="Founding CTO, ex-Databricks, IIT Kanpur double major (CGPA 9.7). AI systems, edge hardware, systems security. Research published at ESORICS.">
+<meta property="og:title" content="Shorya Kumar · Datasheet">
+<meta property="og:description" content="Founding CTO, ex-Databricks, IIT Kanpur. AI systems, edge hardware, systems security.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://shoryak.github.io/shorya-kumar.html">
+<link rel="canonical" href="https://shoryak.github.io/shorya-kumar.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an IC datasheet. Pinout chip = hero + filter, characteristic tiles, parts list of work that opens into schematic drawers. */
+:root{
+  --paper:#F2F4F6; --surface:#FFFFFF; --ink:#13202B; --muted:#596775; --line:#D2D9E0;
+  --accent:#2C56E0; --accent-soft:#E3E9FC; --signal:#B57805; --signal-soft:#FBF0D8;
+  --t-ai:#2C56E0; --t-hw:#B4570E; --t-sys:#7A3FC2; --t-infra:#0F7F6E; --t-res:#B0306A; --t-web:#4F6B12; --t-med:#A2381E;
+  --ok:#1D7A46; --ok-soft:#DDF2E5;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --shadow:0 18px 50px -20px rgba(19,32,43,.35);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0D1319; --surface:#141C24; --ink:#E4EAF0; --muted:#92A0AD; --line:#26323D;
+  --accent:#7F9CFF; --accent-soft:#1B2747; --signal:#F0B43C; --signal-soft:#33280F;
+  --t-ai:#7F9CFF; --t-hw:#F09A55; --t-sys:#B994F2; --t-infra:#4FD1BC; --t-res:#F07BB0; --t-web:#A9CF55; --t-med:#F28B6E;
+  --ok:#5FD58F; --ok-soft:#12301F;
+  --shadow:0 18px 50px -20px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0D1319; --surface:#141C24; --ink:#E4EAF0; --muted:#92A0AD; --line:#26323D;
+  --accent:#7F9CFF; --accent-soft:#1B2747; --signal:#F0B43C; --signal-soft:#33280F;
+  --t-ai:#7F9CFF; --t-hw:#F09A55; --t-sys:#B994F2; --t-infra:#4FD1BC; --t-res:#F07BB0; --t-web:#A9CF55; --t-med:#F28B6E;
+  --ok:#5FD58F; --ok-soft:#12301F;
+  --shadow:0 18px 50px -20px rgba(0,0,0,.7); color-scheme:dark}
+.status{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:2px 8px;white-space:nowrap;background:var(--ok-soft);color:var(--ok);display:inline-flex;align-items:center;gap:6px}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.status.wip{background:var(--signal-soft);color:var(--signal)} .status.wip::before{background:var(--signal)}
+.dlinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.group-note{font-size:13.5px;color:var(--muted);margin:-4px 0 12px;max-width:62ch}
+.card .try{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 8px}
+.demo{margin-top:22px;background:var(--surface);border:1px solid var(--accent);border-radius:12px;padding:14px;position:relative}
+.demo>.label{display:flex;justify-content:space-between;gap:8px;margin-bottom:12px;color:var(--accent)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.ctl button{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px}
+.ctl button:hover{border-color:var(--accent)}
+.ctl button.sel{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ctl button.sig{border-color:var(--signal);color:var(--signal)}
+.ctl label{font-size:13px;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
+.ctl input[type=range]{accent-color:var(--accent);width:150px;max-width:45vw}
+.ctl .read{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+.demo .out{font-size:13.5px;line-height:1.5}
+.demo .out .biz{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:8px;background:var(--paper)}
+.demo .out .biz b{font-family:var(--display);font-size:15px}
+.demo .out .biz .tk{font-family:var(--mono);font-size:11px;color:var(--accent);margin-left:6px}
+.stage-cap{font-size:13.5px;min-height:3em;margin-top:4px}
+.stage-cap b{color:var(--accent)}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--accent)} button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.sheet-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding-block:8px;font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:36px 28px}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:800;letter-spacing:-.03em}
+.hero .role{font-family:var(--display);font-weight:500;font-size:clamp(18px,2.2vw,22px);margin-top:10px;color:var(--muted)}
+.hero p{max-width:58ch;margin:16px 0 0}
+.contact{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-family:var(--mono);font-size:12.5px;text-decoration:none;color:var(--ink);cursor:pointer}
+.pill:hover{border-color:var(--accent)} .pill small{color:var(--muted);font-size:11px}
+.chipbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 10px 10px}
+.chipbox svg{width:100%;height:auto;display:block} .chipbox .hint{text-align:center;margin-top:4px}
+.pin{cursor:pointer} .pin:focus{outline:none}
+.pin .lead{stroke:var(--muted);stroke-width:2} .pin .pad{fill:var(--paper);stroke:var(--muted);stroke-width:1.2}
+.pin .pname{font-family:var(--mono);font-size:11px;fill:var(--ink)} .pin .pnum{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.pin:hover .pad{stroke:var(--accent)} .pin:focus-visible .pad{stroke-width:3;stroke:var(--accent)}
+.pin.on .pad{fill:var(--pc)} .pin.on .lead{stroke:var(--pc)} .pin.on .pname{font-weight:600;fill:var(--pc)}
+.chip-body{fill:var(--ink)} .chip-txt{fill:var(--paper);font-family:var(--mono)} .chip-name{fill:var(--paper);font-family:var(--display);font-weight:700}
+section{margin-top:44px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px}
+.sec-h h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.01em}
+.chars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.char{background:var(--surface);padding:16px;text-align:left;border:0;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0}
+.char:hover{background:var(--accent-soft)}
+.char .v{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,38px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.char .l{font-size:13px;color:var(--muted);line-height:1.35}
+.char .src{font-family:var(--mono);font-size:10.5px;color:var(--accent);margin-top:auto;padding-top:6px;letter-spacing:.06em;text-transform:uppercase}
+.filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fbtn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.fbtn i{width:8px;height:8px;border-radius:50%;background:var(--c,var(--muted))}
+.fbtn[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.group-title{margin:26px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card .dates{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.card h3{font-size:21px;font-weight:700} .card .org{font-size:13.5px;color:var(--muted)} .card .sum{margin:0;font-size:14.5px}
+.metrics{display:flex;flex-wrap:wrap;gap:6px}
+.metric{font-family:var(--mono);font-size:12px;background:var(--signal-soft);border-radius:6px;padding:3px 8px}
+.metric b{color:var(--signal);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;align-items:center}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;display:inline-flex;gap:6px;align-items:center;color:var(--muted)}
+.tag i{width:7px;height:7px;border-radius:2px;background:var(--c)}
+.open{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--accent)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.pub{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding-block:12px;border-bottom:1px dashed var(--line)}
+.pub .yr{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pub .venue{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--t-res);margin-bottom:2px}
+.pub .t{font-weight:600} .pub .a{font-size:13px;color:var(--muted)}
+.rank{padding-block:10px;border-bottom:1px dashed var(--line)}
+.rank .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.rank .big{font-family:var(--display);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
+.rank small{color:var(--muted);font-size:12.5px}
+.honors{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.honor{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--surface)}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.skill .label{margin-bottom:8px}
+.skill ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.skill li{font-size:13px;border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.scrim{position:fixed;inset:0;background:rgba(10,16,22,.45);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(720px,100%);background:var(--paper);z-index:21;box-shadow:var(--shadow);display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.dhead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 18px;padding-top:calc(12px + env(safe-area-inset-top,0px));border-bottom:1px solid var(--line);background:var(--surface)}
+.dnav{display:flex;gap:6px}
+.ibtn{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:6px 10px;cursor:pointer;font-family:var(--mono);font-size:12px}
+.ibtn:hover{border-color:var(--accent)}
+.dbody{overflow-y:auto;padding:22px 22px calc(40px + env(safe-area-inset-bottom,0px))}
+.dbody h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.dbody .sub{color:var(--muted);margin-top:6px}
+.dmetrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:20px}
+.dm{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.dm .v{font-family:var(--display);font-weight:800;font-size:26px;color:var(--signal);line-height:1;font-variant-numeric:tabular-nums}
+.dm .l{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.35}
+.schem{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.schem>.label{display:flex;justify-content:space-between;gap:8px;margin-bottom:10px}
+.scroll{overflow-x:auto} .scroll svg{display:block;width:100%;min-width:560px;height:auto} .scroll.sq svg{min-width:0;max-width:520px;margin:auto}
+.cap{font-size:12.5px;color:var(--muted);margin-top:10px}
+.dpoints{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.dpoints li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px}
+.dpoints li::before{content:"";width:8px;height:8px;margin-top:8px;border:1.5px solid var(--accent);border-radius:2px}
+.d-box{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.d-hi{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6}
+.d-warn{fill:var(--signal-soft);stroke:var(--signal);stroke-width:1.6}
+.d-t{fill:var(--ink);font-family:var(--body);font-size:12.5px;font-weight:600}
+.d-s{fill:var(--muted);font-family:var(--mono);font-size:10px}
+.d-ar{stroke:var(--muted);stroke-width:1.4;fill:none} .d-arh{fill:var(--muted)}
+.d-acc{stroke:var(--accent);stroke-width:1.8;fill:none} .d-sig{stroke:var(--signal);stroke-width:2;fill:none}
+.d-grid{stroke:var(--line);stroke-width:1;fill:none} .d-fillacc{fill:var(--accent)} .d-fillsig{fill:var(--signal)}
+.d-lane{fill:none;stroke:var(--muted);stroke-dasharray:4 4}
+.cell{stroke:var(--surface);stroke-width:.8}
+.chips-html{display:flex;flex-wrap:wrap;gap:8px}
+.chips-html span{font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:4px 8px}
+.cmp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.cmp div{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--paper)}
+.cmp b{display:block;font-family:var(--display);font-size:15px} .cmp small{color:var(--muted);font-size:12px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:8px;font-size:13px;z-index:30}
+@media (max-width:860px){.hero,.two{grid-template-columns:minmax(0,1fr)}.chars,.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.cards,.skills,.cmp{grid-template-columns:minmax(0,1fr)}.wrap{padding-inline:16px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.theme-toggle{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 10px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+@media print{
+  .chipbox,.filter,.fbtn,.ibtn,.dnav,.scrim,.drawer,.toast,.theme-toggle,.dlinks .pill[href^="http"]{display:none!important}
+  .card{break-inside:avoid;cursor:default}
+  .card:hover{transform:none;border-color:var(--line)}
+  body{font-size:12px}
+  .hero h1{font-size:52px}
+  .chars{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="sheet-head"><span>PART NO. SK-IITK-19 · DOUBLE MAJOR EE + CS</span><span>DATASHEET · REV 10.2026</span><span style="display:flex;align-items:center;gap:12px"><a href="https://shoryak.github.io/" class="label" style="color:var(--accent);text-decoration:none">← shoryak.github.io</a><button class="theme-toggle" id="theme-btn" aria-label="Toggle dark/light mode">◑ theme</button></span></div>
+  <header class="hero">
+    <div>
+      <div class="label">Founder · Engineer · Researcher</div>
+      <h1>Shorya Kumar</h1>
+      <div class="role">AI systems, edge hardware and systems security. Products shipped to real users, research published at ESORICS.</div>
+      <p>Founding CTO of an AI startup, ex-Databricks, IIT Kanpur double major (CGPA 9.7). Research stints at CISPA Helmholtz Center and the University of Toronto. Equally drawn to products people use and research that moves what is understood.</p>
+      <div class="contact">
+        <button class="pill" id="copy-email" data-copy="shoryakumar411@gmail.com">shoryakumar411@gmail.com <small>copy</small></button>
+        <button class="pill" id="copy-phone" data-copy="+91 7037505944">+91 70375 05944 <small>copy</small></button>
+        <a class="pill" href="https://shoryak.github.io/" target="_blank" rel="noopener">shoryak.github.io <small>site</small></a>
+        <a class="pill" href="https://github.com/shoryak" target="_blank" rel="noopener">GitHub · shoryak</a>
+        <a class="pill" href="https://www.linkedin.com/in/shoryak" target="_blank" rel="noopener">LinkedIn · shoryak</a>
+      </div>
+    </div>
+    <div class="chipbox">
+      <svg id="chip" viewBox="0 0 400 250" role="group" aria-label="Pinout: pick a domain to filter the work below"></svg>
+      <div class="label hint">Pinout · tap a pin to filter the work</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-h"><h2>Characteristics</h2><span class="label">Measured outcomes · tap to open</span></div>
+    <div class="chars" id="chars"></div>
+  </section>
+
+  <section id="work">
+    <div class="sec-h"><h2>Parts list</h2><div class="filter" id="filter"></div></div>
+    <div class="count" id="count"></div>
+    <div class="label group-title">Roles</div><div class="cards" id="roles"></div>
+    <div class="label group-title">Experiments &amp; ongoing</div>
+    <p class="group-note">Things I've built on my own time since leaving the startup, shipped end to end.</p>
+    <div class="cards" id="exps"></div>
+    <div class="label group-title">Projects &amp; open source</div><div class="cards" id="projects"></div>
+  </section>
+
+  <section>
+    <div class="two">
+      <div>
+        <div class="sec-h"><h2>Publications</h2><span class="label">3 entries</span></div>
+        <div class="pub"><div class="yr">2025</div><div><span class="venue">ESORICS 2025</span><div class="t">NICraft: Malicious NIC Firmware-based Cache Attack</div><div class="a">Amit Choudhari, Shorya Kumar, Christian Rossow</div></div></div>
+        <div class="pub"><div class="yr">2025</div><div><span class="venue">SUBSTACK</span><div class="t">The Coming Voice Revolution</div><div class="a">Essay by Shorya Kumar · <a href="https://substack.com/@shoryak/posts" target="_blank" rel="noopener">All posts on Substack ↗</a></div></div></div>
+        <div class="pub"><div class="yr">2023</div><div><span class="venue">PREPRINT · SUBMITTED TO ICLR 2024</span><div class="t">HIWE: Scene Importance Weighted Encoding for Fast NeRF Training</div><div class="a">S. Durvasula, Shorya Kumar, R. Liang, M. Shehata, S. Panneer, N. Jain, N. Vijaykumar</div></div></div>
+      </div>
+      <div>
+        <div class="sec-h"><h2>Rankings</h2><span class="label">Competitive record</span></div>
+        <div id="ranks"></div>
+        <div class="honors">
+          <span class="honor">YC Startup School · $25k credits</span>
+          <span class="honor">Databricks US offer · only one from IITK that year</span>
+          <span class="honor">Sridhar Memorial Prize · top CPI, EE</span>
+          <span class="honor">Mitacs Globalink Scholar · 2023</span>
+          <span class="honor">KVPY SX Fellowship · 2018</span>
+          <span class="honor">Alphagrep Merit Scholarship</span>
+          <span class="honor">Academic Excellence Awards 2019–22</span>
+          <span class="honor">INPhO &amp; INChO qualifier</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Pin functions</h2><span class="label">Skills &amp; coursework</span></div>
+    <div class="skills">
+      <div class="skill"><div class="label">AI / ML</div><ul><li>LLMs</li><li>Voice AI</li><li>LoRA fine-tuning</li><li>Flux</li><li>Diffusion models</li><li>PyTorch</li><li>NeRF</li><li>Edge AI</li></ul></div>
+      <div class="skill"><div class="label">Systems</div><ul><li>Linux kernel</li><li>Cache microarchitecture</li><li>Network protocols</li><li>Sockets</li><li>Wireshark</li></ul></div>
+      <div class="skill"><div class="label">Infra</div><ul><li>Modal</li><li>Docker</li><li>Git</li><li>Bash</li><li>Linux</li></ul></div>
+      <div class="skill"><div class="label">Languages &amp; web</div><ul><li>Python</li><li>C</li><li>C++</li><li>JavaScript</li><li>ReactJS</li><li>Django</li><li>Chrome extensions</li></ul></div>
+      <div class="skill"><div class="label">Hardware</div><ul><li>3D printing</li><li>Edge devices</li><li>Embedded prototyping</li><li>PCB integration</li></ul></div>
+      <div class="skill"><div class="label">Coursework</div><ul><li>Advanced Algorithms</li><li>Modern Cryptology</li><li>Theory of Computation</li><li>Compilers</li><li>Probability &amp; Stats (A*)</li><li>ML (A*)</li><li>Linear Algebra</li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="label">IIT Kanpur · B.Tech EE + CS · 2019–2024</span>
+    <span class="label">Team Head, Vision IITK · DSA tutor (ESO207) · CSE career mentor</span>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="d-title">
+  <div class="dhead"><span class="label" id="d-crumb"></span>
+    <div class="dnav"><button class="ibtn" id="d-prev">← Prev</button><button class="ibtn" id="d-next">Next →</button><button class="ibtn" id="d-close">Close ✕</button></div>
+  </div>
+  <div class="dbody" id="d-body"></div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DOM={ai:{name:"AI / ML",c:"var(--t-ai)"},hw:{name:"Hardware",c:"var(--t-hw)"},web:{name:"Product & growth",c:"var(--t-web)"},sys:{name:"Systems",c:"var(--t-sys)"},infra:{name:"Infrastructure",c:"var(--t-infra)"},res:{name:"Research",c:"var(--t-res)"},med:{name:"Media & writing",c:"var(--t-med)"}};
+const KIND={role:"Role",project:"Project",exp:"Experiment"};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+let mk=0;
+const ARROW=id=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="d-arh" d="M0,0 L10,5 L0,10 z"/></marker></defs>`;
+function flow(nodes,o={}){
+  const w=o.w||122,h=58,gap=26,pad=10,y0=o.y||pad,id='a'+(mk++);
+  const W=pad*2+nodes.length*w+(nodes.length-1)*gap,H=o.H||h+pad*2;
+  let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${ARROW(id)}`;
+  nodes.forEach((n,i)=>{const x=pad+i*(w+gap);
+    s+=`<rect x="${x}" y="${y0}" width="${w}" height="${h}" rx="7" class="${n.hi?'d-hi':n.warn?'d-warn':'d-box'}"/><text x="${x+w/2}" y="${y0+(n.s?25:34)}" text-anchor="middle" class="d-t">${esc(n.t)}</text>`;
+    if(n.s)s+=`<text x="${x+w/2}" y="${y0+42}" text-anchor="middle" class="d-s">${esc(n.s)}</text>`;
+    if(i<nodes.length-1)s+=`<line x1="${x+w+2}" y1="${y0+h/2}" x2="${x+w+gap-3}" y2="${y0+h/2}" class="d-ar" marker-end="url(#${id})"/>`;});
+  if(o.extra)s+=o.extra({w,h,gap,pad,y0});
+  return s+'</svg>';
+}
+const schem=(title,body,cap,cls='')=>`<div class="schem"><div class="label"><span>${title}</span><span>FIG.</span></div><div class="scroll ${cls}">${body}</div>${cap?`<div class="cap">${cap}</div>`:''}</div>`;
+
+function hiwe(){
+  const imp=(x,y)=>0.06+Math.exp(-((x-.3)**2+(y-.34)**2)/.01)+.85*Math.exp(-((x-.72)**2+(y-.7)**2)/.018)+.4*Math.exp(-((x-.78)**2+(y-.2)**2)/.006);
+  const S=210,draw=cells=>cells.map(c=>{const v=Math.min(1,imp(c.x+c.s/2,c.y+c.s/2));return `<rect class="cell d-fillacc" x="${(c.x*S).toFixed(2)}" y="${(c.y*S).toFixed(2)}" width="${(c.s*S).toFixed(2)}" height="${(c.s*S).toFixed(2)}" fill-opacity="${(0.12+0.8*v).toFixed(2)}"/>`}).join('');
+  const uni=[];for(let i=0;i<8;i++)for(let j=0;j<8;j++)uni.push({x:i/8,y:j/8,s:1/8});
+  const ad=[{x:0,y:0,s:1}];
+  for(let k=0;k<21;k++){let bi=0,bv=-1;ad.forEach((c,i)=>{const v=imp(c.x+c.s/2,c.y+c.s/2)*c.s*c.s;if(v>bv){bv=v;bi=i}});const c=ad.splice(bi,1)[0],h=c.s/2;ad.push({x:c.x,y:c.y,s:h},{x:c.x+h,y:c.y,s:h},{x:c.x,y:c.y+h,s:h},{x:c.x+h,y:c.y+h,s:h})}
+  const panel=(x,cells,t)=>`<g transform="translate(${x},28)">${draw(cells)}<rect width="${S}" height="${S}" class="d-grid"/></g><text x="${x+S/2}" y="18" text-anchor="middle" class="d-t">${t}</text>`;
+  return `<svg viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg">${panel(10,uni,'Uniform · '+uni.length+' cells')}${panel(260,ad,'Importance-weighted · '+ad.length+' cells')}</svg>`;
+}
+function tcp(){
+  const reno=[],tahoe=[];let c=1,ss=16;
+  for(let t=0;t<32;t++){reno.push(c);if(c>=24){ss=c/2;c=ss}else c=c<ss?Math.min(c*2,ss):c+1}
+  c=1;ss=16;for(let t=0;t<32;t++){tahoe.push(c);if(c>=24){ss=c/2;c=1}else c=c<ss?Math.min(c*2,ss):c+1}
+  const X=t=>40+t*16,Y=v=>190-v*6.5,pl=a=>a.map((v,t)=>`${X(t)},${Y(v).toFixed(1)}`).join(' ');
+  let g='';[0,8,16,24].forEach(v=>g+=`<line x1="40" x2="540" y1="${Y(v)}" y2="${Y(v)}" class="d-grid"/><text x="32" y="${Y(v)+3}" text-anchor="end" class="d-s">${v}</text>`);
+  return `<svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg">${g}<polyline points="${pl(tahoe)}" class="d-sig"/><polyline points="${pl(reno)}" class="d-acc"/><text x="290" y="212" text-anchor="middle" class="d-s">transmission rounds →</text><text x="40" y="14" class="d-s">cwnd (segments)</text><g transform="translate(360,16)"><line x2="18" class="d-acc"/><text x="24" y="3" class="d-s">Reno · halves on loss</text><line y1="16" x2="18" y2="16" class="d-sig"/><text x="24" y="19" class="d-s">Tahoe · resets to 1</text></g></svg>`;
+}
+function mempool(){
+  const N={A:[60,50],B:[60,150],C:[200,100],D:[340,50],E:[340,150],F:[480,100]},E=[['A','C'],['B','C'],['C','D'],['C','E'],['E','F']],id='a'+(mk++);
+  let s=`<svg viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">${ARROW(id)}`;
+  E.forEach(([a,b])=>{const[x1,y1]=N[a],[x2,y2]=N[b],dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);s+=`<line x1="${x1+dx/L*24}" y1="${y1+dy/L*24}" x2="${x2-dx/L*27}" y2="${y2-dy/L*27}" class="d-ar" marker-end="url(#${id})"/>`});
+  Object.entries(N).forEach(([k,[x,y]])=>{s+=`<circle cx="${x}" cy="${y}" r="22" class="${k==='C'?'d-warn':'d-hi'}"/><text x="${x}" y="${y+4}" text-anchor="middle" class="d-t">tx ${k}</text>`});
+  return s+`<text x="60" y="194" text-anchor="middle" class="d-s">ancestors</text><text x="200" y="140" text-anchor="middle" class="d-s">tracked tx</text><text x="410" y="194" text-anchor="middle" class="d-s">descendants</text></svg>`;
+}
+function hmr(){
+  const X=v=>130+v*30;let t='';[0,2,4,6,8,10].forEach(v=>t+=`<line x1="${X(v)}" x2="${X(v)}" y1="30" y2="150" class="d-grid"/><text x="${X(v)}" y="166" text-anchor="middle" class="d-s">${v}</text>`);
+  return `<svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg">${t}<text x="130" y="18" class="d-s">Failed runs per 100 (axis from 0)</text>
+  <text x="10" y="66" class="d-t">Before · 90%</text><rect x="130" y="48" width="${X(10)-130}" height="26" rx="4" class="d-fillsig"/><text x="${X(10)+8}" y="66" class="d-s">10 / 100</text>
+  <text x="10" y="122" class="d-t">After · 99%</text><rect x="130" y="104" width="${X(1)-130}" height="26" rx="4" class="d-fillacc"/><text x="${X(1)+8}" y="122" class="d-s">1 / 100</text></svg>`;
+}
+function mips(){
+  const st=['IF','ID','EX','MEM','WB'],w=80,gap=24,y=70,id='a'+(mk++),cx=i=>20+i*(w+gap)+w/2;
+  let s=`<svg viewBox="0 0 540 180" xmlns="http://www.w3.org/2000/svg">${ARROW(id)}`;
+  st.forEach((t,i)=>{const x=20+i*(w+gap);s+=`<rect x="${x}" y="${y}" width="${w}" height="50" rx="6" class="${t==='EX'?'d-hi':'d-box'}"/><text x="${x+w/2}" y="${y+30}" text-anchor="middle" class="d-t">${t}</text>`;if(i<4)s+=`<line x1="${x+w+2}" y1="${y+25}" x2="${x+w+gap-3}" y2="${y+25}" class="d-ar" marker-end="url(#${id})"/>`});
+  const arc=(f,lab,h)=>`<path d="M${cx(f)} ${y} C ${cx(f)} ${y-h}, ${cx(2)+10} ${y-h}, ${cx(2)+10} ${y-2}" class="d-acc" marker-end="url(#${id})"/><text x="${(cx(f)+cx(2))/2+8}" y="${y-h*.8}" text-anchor="middle" class="d-s">${lab}</text>`;
+  s+=arc(4,'EX/WB',64)+arc(3,'MEM/EX',36);
+  s+=`<path d="M${cx(2)-14} ${y+50} C ${cx(2)-14} ${y+86}, ${cx(2)+14} ${y+86}, ${cx(2)+14} ${y+52}" class="d-acc" marker-end="url(#${id})"/><text x="${cx(2)}" y="${y+100}" text-anchor="middle" class="d-s">EX/EX</text>`;
+  return s+'</svg>';
+}
+function auliStrip(){
+  const ph=[["Pre-dawn","#5E6F96","#A9B6D3","#C9D2E6","#C9D2E6"],["First light","#7E86AC","#C7B7C9","#D8DCEB","#F4C77A"],["Alpenglow","#C0705A","#F2A86E","#E9C3B4","#FF9A5C"],["Full morning","#2F6FC2","#8DB8EA","#F5F8FC","#FFFFFF"]];
+  const W=115,H=150,g=10;let s=`<svg viewBox="0 0 ${4*W+3*g} ${H+30}" xmlns="http://www.w3.org/2000/svg">`;
+  ph.forEach(([n,top,bot,snow,peak],i)=>{const x=i*(W+g),id='sky'+i;
+    s+=`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top}"/><stop offset="1" stop-color="${bot}"/></linearGradient></defs>`;
+    s+=`<rect x="${x}" y="0" width="${W}" height="${H}" rx="8" fill="url(#${id})"/>`;
+    s+=`<polygon points="${x},${H} ${x+20},${H-58} ${x+38},${H-44} ${x+72},${H-104} ${x+96},${H-62} ${x+W},${H-80} ${x+W},${H}" fill="${snow}"/>`;
+    s+=`<polygon points="${x+72},${H-104} ${x+62},${H-82} ${x+82},${H-82}" fill="${peak}"/>`;
+    s+=`<rect x="${x}" y="${H-18}" width="${W}" height="18" fill="#2D3A2E" opacity=".55"/>`;
+    s+=`<text x="${x+W/2}" y="${H+20}" text-anchor="middle" class="d-t">${n}</text>`;});
+  return s+'</svg>';
+}
+const chips=a=>`<div class="chips-html">${a.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`;
+const cmp=a=>`<div class="cmp">${a.map(([b,s])=>`<div><b>${esc(b)}</b><small>${esc(s)}</small></div>`).join('')}</div>`;
+
+const ITEMS=[
+ {id:"startup",kind:"role",title:"iCurious AI → Protago AI",org:"CTO & Co-founder · one startup, one pivot",dates:"Oct 2025 – Jun 2026",tags:["ai","hw","web"],
+  sum:"Started as a voice-AI companion for kids on custom hardware, then pivoted to personalised AI storybooks for the same families.",
+  metrics:[["₹12L+","grants · iCurious phase"],["50k+","revenue in 2 months · Protago phase"]],
+  points:["iCurious phase: architected a real-time voice pipeline (speech recognition, LLM inference, TTS) on both edge hardware and cloud backends for low-latency conversation.","Led the hardware prototyping cycle: component selection, 3D-printed enclosure, and alpha tests with children.","Secured ₹12L+ in NIDHI Prayas and MeitY grants for the hardware-AI vision.","Pivot: kept the market (kids and parents) and the generative AI stack, and moved to a product that could ship and sell faster.","Protago phase: built the storybook pipeline, Flux with LoRA fine-tuning on Modal plus a BFS face-swap stage, with a real-time preview in production.","Drove 50k+ revenue in two months through Instagram, influencer collaborations and paid ads, owning engineering, infra and growth as the sole technical co-founder."],
+  fig:()=>schem("The pivot",flow([{t:"iCurious",s:"voice companion",hi:1},{t:"Alpha tests",s:"with children"},{t:"₹12L+ grants",s:"NIDHI · MeitY"},{t:"Pivot",s:"same users",warn:1},{t:"Protago",s:"AI storybooks",hi:1},{t:"50k+",s:"revenue · 2 months",warn:1}],{w:108}))+
+      schem("Phase 1 · conversational voice loop",flow([{t:"Child speaks",s:"device mic"},{t:"ASR",s:"speech → text",hi:1},{t:"LLM",s:"inference",hi:1},{t:"TTS",s:"text → speech",hi:1},{t:"Companion",s:"spoken reply",warn:1}],{H:112,y:12,extra:({pad,w,gap,y0,h})=>`<rect x="${pad+w+gap-8}" y="${y0-8}" width="${3*w+2*gap+16}" height="${h+16}" rx="10" class="d-lane"/><text x="${pad+w+gap+(3*w+2*gap)/2}" y="104" text-anchor="middle" class="d-s">runs on edge hardware and on cloud backends</text>`}))+
+      schem("Phase 2 · storybook pipeline",flow([{t:"Child photo",s:"+ story choice"},{t:"Flux + LoRA",s:"fine-tuned, Modal",hi:1},{t:"Face swap",s:"BFS pipeline",hi:1},{t:"Live preview",s:"real-time"},{t:"Storybook",s:"personalised",warn:1}])),
+  links:[["▶ Watch the iCurious demo","https://www.youtube.com/watch?v=F28lZyda-MY"],["▶ Watch the Protago demo","https://www.youtube.com/watch?v=At_FrzzTpQ0"],["icurious.ai","https://icurious.ai"],["protago.in","https://protago.in"]]},
+ {id:"databricks",kind:"role",title:"Databricks",org:"Software Engineer · Observability Platform",dates:"Jun 2024 – Sep 2025",tags:["infra"],
+  sum:"Made the metrics platform cheaper and more reliable, and helped start the Bengaluru team.",
+  metrics:[["$5M","annual savings"],["90→99%","HMR reliability"]],
+  points:["Drove $5M in annual savings by attributing metric emission costs and eliminating the highest-cost sources.","Raised HMR reliability from 90% to 99%, unblocking several product releases.","Proposed Grafana query attribution and mentored its build, the foundation for per-team cost and usage accountability.","Designed and built parts of metrics quota management, improving the alert experience org-wide.","First Bengaluru team member; helped hire, onboard and grow the team from scratch."],
+  fig:()=>schem("Reliability: 10× fewer failures",hmr(),"90% → 99% success means failures dropped from 10 to 1 per 100 runs.")+schem("Cost attribution",flow([{t:"Metric emitters",s:"all services"},{t:"Attribution",s:"cost per source",hi:1},{t:"High-cost tail",s:"identified"},{t:"Eliminate",s:"or reduce"},{t:"$5M / yr",s:"saved",warn:1}]))},
+ {id:"cispa",kind:"role",title:"CISPA Helmholtz Center",org:"System Security Intern",dates:"Feb – Dec 2024",tags:["sys","res"],
+  sum:"Hardware-level security research on network interface firmware and CPU caches, published at ESORICS 2025.",
+  metrics:[["96%+","precision across 20 users"],["ESORICS","2025 paper"]],
+  points:["Studied how compromised network-card firmware can leak information through shared CPU caches, without any user-space access.","Evaluation reached 96%+ precision in detecting keystroke activity across 20 users over multiple sessions.","Published as NICraft at ESORICS 2025 with Amit Choudhari and Christian Rossow."],
+  fig:()=>schem("Research arc",flow([{t:"Threat model",s:"NIC firmware"},{t:"Analysis",s:"Linux network stack",hi:1},{t:"User study",s:"20 users",hi:1},{t:"96%+",s:"precision",warn:1},{t:"ESORICS 2025",s:"published"}]))},
+ {id:"toronto",kind:"role",title:"University of Toronto",org:"Graphics & Architecture Research Intern · Prof. Nandita Vijaykumar",dates:"May – Aug 2023",tags:["res","ai"],
+  sum:"HIWE: spend NeRF parameters where the scene has detail, not evenly across it.",
+  metrics:[["Same size","better quality"],["ICLR 2024","submission"]],
+  points:["Found that iNGP-style grid encodings allocate parameters uniformly, so large outdoor scenes reconstruct important regions poorly.","Proposed HIWE, a grid positional encoding that gives high-importance regions more parameters without growing the model.","Added adaptive pixel sampling focused on high-detail regions, matching or beating state-of-the-art convergence."],
+  fig:()=>schem("Same budget, different allocation",hiwe(),"Illustration: both grids use 64 cells. Darker means more scene detail; the weighted grid puts its small cells there.","sq")},
+ {id:"sprinklr",kind:"role",title:"Sprinklr",org:"Product Engineering Intern",dates:"May – Jul 2022",tags:["web"],
+  sum:"A Chrome extension that automates Segment event tracking on any web page.",
+  metrics:[["ReactJS","Chrome extension"]],
+  points:["Built a Segment Chrome extension in ReactJS that configures an event list and highlights every clickable element on a page.","Used Chrome message passing to inject a persistent popup alongside a content script, keeping it responsive across browser interactions."],
+  fig:()=>schem("Extension architecture",flow([{t:"Event list",s:"configured"},{t:"Content script",s:"scans DOM",hi:1},{t:"Highlights",s:"clickable elements"},{t:"Popup",s:"persistent, injected",hi:1},{t:"Segment",s:"events tracked",warn:1}]),"Popup and content script stay in sync through Chrome message passing.")},
+ {id:"bitcoin",kind:"project",title:"bitcoin/bitcoin #22856",org:"Open-source contribution · merged",dates:"Dec 2021",tags:["sys"],
+  sum:"Fixed a correctness bug in Bitcoin Core's ComplexMempool benchmark.",
+  metrics:[["Merged","into Bitcoin Core"]],
+  points:["Corrected ancestor/descendant tracking in the mempool graph benchmark.","Merged into Bitcoin Core in December 2021."],
+  fig:()=>schem("Mempool as a graph",mempool(),"Transactions depend on parents; the benchmark tracks each transaction's ancestors and descendants."),
+  links:[["View PR","https://github.com/bitcoin/bitcoin/pull/22856"]]},
+ {id:"comparch",kind:"project",title:"Advanced Computer Architecture",org:"CS335 · Prof. Mainak Chaudhari",dates:"Aug – Nov 2023",tags:["hw","sys"],
+  sum:"Branch predictors, cache replacement policies and a pipelined MIPS simulator.",
+  metrics:[["SPEC CPU","benchmarks"]],
+  points:["Implemented and compared bimodal, gshare and tournament branch predictors.","Compared LRU, RRIP and Hawkeye cache replacement on SPEC CPU using binary instrumentation.","Built a five-stage pipelined MIPS simulator with interlock detection and data forwarding to minimise CPI."],
+  fig:()=>schem("5-stage pipeline with forwarding",mips())+schem("What was compared",chips(["Bimodal","gshare","Tournament","LRU","RRIP","Hawkeye"]))},
+ {id:"compiler",kind:"project",title:"Java → x86 Compiler",org:"Prof. Swarnendu Biswas",dates:"Feb – Apr 2023",tags:["sys"],
+  sum:"A compiler from scratch for a Java subset, emitting 32-bit x86 assembly.",
+  metrics:[["OOP","+ recursion, overloading"]],
+  points:["Lexer and parser with Flex and Bison, hand-built symbol table and AST.","Semantic analysis, three-address-code IR and x86 emission.","Supports OOP, recursion, method overloading and multi-dimensional arrays."],
+  fig:()=>schem("Compiler pipeline",flow([{t:"Java source",s:"subset"},{t:"Flex",s:"lexing"},{t:"Bison",s:"parsing → AST",hi:1},{t:"Semantics",s:"symbol table"},{t:"3AC IR",s:"intermediate",hi:1},{t:"x86 asm",s:"32-bit",warn:1}],{w:108}))},
+ {id:"xv6",kind:"project",title:"xv6 Operating System",org:"CS330 · Prof. Mainak Chaudhari",dates:"Jul – Nov 2022",tags:["sys"],
+  sum:"Extended the xv6 teaching OS with system calls, schedulers and synchronisation.",
+  metrics:[["3","schedulers compared"]],
+  points:["Added custom system calls: waitpid, forkf, uptime, pinfo.","Compared SJF, Round Robin and UNIX scheduling by simulation and benchmarking.","Implemented condition variables and semaphores for thread barriers and bounded producer-consumer buffers."],
+  fig:()=>schem("New system calls",chips(["waitpid()","forkf()","uptime()","pinfo()"]))+schem("Schedulers compared",cmp([["SJF","Shortest job first"],["Round Robin","Time-sliced fairness"],["UNIX","Priority-based"]]))},
+ {id:"networks",kind:"project",title:"Computer Networks",org:"EE673 · Prof. Subramanya Peruru",dates:"Jul – Nov 2022",tags:["sys"],
+  sum:"Socket applications, an SMTP server, routing algorithms and congestion control.",
+  metrics:[["SMTP","server from POSIX sockets"]],
+  points:["Built TCP and UDP client-server apps and an SMTP mail server with POSIX APIs.","Implemented Dijkstra and distance-vector routing.","Simulated Tahoe and Reno congestion control in Netsim and analysed traces in Wireshark."],
+  fig:()=>schem("Tahoe vs Reno",tcp(),"Illustrative shape of the two algorithms, not measured data.")},
+ {id:"aaspaas",kind:"exp",status:"Live",title:"Aaspaas",org:"Solo build · idea-to-ticker",dates:"2026",tags:["ai","web"],
+  sum:"Type something you noticed around you. Aaspaas shows the listed Indian businesses behind it, explains how they make money, and helps you build a portfolio.",
+  metrics:[["Live","web app"],["Retail investors","first-time, curious"]],
+  points:["Starts from everyday observation rather than tickers, so a first-time investor has a way in.","Maps the observation to related listed Indian companies and teaches what each business actually does.","Helps the user turn what they learned into a portfolio, with the business case attached to each pick."],
+  fig:()=>schem("How it works",flow([{t:"You notice",s:"something around you"},{t:"Linked stocks",s:"listed Indian cos",hi:1},{t:"Learn the business",s:"how it earns",hi:1},{t:"Build portfolio",s:"with reasons",warn:1}],{w:130})),
+  links:[["Open Aaspaas","https://idea-to-ticker.emergent.host/"]]},
+ {id:"bharatbench",kind:"exp",status:"Ongoing · pilot run",wip:1,title:"Cultural pragmatics benchmark",org:"Independent research · LLM evaluation",dates:"Oct 2026 –",tags:["ai","res"],
+  sum:"A benchmark testing whether LLMs understand Indian cultural pragmatics when they speak in character, aimed at apps for tier-2 and tier-3 Bharat.",
+  metrics:[["Pilot","run in Oct 2026"]],
+  points:["Most evals test what a model knows about a culture. This tests whether it behaves appropriately inside one, in character.","Motivated by AI apps for tier-2 and tier-3 India, where tone, respect and context decide whether users trust the product.","A pilot experiment is done; results and a write-up are next."],
+  fig:()=>schem("Benchmark loop (simplified)",flow([{t:"Indian scenario",s:"social context"},{t:"LLM in character",s:"responds",hi:1},{t:"Rated",s:"cultural fit",hi:1},{t:"Scored",s:"per model",warn:1}],{w:130}),"Pilot complete; findings coming.")},
+ {id:"auli",kind:"exp",status:"Shipped",title:"Auli at First Light",org:"Photo story · reel + traveller page",dates:"Oct 2026",tags:["med"],
+  sum:"Six sunrise photos from Auli turned into a narrated reel, in English and Hindi cuts, and a traveller's page explaining why the highest peaks catch light first.",
+  metrics:[["2","languages narrated"],["Reel + page","from 6 photos"]],
+  points:["Sequenced the photos into four phases of light: pre-dawn, first light, alpenglow and full morning.","Produced the reel with slow zooms, captions and narration, in vertical and 16:9 cuts.","Built an interactive page for future travellers: a tappable sunrise sequence, the science of alpenglow, a dawn timeline and phone photography tips."],
+  fig:()=>schem("Four phases of light",auliStrip(),"Illustration of the sequence the reel follows.","sq")},
+ {id:"substack",kind:"exp",status:"Writing",wip:1,title:"Essays on Substack",org:"Writing · @shoryak",dates:"2025 –",tags:["med","ai"],
+  sum:"Writing about where AI products are heading, drawn from building them. Starts with The Coming Voice Revolution, from the voice-AI work at iCurious.",
+  metrics:[["Essay","The Coming Voice Revolution"]],
+  points:["The Coming Voice Revolution: why voice is becoming a primary interface for AI, written from building a voice companion for kids."],
+  fig:()=>'',
+  links:[["Read on Substack","https://substack.com/@shoryak/posts"]]}
+];
+
+const CHARS=[
+ {v:"$5M",l:"annual savings at Databricks",id:"databricks"},
+ {v:"99%",l:"HMR reliability, up from 90%",id:"databricks"},
+ {v:"₹12L+",l:"government grants, iCurious phase",id:"startup"},
+ {v:"50k+",l:"revenue in two months after the Protago pivot",id:"startup"},
+ {v:"96%+",l:"precision, ESORICS 2025 study",id:"cispa"},
+ {v:"9.7",l:"CGPA, IIT Kanpur double major",id:null},
+ {v:"834",l:"AIR, JEE Advanced 2019",id:null},
+ {v:"1996",l:"max Codeforces rating",id:null}
+];
+const RANKS=[["JEE Advanced 2019","AIR 834","of 1.65 lakh shortlisted · top 0.51%"],["JEE Mains 2019","AIR 908","of 13.2 lakh · top 0.07%"],["Codeforces","1996","max rating · top 200 in India"],["CodeChef","2026 · 5★","max rating"],["Google Kickstart","151 · 361 · 1382","global ranks"]];
+
+/* ---------- interactive demos ---------- */
+const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DEMOS={};
+
+// Protago: run the storybook pipeline on a sample
+DEMOS.startup=(m)=>{
+  const themes=["Space","Jungle","Ocean","Dinosaurs"];
+  const stages=[["Child photo","the parent uploads a photo and picks a story"],["Flux + LoRA","a fine-tuned diffusion model draws the art in a consistent style"],["Face swap","a BFS pipeline puts the child's likeness on the main character"],["Live preview","the parent sees the finished book before paying"],["Storybook","the personalised book is ready to order"]];
+  m.innerHTML=`<div class="ctl"><label>Child's name <input id="pg-n" type="text" value="Aarav" maxlength="12" style="font:inherit;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:inherit;width:120px"></label></div>
+   <div class="ctl" id="pg-t">${themes.map((t,i)=>`<button data-t="${t}" class="${i?'':'sel'}">${t}</button>`).join('')}</div>
+   <div class="ctl"><button id="pg-go" class="sig">▶ Generate book</button></div>
+   <div class="scroll sq" id="pg-svg"></div>
+   <div class="stage-cap" id="pg-cap">Pick a name and theme, then generate. This runs the same pipeline Protago ran for every order.</div>`;
+  let theme="Space",busy=false;
+  const svg=m.querySelector('#pg-svg'),cap=m.querySelector('#pg-cap');
+  const draw=(act,done)=>{const w=92,g=14,n=stages.length;let x=`<svg viewBox="0 0 ${10+n*(w+g)} 150" xmlns="http://www.w3.org/2000/svg">`;
+    stages.forEach((st,i)=>{const px=10+i*(w+g),on=i===act,dn=done>i;
+      x+=`<rect x="${px}" y="40" width="${w}" height="54" rx="8" class="${on?'d-warn':dn?'d-hi':'d-box'}"/><text x="${px+w/2}" y="62" text-anchor="middle" class="d-t" font-size="11">${st[0]}</text>`;
+      if(dn||on)x+=`<text x="${px+w/2}" y="80" text-anchor="middle" class="d-s">${on?'…':'✓'}</text>`;
+      if(i<n-1)x+=`<line x1="${px+w}" y1="67" x2="${px+w+g}" y2="67" class="d-ar"/>`;});
+    if(done>=stages.length){const nm=(m.querySelector('#pg-n').value||'Aarav').slice(0,12);
+      x+=`<g transform="translate(${10+(n-1)*(w+g)-6},104)"><rect width="104" height="40" rx="5" class="d-hi"/><text x="52" y="18" text-anchor="middle" class="d-t" font-size="10">${esc(nm)}'s</text><text x="52" y="32" text-anchor="middle" class="d-s">${theme} Adventure</text></g>`;}
+    return x+'</svg>';};
+  svg.innerHTML=draw(-1,0);
+  m.querySelector('#pg-t').onclick=e=>{const b=e.target.closest('button');if(!b)return;theme=b.dataset.t;m.querySelectorAll('#pg-t button').forEach(x=>x.classList.toggle('sel',x===b))};
+  m.querySelector('#pg-go').onclick=()=>{if(busy)return;busy=true;let i=0;
+    const run=()=>{if(i<stages.length){svg.innerHTML=draw(i,i);cap.innerHTML='<b>'+stages[i][0]+'</b> — '+stages[i][1];i++;setTimeout(run,RM?0:650);}
+      else{svg.innerHTML=draw(-1,stages.length);const nm=(m.querySelector('#pg-n').value||'Aarav').slice(0,12);cap.innerHTML='<b>Done.</b> '+esc(nm)+"'s "+theme+' Adventure is ready — in production this is the preview the parent buys.';busy=false;}};
+    run();};
+};
+
+// Aaspaas: observation -> listed businesses
+DEMOS.aaspaas=(m)=>{
+  const DATA={
+    "Everyone orders food online":[["Zomato","ZOMATO","Food-delivery platform; earns commissions per order plus ads and its Blinkit quick-commerce arm."],["Swiggy","SWIGGY","Food delivery and Instamart; revenue from delivery fees, restaurant commissions and ads."]],
+    "New Tata EVs on the road":[["Tata Motors","TATAMOTORS","Sells the cars; EV leader in India, also owns Jaguar Land Rover."],["Tata Power","TATAPOWER","Runs much of the public EV charging network; earns from power and charging."]],
+    "Paying by UPI everywhere":[["Paytm","PAYTM","Payments and merchant services; earns from devices, loans distribution and subscriptions."],["PB Fintech","POLICYBAZAR","Digital financial marketplace riding the same online-money habit."]],
+    "Everyone's on a quick workout app":[["Zomato (Blinkit)","ZOMATO","10-minute delivery of supplements and gear."],["Honasa / boAt peers","—","Wearables and nutrition brands; look at listed FMCG and wearables names."]]
+  };
+  const keys=Object.keys(DATA);
+  m.innerHTML=`<p style="margin:0 0 10px;font-size:13.5px;color:var(--muted)">Pick something you've noticed. Aaspaas shows the listed businesses behind it and how each makes money.</p>
+   <div class="ctl" id="aa-obs">${keys.map((k,i)=>`<button data-k="${i}" class="${i?'':'sel'}">${k}</button>`).join('')}</div>
+   <div class="out" id="aa-out"></div>`;
+  const out=m.querySelector('#aa-out');
+  const show=k=>{out.innerHTML=DATA[k].map(([n,t,d])=>`<div class="biz"><b>${esc(n)}</b><span class="tk">${esc(t)}</span><div style="margin-top:4px;color:var(--muted)">${esc(d)}</div></div>`).join('')+`<p style="font-size:12.5px;color:var(--muted);margin-top:10px">Next in the real app: add a pick to a portfolio and track the business case. Companies shown for illustration, not advice.</p>`;};
+  m.querySelector('#aa-obs').onclick=e=>{const b=e.target.closest('button');if(!b)return;m.querySelectorAll('#aa-obs button').forEach(x=>x.classList.toggle('sel',x===b));show(keys[+b.dataset.k]);};
+  show(keys[0]);
+};
+
+// HIWE: move the parameter budget, watch allocation change
+DEMOS.hiwe=(m)=>{
+  m.innerHTML=`<div class="ctl"><label>Parameter budget <input id="hw-b" type="range" min="8" max="52" value="24" step="4"></label><span class="read" id="hw-r"></span></div>
+   <div class="ctl" id="hw-mode"><button data-m="w" class="sel">Importance-weighted (HIWE)</button><button data-m="u">Uniform grid</button></div>
+   <div class="scroll sq" id="hw-svg"></div>
+   <div class="stage-cap">Both spend the same budget of cells. Uniform spreads them evenly; HIWE spends them where the scene has detail (darker = more detail). Same model size, sharper where it matters.</div>`;
+  const imp=(x,y)=>0.06+Math.exp(-((x-.3)**2+(y-.34)**2)/.01)+.85*Math.exp(-((x-.72)**2+(y-.7)**2)/.018)+.4*Math.exp(-((x-.78)**2+(y-.2)**2)/.006);
+  const S=240;let mode="w";
+  const cellSVG=cells=>{const d=cells.map(c=>{const v=Math.min(1,imp(c.x+c.s/2,c.y+c.s/2));return `<rect class="cell d-fillacc" x="${(c.x*S).toFixed(1)}" y="${(c.y*S).toFixed(1)}" width="${(c.s*S).toFixed(1)}" height="${(c.s*S).toFixed(1)}" fill-opacity="${(0.12+0.8*v).toFixed(2)}"/>`}).join('');
+    return `<svg viewBox="0 0 ${S} ${S+6}" xmlns="http://www.w3.org/2000/svg">${d}<rect width="${S}" height="${S}" class="d-grid"/></svg>`;};
+  const uni=n=>{const g=Math.max(2,Math.round(Math.sqrt(n))),a=[];for(let i=0;i<g;i++)for(let j=0;j<g;j++)a.push({x:i/g,y:j/g,s:1/g});return a;};
+  const adapt=n=>{let a=[{x:0,y:0,s:1}];while(a.length<n){let bi=0,bv=-1;a.forEach((c,i)=>{const v=imp(c.x+c.s/2,c.y+c.s/2)*c.s*c.s;if(v>bv){bv=v;bi=i}});const c=a.splice(bi,1)[0],h=c.s/2;a.push({x:c.x,y:c.y,s:h},{x:c.x+h,y:c.y,s:h},{x:c.x,y:c.y+h,s:h},{x:c.x+h,y:c.y+h,s:h});}return a;};
+  const render=()=>{const n=+m.querySelector('#hw-b').value;const cells=mode==='w'?adapt(n):uni(n);m.querySelector('#hw-svg').innerHTML=cellSVG(cells);m.querySelector('#hw-r').textContent=cells.length+' cells';};
+  m.querySelector('#hw-b').oninput=render;
+  m.querySelector('#hw-mode').onclick=e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;m.querySelectorAll('#hw-mode button').forEach(x=>x.classList.toggle('sel',x===b));render();};
+  render();
+};
+
+// Networks: congestion window, inject a loss
+DEMOS.networks=(m)=>{
+  m.innerHTML=`<div class="ctl" id="tc-algo"><button data-a="reno" class="sel">TCP Reno</button><button data-a="tahoe">TCP Tahoe</button></div>
+   <div class="ctl"><button id="tc-run">▶ Run</button><button id="tc-loss" class="sig">⚡ Packet loss</button><button id="tc-reset">Reset</button><span class="read" id="tc-r"></span></div>
+   <div class="scroll" id="tc-svg"></div>
+   <div class="stage-cap">Watch the congestion window grow. Hit <b>Packet loss</b>: Reno halves the window, Tahoe drops back to 1. This is the control loop that keeps a network from collapsing.</div>`;
+  let algo="reno",cwnd=1,ssth=16,data=[1],timer=null;
+  const svg=m.querySelector('#tc-svg');
+  const draw=()=>{const W=520,H=210,X=t=>44+t*(W-60)/40,Y=v=>H-24-v*(H-50)/34;let g='';[0,8,16,24,32].forEach(v=>g+=`<line x1="44" x2="${W-16}" y1="${Y(v)}" y2="${Y(v)}" class="d-grid"/><text x="36" y="${Y(v)+3}" text-anchor="end" class="d-s">${v}</text>`);
+    const pts=data.slice(-41).map((v,i)=>`${X(i)},${Y(v).toFixed(1)}`).join(' ');
+    svg.innerHTML=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}<line x1="44" x2="${W-16}" y1="${Y(ssth)}" y2="${Y(ssth)}" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="${W-16}" y="${Y(ssth)-4}" text-anchor="end" class="d-s">ssthresh</text><polyline points="${pts}" class="d-acc"/><text x="44" y="14" class="d-s">cwnd (segments) vs rounds</text></svg>`;
+    m.querySelector('#tc-r').textContent='cwnd '+Math.round(cwnd)+' · ssthresh '+Math.round(ssth);};
+  const tick=()=>{cwnd=cwnd<ssth?Math.min(cwnd*2,ssth):cwnd+1;if(cwnd>32)cwnd=32;data.push(cwnd);if(data.length>60)data.shift();draw();};
+  const loss=()=>{ssth=Math.max(2,Math.round(cwnd/2));cwnd=algo==='reno'?ssth:1;data.push(cwnd);draw();};
+  const stop=()=>{if(timer){clearInterval(timer);timer=null;m.querySelector('#tc-run').classList.remove('sel');m.querySelector('#tc-run').textContent='▶ Run';}};
+  const reset=()=>{stop();cwnd=1;ssth=16;data=[1];draw();};
+  m.querySelector('#tc-algo').onclick=e=>{const b=e.target.closest('button');if(!b)return;algo=b.dataset.a;m.querySelectorAll('#tc-algo button').forEach(x=>x.classList.toggle('sel',x===b));reset();};
+  m.querySelector('#tc-run').onclick=e=>{if(timer){stop();return}if(RM){tick();return}e.target.classList.add('sel');e.target.textContent='⏸ Pause';timer=setInterval(tick,420);};
+  m.querySelector('#tc-loss').onclick=loss;m.querySelector('#tc-reset').onclick=reset;
+  draw();
+};
+
+// Computer architecture: step the 5-stage pipeline
+DEMOS.comparch=(m)=>{
+  const ST=["IF","ID","EX","MEM","WB"],INS=["lw","add","sub","or","sw"];
+  m.innerHTML=`<div class="ctl"><button id="mp-step">▶ Advance clock</button><button id="mp-reset">Reset</button><span class="read" id="mp-r">cycle 0</span></div>
+   <div class="scroll" id="mp-svg"></div>
+   <div class="stage-cap">Each clock cycle, every instruction moves one stage right. Pipelining keeps all five stages busy at once instead of finishing one instruction before starting the next.</div>`;
+  let c=0;const svg=m.querySelector('#mp-svg');
+  const draw=()=>{const cols=9,cw=46,rh=30,x0=70,y0=24;let x=`<svg viewBox="0 0 ${x0+cols*cw+10} ${y0+INS.length*rh+24}" xmlns="http://www.w3.org/2000/svg">`;
+    for(let k=0;k<cols;k++)x+=`<text x="${x0+k*cw+cw/2}" y="${y0-8}" text-anchor="middle" class="d-s">t${k+1}</text>`;
+    INS.forEach((ins,r)=>{x+=`<text x="${x0-10}" y="${y0+r*rh+rh/2+4}" text-anchor="end" class="d-t" font-size="11">${ins}</text>`;
+      for(let k=0;k<cols;k++){const si=k-r;const act=si>=0&&si<5;const hot=act&&(k<c);const now=act&&(k===c-1);x+=`<rect x="${x0+k*cw}" y="${y0+r*rh}" width="${cw-3}" height="${rh-4}" rx="4" class="${now?'d-warn':hot?'d-hi':'d-box'}" ${act?'':'opacity="0.25"'}/>`;if(act&&k<c)x+=`<text x="${x0+k*cw+(cw-3)/2}" y="${y0+r*rh+rh/2+3}" text-anchor="middle" class="d-s">${ST[si]}</text>`;}});
+    return x+'</svg>';};
+  const render=()=>{svg.innerHTML=draw();m.querySelector('#mp-r').textContent='cycle '+c;};
+  m.querySelector('#mp-step').onclick=()=>{if(c<9)c++;render();};
+  m.querySelector('#mp-reset').onclick=()=>{c=0;render();};
+  render();
+};
+
+/* ---------- render ---------- */
+let active=null;
+const $=id=>document.getElementById(id);
+function cardHTML(it){return `<button class="card" data-id="${it.id}" id="card-${it.id}">
+  <div class="top"><h3>${esc(it.title)}</h3><span class="dates">${it.dates}</span></div>
+  <div class="org">${esc(it.org)}</div><p class="sum">${esc(it.sum)}</p>
+  <div class="metrics">${it.metrics.map(([v,l])=>`<span class="metric"><b>${esc(v)}</b> ${esc(l)}</span>`).join('')}</div>
+  <div class="tags">${it.tags.map(t=>`<span class="tag" style="--c:${DOM[t].c}"><i></i>${DOM[t].name}</span>`).join('')}${it.status?`<span class="status${it.wip?' wip':''}">${esc(it.status)}</span>`:''}${DEMOS[it.id]?`<span class="try">▶ Try it</span>`:''}<span class="open">Open →</span></div></button>`}
+$('roles').innerHTML=ITEMS.filter(i=>i.kind==='role').map(cardHTML).join('');
+$('projects').innerHTML=ITEMS.filter(i=>i.kind==='project').map(cardHTML).join('');
+$('exps').innerHTML=ITEMS.filter(i=>i.kind==='exp').map(cardHTML).join('');
+$('chars').innerHTML=CHARS.map((c,i)=>`<button class="char" id="char-${i}" ${c.id?`data-id="${c.id}"`:'disabled style="cursor:default"'}><span class="v">${c.v}</span><span class="l">${c.l}</span>${c.id?`<span class="src">See ${ITEMS.find(x=>x.id===c.id).title} →</span>`:''}</button>`).join('');
+$('ranks').innerHTML=RANKS.map(([a,b,c])=>`<div class="rank"><div class="row"><span>${a}</span><span class="big">${b}</span></div><small>${c}</small></div>`).join('');
+
+$('filter').innerHTML=`<button class="fbtn" id="f-all" data-f="" aria-pressed="true">All</button>`+Object.entries(DOM).map(([k,d])=>`<button class="fbtn" id="f-${k}" data-f="${k}" style="--c:${d.c}" aria-pressed="false"><i></i>${d.name}</button>`).join('');
+
+/* chip pinout */
+(function(){
+  const L=['ai','hw','web'],R=['sys','infra','res'];let s=`<rect x="120" y="30" width="160" height="190" rx="8" class="chip-body"/><circle cx="138" cy="48" r="5" fill="var(--muted)"/>
+  <text x="200" y="112" text-anchor="middle" class="chip-name" font-size="20">SHORYA</text><text x="200" y="134" text-anchor="middle" class="chip-name" font-size="20">KUMAR</text>
+  <text x="200" y="160" text-anchor="middle" class="chip-txt" font-size="10">SK-IITK-19</text><text x="200" y="176" text-anchor="middle" class="chip-txt" font-size="10">EE·CS · 2024</text>`;
+  const pin=(k,i,side)=>{const y=62+i*62,n=side==='L'?i+1:6-i,x1=side==='L'?72:280,x2=side==='L'?120:328,px=side==='L'?50:330,tx=side==='L'?44:378,anc=side==='L'?'end':'start';
+    return `<g class="pin" tabindex="0" role="button" aria-pressed="false" aria-label="Filter: ${DOM[k].name}" data-f="${k}" style="--pc:${DOM[k].c}"><line x1="${x1}" x2="${x2}" y1="${y}" y2="${y}" class="lead"/><rect x="${px}" y="${y-8}" width="22" height="16" rx="3" class="pad"/><text x="${side==='L'?132:268}" y="${y+3}" text-anchor="${side==='L'?'start':'end'}" class="pnum" style="fill:var(--paper)">${n}</text><text x="${side==='L'?tx:tx-26}" y="${y+4}" text-anchor="${anc}" class="pname">${DOM[k].name.split(' ')[0].toUpperCase()}</text></g>`};
+  L.forEach((k,i)=>s+=pin(k,i,'L'));R.forEach((k,i)=>s+=pin(k,i,'R'));
+  $('chip').innerHTML=s;
+})();
+
+function setFilter(f){
+  f=f||'';let shown=0;
+  ITEMS.forEach(it=>{const on=!f||it.tags.includes(f);$('card-'+it.id).hidden=!on;if(on)shown++;});
+  document.querySelectorAll('.fbtn').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));
+  document.querySelectorAll('.pin').forEach(p=>{const on=p.dataset.f===f;p.classList.toggle('on',on);p.setAttribute('aria-pressed',String(on))});
+  $('count').textContent=f?`Showing ${shown} of ${ITEMS.length} · ${DOM[f].name}`:`${ITEMS.length} entries · filter by domain or use the pinout`;
+}
+document.addEventListener('click',e=>{
+  const fb=e.target.closest('.fbtn');if(fb){setFilter(fb.dataset.f);return}
+  const pin=e.target.closest('.pin');if(pin){const f=pin.classList.contains('on')?'':pin.dataset.f;setFilter(f);$('work').scrollIntoView({behavior:'smooth',block:'start'});return}
+  const op=e.target.closest('[data-id]');if(op&&!op.disabled){openItem(op.dataset.id);return}
+  const cp=e.target.closest('[data-copy]');if(cp){copy(cp.dataset.copy)}
+});
+document.addEventListener('keydown',e=>{
+  const pin=e.target.closest&&e.target.closest('.pin');
+  if(pin&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pin.dispatchEvent(new MouseEvent('click',{bubbles:true}))}
+  if(!$('drawer').hidden){if(e.key==='Escape')closeItem();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)}
+});
+
+function visible(){return ITEMS.filter(it=>!$('card-'+it.id).hidden)}
+function openItem(id){
+  const it=ITEMS.find(x=>x.id===id);if(!it)return;active=id;
+  $('d-crumb').textContent=KIND[it.kind]+(it.status?' · '+it.status:'')+' · '+it.dates;
+  $('d-body').innerHTML=`<div class="tags">${it.tags.map(t=>`<span class="tag" style="--c:${DOM[t].c}"><i></i>${DOM[t].name}</span>`).join('')}</div>
+   <h2 id="d-title">${esc(it.title)}</h2><div class="sub">${esc(it.org)}</div>
+   <p style="margin:14px 0 0;max-width:62ch">${esc(it.sum)}</p>
+   <div class="dmetrics">${it.metrics.map(([v,l])=>`<div class="dm"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
+   ${DEMOS[id]?`<div class="demo" id="d-demo"><div class="label"><span>Try it</span><span>INTERACTIVE</span></div><div id="d-demo-body"></div></div>`:''}
+   ${it.fig()}
+   <ul class="dpoints">${it.points.map(p=>`<li><span>${esc(p)}</span></li>`).join('')}</ul>
+   ${it.links?`<div class="dlinks">${it.links.map(([t,u])=>`<a class="pill" href="${u}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join('')}</div>`:''}`;
+  if(DEMOS[id]){try{DEMOS[id]($('d-demo-body'))}catch(e){$('d-demo').hidden=true}}
+  $('drawer').hidden=false;$('scrim').hidden=false;$('d-body').scrollTop=0;document.body.style.overflow='hidden';$('d-close').focus();
+}
+function closeItem(){$('drawer').hidden=true;$('scrim').hidden=true;document.body.style.overflow='';const c=active&&$('card-'+active);if(c&&!c.hidden)c.focus();active=null}
+function step(d){const v=visible();if(!v.length)return;let i=v.findIndex(x=>x.id===active);i=(i+d+v.length)%v.length;openItem(v[i].id)}
+$('d-close').onclick=closeItem;$('scrim').onclick=closeItem;$('d-prev').onclick=()=>step(-1);$('d-next').onclick=()=>step(1);
+
+function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,1800)}
+function copy(txt){
+  const fallback=()=>{toast('Select and copy: '+txt)};
+  try{navigator.clipboard.writeText(txt).then(()=>toast('Copied '+txt),fallback)}catch(e){fallback()}
+}
+/* theme toggle */
+(function(){
+  const btn=$('theme-btn');const root=document.documentElement;
+  const stored=localStorage.getItem('sk-theme');
+  if(stored)root.setAttribute('data-theme',stored);
+  btn.onclick=()=>{const cur=root.getAttribute('data-theme');const isDark=cur==='dark'||(cur!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches);const next=isDark?'light':'dark';root.setAttribute('data-theme',next);localStorage.setItem('sk-theme',next)};
+})();
+setFilter('');
+const h=(location.hash||'').slice(1);if(h&&ITEMS.some(x=>x.id===h))openItem(h);
+</script>
+
+</body>
+</html>

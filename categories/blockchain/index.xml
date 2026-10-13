@@ -1,19 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Blockchain on shoryak</title>
-    <link>https://shoryak.github.io/categories/blockchain/</link>
-    <description>Recent content in Blockchain on shoryak</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://shoryak.github.io/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Let the Crypto begin</title>
-      <link>https://shoryak.github.io/posts/let-the-crypto-begin/</link>
-      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://shoryak.github.io/posts/let-the-crypto-begin/</guid>
-      <description>&lt;h1 id=&#34;hey-there&#34;&gt;&#xA;  Hey there,&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#hey-there&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Finally, the semester is over, and here I am motivated to start something. What can be a better way than a blog post. This post is somewhat about my dive into the world of &lt;strong&gt;blockchains&lt;/strong&gt; and &lt;strong&gt;cryptocurrency&lt;/strong&gt; but more so about why we need a community here at IIT Kanpur to make people familiar with it. At the very least, there could be more awareness among the IITK community about this new technology that is changing everything around us.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blockchain on shoryak</title><link>https://shoryak.github.io/categories/blockchain/</link><description>Recent content in Blockchain on shoryak</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shoryak.github.io/categories/blockchain/index.xml" rel="self" type="application/rss+xml"/><item><title>Let the Crypto begin</title><link>https://shoryak.github.io/posts/let-the-crypto-begin/</link><pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate><guid>https://shoryak.github.io/posts/let-the-crypto-begin/</guid><description>&lt;h1 id="hey-there"&gt;
+ Hey there,
+ &lt;a class="heading-link" href="#hey-there"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Finally, the semester is over, and here I am motivated to start something. What can be a better way than a blog post. This post is somewhat about my dive into the world of &lt;strong&gt;blockchains&lt;/strong&gt; and &lt;strong&gt;cryptocurrency&lt;/strong&gt; but more so about why we need a community here at IIT Kanpur to make people familiar with it. At the very least, there could be more awareness among the IITK community about this new technology that is changing everything around us.&lt;/p&gt;</description></item></channel></rss>
