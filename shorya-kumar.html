@@ -97,13 +97,50 @@ section{margin-top:44px}
 .fbtn i{width:8px;height:8px;border-radius:50%;background:var(--c,var(--muted))}
 .fbtn[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
 .count{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.highlights-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:4px}
+.hcard .cv-carousel,.hcard .cv-slides,.hcard .cv-slide,.hcard .cv-slide svg,.hcard .card-vis,.hcard .card-vis svg{height:165px}
+.hcard h3{font-size:16px!important}
+.persona-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 18px}
+.persona-bar .plbl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-right:4px;flex-shrink:0}
+.pbtn{font-family:var(--mono);font-size:11px;padding:5px 15px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:border-color .18s,background .18s,color .18s;letter-spacing:.05em}
+.pbtn:hover{border-color:var(--accent);color:var(--accent)}
+.pbtn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.card{transition:border-color .15s,transform .15s,opacity .35s,filter .35s}
+.card.dim{opacity:.18;filter:grayscale(.7)}
+.card.dim:hover{opacity:.55;filter:grayscale(.1)}
+.hero .role,.hero>div>p{transition:opacity .25s,transform .25s}
+.hero-xfade{opacity:0;transform:translateY(5px)}
 .group-title{margin:26px 0 12px}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .15s,transform .15s}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .15s,transform .15s;overflow:hidden}
 .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card-vis{margin:-18px -18px 4px;height:260px;overflow:hidden;border-bottom:1px solid var(--line);background:var(--accent-soft);position:relative;display:block}
+.card-vis svg{width:100%;height:260px;display:block}
+.card-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.card-vis-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(0,0,0,.28);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:#fff;opacity:0;transition:opacity .15s;z-index:3}
+.card:hover .card-vis-play{opacity:1}
+/* carousel */
+.cv-carousel{margin:-18px -18px 4px;height:260px;overflow:hidden;border-bottom:1px solid var(--line);background:var(--accent-soft);position:relative;display:block;cursor:pointer}
+.cv-slides{display:flex;height:260px;transition:transform .55s cubic-bezier(.4,.1,.2,1);will-change:transform}
+.cv-slide{flex:0 0 100%;width:100%;height:260px;position:relative;overflow:hidden}
+.cv-slide svg{width:100%;height:260px;display:block}
+.cv-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cv-slide .card-vis-play{position:absolute}
+.cv-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:6px;z-index:4}
+.cv-dots span{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.45);box-shadow:0 0 0 1px rgba(0,0,0,.12);transition:all .2s;cursor:pointer}
+.cv-dots span.on{background:#fff;width:16px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
 .card .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .card .dates{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
-.card h3{font-size:21px;font-weight:700} .card .org{font-size:13.5px;color:var(--muted)} .card .sum{margin:0;font-size:14.5px}
+.card h3{font-size:21px;font-weight:700} .card .org{font-size:13.5px;color:var(--muted)}
+.yt-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.yt-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color .15s}
+.yt-card:hover{border-color:var(--accent)}
+.yt-card-img{position:relative;aspect-ratio:16/9;overflow:hidden}
+.yt-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.yt-card-img iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.yt-card-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);font-size:26px;color:#fff;transition:background .15s}
+.yt-card:hover .yt-card-play{background:rgba(0,0,0,.46)}
+.yt-card-lbl{font-family:var(--mono);font-size:11px;color:var(--muted);padding:7px 10px;letter-spacing:.04em}
 .metrics{display:flex;flex-wrap:wrap;gap:6px}
 .metric{font-family:var(--mono);font-size:12px;background:var(--signal-soft);border-radius:6px;padding:3px 8px}
 .metric b{color:var(--signal);font-weight:600}
@@ -165,12 +202,52 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:10px;display:
 .cmp b{display:block;font-family:var(--display);font-size:15px} .cmp small{color:var(--muted);font-size:12px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:8px;font-size:13px;z-index:30}
 @media (max-width:860px){.hero,.two{grid-template-columns:minmax(0,1fr)}.chars,.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:620px){.cards,.skills,.cmp{grid-template-columns:minmax(0,1fr)}.wrap{padding-inline:16px}}
+@media (max-width:620px){
+  .cards,.skills,.cmp{grid-template-columns:minmax(0,1fr)}
+  .wrap{padding-inline:16px}
+  .chipbox{display:none}
+  .card .tag{display:none}
+  .cv-carousel,.cv-slides,.cv-slide,.cv-slide svg,.card-vis,.card-vis svg{height:185px!important}
+  .highlights-row{grid-template-columns:repeat(3,240px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:-16px;padding-inline:16px;padding-bottom:6px}
+  .hcard .cv-carousel,.hcard .cv-slides,.hcard .cv-slide,.hcard .cv-slide svg,.hcard .card-vis,.hcard .card-vis svg{height:130px!important}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 .theme-toggle{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 10px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── entrance animation ── */
+.card{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease,border-color .15s,filter .35s}
+.card.in{opacity:1;transform:translateY(0)}
+.card.dim.in{opacity:.18}
+.card.dim:hover{opacity:.55!important}
+
+/* ── hero mesh background ── */
+@keyframes mesh-shift{0%,100%{transform:scale(1) translate(0,0)}50%{transform:scale(1.1) translate(18px,-12px)}}
+.hero{position:relative;isolation:isolate}
+.hero::before{content:'';position:absolute;inset:-80px -60px;background:radial-gradient(ellipse 65% 55% at 12% 65%,var(--accent-soft),transparent 70%),radial-gradient(ellipse 50% 40% at 88% 20%,var(--ok-soft),transparent 70%),radial-gradient(ellipse 45% 55% at 60% 85%,var(--signal-soft),transparent 70%);animation:mesh-shift 12s ease-in-out infinite;z-index:-1;filter:blur(52px);pointer-events:none;opacity:.85}
+
+/* ── hcard animated gradient border ── */
+@property --ha{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes hcard-spin{to{--ha:360deg}}
+.hcard{--ha:0deg;border:1.5px solid transparent!important;background:linear-gradient(var(--surface),var(--surface)) padding-box,conic-gradient(from var(--ha) at 50% 50%,var(--accent),#818cf8,var(--t-ai),var(--signal),var(--ok),var(--accent)) border-box!important;animation:hcard-spin 5s linear infinite}
+
+/* ── active card glow ── */
+.card.active{border-color:var(--accent)!important;box-shadow:0 0 0 3px var(--accent-soft),0 8px 32px rgba(0,0,0,.13)!important;transition-duration:.1s}
+
+/* ── chars smooth swap ── */
+.chars{transition:opacity .22s ease,transform .22s ease}
+.chars.swapping{opacity:0;transform:scale(.96)!important}
+
+/* ── sticky persona bar ── */
+.persona-bar{position:sticky;top:0;z-index:15;background:var(--paper);padding:10px 0 8px;margin-bottom:10px;border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+.persona-bar.stuck{border-color:var(--line);box-shadow:0 4px 20px rgba(0,0,0,.07)}
+
+/* ── backdrop blur on scrim ── */
+.scrim{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:rgba(10,16,22,.28)!important}
+
 @media print{
-  .chipbox,.filter,.fbtn,.ibtn,.dnav,.scrim,.drawer,.toast,.theme-toggle,.dlinks .pill[href^="http"]{display:none!important}
+  .chipbox,.filter,.fbtn,.ibtn,.dnav,.scrim,.drawer,.toast,.theme-toggle,.dlinks .pill[href^="http"],.card-vis-play,.yt-card-play,.cv-dots,.persona-bar,#highlights-sec{display:none!important}
+  .cv-slides{transform:none!important} .cv-slide:not(:first-child){display:none}
   .card{break-inside:avoid;cursor:default}
   .card:hover{transform:none;border-color:var(--line)}
   body{font-size:12px}
@@ -191,8 +268,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:10px;display:
       <p>Founding CTO of an AI startup, ex-Databricks, IIT Kanpur double major (CGPA 9.7). Research stints at CISPA Helmholtz Center and the University of Toronto. Equally drawn to products people use and research that moves what is understood.</p>
       <div class="contact">
         <button class="pill" id="copy-email" data-copy="shoryakumar411@gmail.com">shoryakumar411@gmail.com <small>copy</small></button>
-        <button class="pill" id="copy-phone" data-copy="+91 7037505944">+91 70375 05944 <small>copy</small></button>
-        <a class="pill" href="https://shoryak.github.io/" target="_blank" rel="noopener">shoryak.github.io <small>site</small></a>
+<a class="pill" href="https://shoryak.github.io/" target="_blank" rel="noopener">shoryak.github.io <small>site</small></a>
         <a class="pill" href="https://github.com/shoryak" target="_blank" rel="noopener">GitHub · shoryak</a>
         <a class="pill" href="https://www.linkedin.com/in/shoryak" target="_blank" rel="noopener">LinkedIn · shoryak</a>
       </div>
@@ -202,6 +278,20 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:10px;display:
       <div class="label hint">Pinout · tap a pin to filter the work</div>
     </div>
   </header>
+
+  <div class="persona-bar" id="persona-bar">
+    <span class="plbl">Viewing as</span>
+    <button class="pbtn on" data-p="default">Full picture</button>
+    <button class="pbtn" data-p="builder">Builder</button>
+    <button class="pbtn" data-p="researcher">Researcher</button>
+    <button class="pbtn" data-p="engineer">Engineer</button>
+    <button class="pbtn" data-p="founder">Founder / investor</button>
+  </div>
+
+  <section id="highlights-sec">
+    <div class="sec-h"><h2>Highlights</h2><span class="label">Top 3 · click to explore</span></div>
+    <div class="highlights-row" id="highlights"></div>
+  </section>
 
   <section>
     <div class="sec-h"><h2>Characteristics</h2><span class="label">Measured outcomes · tap to open</span></div>
@@ -213,7 +303,6 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:10px;display:
     <div class="count" id="count"></div>
     <div class="label group-title">Roles</div><div class="cards" id="roles"></div>
     <div class="label group-title">Experiments &amp; ongoing</div>
-    <p class="group-note">Things I've built on my own time since leaving the startup, shipped end to end.</p>
     <div class="cards" id="exps"></div>
     <div class="label group-title">Projects &amp; open source</div><div class="cards" id="projects"></div>
   </section>
@@ -343,6 +432,446 @@ function auliStrip(){
 const chips=a=>`<div class="chips-html">${a.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`;
 const cmp=a=>`<div class="cmp">${a.map(([b,s])=>`<div><b>${esc(b)}</b><small>${esc(s)}</small></div>`).join('')}</div>`;
 
+/* ── card mini-visuals ────────────────────────────────────────────────────── */
+/* ── card visual illustrations ───────────────────────────────────────────── */
+/* All SVGs use viewBox "0 0 360 130" matching the fixed 130px card-vis height */
+const AR=(id,c='')=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${c||'var(--muted)'}"/></marker></defs>`;
+/* each slide is raw HTML (SVG or <img> markup); carousel wraps them */
+const SVG=(inner,bg='')=>`<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"${bg?` style="background:${bg}"`:''}>${inner}</svg>`;
+const F_D='Bricolage Grotesque,sans-serif',F_M='IBM Plex Mono,monospace';
+function buildCarousel(slides){
+  const s=(slides&&slides.length?slides:['']);
+  const panels=s.map(h=>`<div class="cv-slide">${h}</div>`).join('');
+  const dots=s.length>1?`<div class="cv-dots">${s.map((_,i)=>`<span class="${i?'':'on'}" data-i="${i}"></span>`).join('')}</div>`:'';
+  return `<div class="cv-carousel" data-n="${s.length}"><div class="cv-slides">${panels}</div>${dots}</div>`;
+}
+
+/* importance field reused by HIWE grids */
+const hiweImp=(x,y)=>0.06+Math.exp(-((x-.3)**2+(y-.34)**2)/.01)+.85*Math.exp(-((x-.72)**2+(y-.7)**2)/.018)+.4*Math.exp(-((x-.78)**2+(y-.2)**2)/.006);
+function hiweCells(n){const a=[{x:0,y:0,s:1}];for(let k=0;k<n;k++){let bi=0,bv=-1;a.forEach((c,i)=>{const v=hiweImp(c.x+c.s/2,c.y+c.s/2)*c.s*c.s;if(v>bv){bv=v;bi=i}});const c=a.splice(bi,1)[0],h=c.s/2;a.push({x:c.x,y:c.y,s:h},{x:c.x+h,y:c.y,s:h},{x:c.x,y:c.y+h,s:h},{x:c.x+h,y:c.y+h,s:h})}return a;}
+
+const VIS={
+
+/* ── STARTUP ─────────────────────────────────────────────────────────────── */
+startup:()=>[
+  /* S1 · split thumbnails */
+  `<div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;background:#0d1117">
+    <div style="overflow:hidden;position:relative">
+      <img src="https://img.youtube.com/vi/F28lZyda-MY/hqdefault.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:.9;display:block">
+      <span style="position:absolute;bottom:0;left:0;right:0;padding:7px 11px;background:linear-gradient(transparent,rgba(0,0,0,.78));font:600 11px ${F_M};color:#fff;letter-spacing:.06em">iCurious · voice AI</span>
+    </div>
+    <div style="overflow:hidden;position:relative;border-left:1px solid rgba(255,255,255,.14)">
+      <img src="https://img.youtube.com/vi/At_FrzzTpQ0/hqdefault.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:.9;display:block">
+      <span style="position:absolute;bottom:0;left:0;right:0;padding:7px 11px;background:linear-gradient(transparent,rgba(0,0,0,.78));font:600 11px ${F_M};color:#fff;letter-spacing:.06em">Protago · storybooks</span>
+    </div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;color:#0d1117;padding-left:3px">▶</div>
+    <div class="card-vis-play">▶&nbsp;&nbsp;watch both demos</div>
+  </div>`,
+  /* S2 · voice pipeline */
+  SVG(`<defs><linearGradient id="svwave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="var(--accent)" stop-opacity=".12"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+    <rect width="400" height="200" fill="var(--surface)"/>
+    ${(()=>{let p='M0 100';for(let x=0;x<=400;x+=8){const a=18*Math.sin(x/22)*Math.exp(-((x-200)**2)/60000);p+=` L${x} ${(100+a).toFixed(1)}`}return `<path d="${p}" fill="none" stroke="var(--accent)" stroke-width="1.6" opacity=".35"/>`+`<path d="${p} L400 200 L0 200 Z" fill="url(#svwave)"/>`})()}
+    <text x="30" y="34" font-family="${F_M}" font-size="11" fill="var(--muted)" letter-spacing=".1em">REAL-TIME VOICE LOOP</text>
+    ${[['Child','mic'],['ASR','speech→text'],['LLM','inference'],['TTS','text→speech'],['Speaker','reply']].map((n,i)=>{const w=62,g=12,x=22+i*(w+g),hi=i>=1&&i<=3;return `<rect x="${x}" y="78" width="${w}" height="46" rx="8" fill="${hi?'var(--accent-soft)':'var(--surface)'}" stroke="${hi?'var(--accent)':'var(--line)'}" stroke-width="1.5"/><text x="${x+w/2}" y="100" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="13" fill="${hi?'var(--accent)':'var(--ink)'}">${n[0]}</text><text x="${x+w/2}" y="114" text-anchor="middle" font-family="${F_M}" font-size="7.5" fill="var(--muted)">${n[1]}</text>`+(i<4?`<path d="M${x+w+1} 101 L${x+w+g-1} 101" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#stA)"/>`:'')}).join('')}
+    ${AR('stA','var(--muted)')}
+    <text x="200" y="158" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)" opacity=".8">sub-second round trip · edge + cloud backends</text>`,'var(--surface)'),
+  /* S3 · storybook pipeline */
+  SVG(`<defs><linearGradient id="sbbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--t-res)" stop-opacity=".1"/><stop offset=".5" stop-color="var(--signal)" stop-opacity=".1"/><stop offset="1" stop-color="var(--accent)" stop-opacity=".12"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#sbbg)"/>
+    <text x="30" y="34" font-family="${F_M}" font-size="11" fill="var(--t-res)" letter-spacing=".1em">PERSONALISED STORYBOOK</text>
+    ${[['Child photo','#B0306A'],['Flux + LoRA','#B57805'],['Face swap','#7A3FC2'],['Storybook','#2C56E0']].map((n,i)=>{const w=72,g=14,x=24+i*(w+g);return `<rect x="${x}" y="72" width="${w}" height="64" rx="10" fill="var(--surface)" stroke="${n[1]}" stroke-width="1.8"/><rect x="${x+8}" y="80" width="${w-16}" height="30" rx="5" fill="${n[1]}" opacity=".18"/><text x="${x+w/2}" y="126" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="10.5" fill="${n[1]}">${n[0]}</text>`+(i<3?`<path d="M${x+w+1} 104 L${x+w+g-1} 104" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#sbA)"/>`:'')}).join('')}
+    ${AR('sbA','var(--muted)')}
+    <text x="200" y="168" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">the child becomes the hero · generated on Modal</text>`,'var(--surface)')
+],
+
+/* ── DATABRICKS ──────────────────────────────────────────────────────────── */
+databricks:()=>[
+  /* S1 · 99% hero + bar */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="28" y="92" font-family="${F_D}" font-weight="800" font-size="76" fill="var(--accent)" letter-spacing="-.03em">99%</text>
+    <text x="30" y="120" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".12em">HMR RELIABILITY</text>
+    <text x="30" y="138" font-family="${F_M}" font-size="9" fill="var(--muted)" opacity=".7">up from 90%</text>
+    <line x1="212" y1="40" x2="212" y2="160" stroke="var(--line)" stroke-width="1.2"/>
+    <text x="236" y="72" font-family="${F_M}" font-size="10" fill="var(--muted)">Before · 10 fails /100</text>
+    <rect x="236" y="80" width="140" height="22" rx="5" fill="var(--signal)" opacity=".4"/>
+    <text x="236" y="128" font-family="${F_M}" font-size="10" fill="var(--muted)">After · 1 fail /100</text>
+    <rect x="236" y="136" width="14" height="22" rx="5" fill="var(--accent)"/>
+    <text x="256" y="152" font-family="${F_M}" font-size="9" fill="var(--accent)">10×</text>`,'var(--surface)'),
+  /* S2 · $5M cost story */
+  SVG(`<rect width="400" height="200" fill="var(--signal-soft)"/>
+    <text x="28" y="86" font-family="${F_D}" font-weight="800" font-size="60" fill="var(--signal)" letter-spacing="-.03em">$5M</text>
+    <text x="30" y="110" font-family="${F_M}" font-size="10" fill="var(--signal)" letter-spacing=".1em">SAVED PER YEAR</text>
+    ${[['Emit','metrics'],['Attribute','cost/source'],['Eliminate','high-cost tail'],['Savings','$5M/yr']].map((n,i)=>{const w=78,g=10,x=20+i*(w+g);const last=i===3;return `<rect x="${x}" y="132" width="${w}" height="44" rx="8" fill="${last?'var(--signal)':'var(--surface)'}" stroke="${last?'var(--signal)':'var(--line)'}" stroke-width="1.5"/><text x="${x+w/2}" y="153" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="12" fill="${last?'#fff':'var(--ink)'}">${n[0]}</text><text x="${x+w/2}" y="167" text-anchor="middle" font-family="${F_M}" font-size="7.5" fill="${last?'rgba(255,255,255,.85)':'var(--muted)'}">${n[1]}</text>`+(i<3?`<path d="M${x+w+1} 154 L${x+w+g-1} 154" stroke="var(--signal)" stroke-width="1.6" marker-end="url(#dbA)"/>`:'')}).join('')}
+    ${AR('dbA','var(--signal)')}`,'var(--signal-soft)'),
+  /* S3 · team origin */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="46" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".12em">BENGALURU TEAM</text>
+    <text x="28" y="96" font-family="${F_D}" font-weight="800" font-size="56" fill="var(--accent)" letter-spacing="-.02em">0 → n</text>
+    <text x="30" y="118" font-family="${F_M}" font-size="9" fill="var(--muted)">first member · helped hire &amp; grow</text>
+    ${(()=>{const pts=[[40,170],[120,150],[200,122],[280,96],[360,60]];let p='M'+pts.map(q=>q.join(' ')).join(' L');return `<path d="${p}" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linejoin="round"/>`+pts.map((q,i)=>`<circle cx="${q[0]}" cy="${q[1]}" r="${i===0?5:4}" fill="${i===0?'var(--signal)':'var(--accent)'}"/>`).join('')})()}
+    <text x="40" y="188" font-family="${F_M}" font-size="8" fill="var(--signal)">you · #1</text>`,'var(--surface)')
+],
+
+/* ── CISPA ───────────────────────────────────────────────────────────────── */
+cispa:()=>{
+  const pcb=`<defs><pattern id="pcb" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#0a1a18"/><path d="M0 10 H20 M10 0 V20" stroke="#1d5a4e" stroke-width=".6" opacity=".5"/><circle cx="10" cy="10" r="1.3" fill="#2f8f7c" opacity=".6"/></pattern></defs>`;
+  return [
+  /* S1 · covert channel on PCB */
+  SVG(`${pcb}${AR('cvA','#5FD58F')}<rect width="400" height="200" fill="url(#pcb)"/>
+    <rect x="28" y="66" width="116" height="74" rx="8" fill="#0d2a26" stroke="#5FD58F" stroke-width="1.8"/>
+    ${[0,1,2,3].map(i=>`<rect x="40" y="${80+i*14}" width="${92-i*12}" height="7" rx="2" fill="#5FD58F" opacity=".3"/>`).join('')}
+    <text x="86" y="156" text-anchor="middle" font-family="${F_M}" font-size="10" fill="#5FD58F" font-weight="600" letter-spacing=".06em">NIC FW</text>
+    <path d="M144 103 C 200 50, 240 150, 288 103" stroke="var(--signal)" stroke-width="2.4" stroke-dasharray="6 4" fill="none" marker-end="url(#cvA)"/>
+    <text x="216" y="66" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--signal)">covert cache channel</text>
+    <rect x="290" y="66" width="82" height="74" rx="8" fill="#0d2a26" stroke="#5FD58F" stroke-width="1.8"/>
+    ${[0,1,2,3].map(i=>`<rect x="300" y="${80+i*14}" width="62" height="7" rx="2" fill="${i===1?'#F0B43C':'#5FD58F'}" opacity="${i===1?'.7':'.3'}"/>`).join('')}
+    <text x="331" y="156" text-anchor="middle" font-family="${F_M}" font-size="10" fill="#5FD58F" font-weight="600" letter-spacing=".06em">CPU LLC</text>
+    <text x="200" y="184" text-anchor="middle" font-family="${F_M}" font-size="9" fill="#8fd9cc">no user-space access required</text>`),
+  /* S2 · result stats */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="28" y="108" font-family="${F_D}" font-weight="800" font-size="88" fill="var(--t-sys)" letter-spacing="-.04em">96%+</text>
+    <text x="30" y="134" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">KEYSTROKE DETECTION PRECISION</text>
+    <text x="30" y="154" font-family="${F_M}" font-size="10" fill="var(--ink)">20 users · multiple sessions</text>
+    <rect x="252" y="30" width="120" height="30" rx="15" fill="var(--t-res)"/>
+    <text x="312" y="50" text-anchor="middle" font-family="${F_M}" font-size="11" fill="#fff" font-weight="500" letter-spacing=".04em">ESORICS 2025</text>`,'var(--surface)'),
+  /* S3 · threat model */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    ${AR('tmA','var(--muted)')}
+    <rect x="34" y="68" width="100" height="64" rx="8" fill="var(--signal-soft)" stroke="var(--t-med)" stroke-width="1.8"/>
+    <text x="84" y="96" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="12" fill="var(--t-med)">Attacker</text>
+    <text x="84" y="112" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--t-med)">NIC firmware</text>
+    <rect x="160" y="44" width="80" height="112" rx="8" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="200" y="38" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--muted)">isolation boundary</text>
+    <rect x="168" y="86" width="64" height="30" rx="6" fill="var(--paper)" stroke="var(--muted)" stroke-width="1.4"/>
+    <text x="200" y="105" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--ink)">shared LLC</text>
+    <rect x="266" y="68" width="100" height="64" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+    <text x="316" y="96" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="12" fill="var(--accent)">Victim</text>
+    <text x="316" y="112" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--accent)">user process</text>
+    <path d="M134 100 L167 101" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#tmA)"/>
+    <path d="M232 101 L265 100" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#tmA)"/>`,'var(--surface)')
+  ];
+},
+
+/* ── TORONTO ─────────────────────────────────────────────────────────────── */
+toronto:()=>{
+  const S=146,g=16,px=(400-(2*S+g))/2,oy=34;
+  const ad=hiweCells(21);
+  const uni=[];for(let i=0;i<6;i++)for(let j=0;j<6;j++)uni.push({x:i/6,y:j/6,s:1/6});
+  const draw=(cells,ox)=>cells.map(c=>{const v=Math.min(1,hiweImp(c.x+c.s/2,c.y+c.s/2));return `<rect x="${(ox+c.x*S).toFixed(1)}" y="${(oy+c.y*S).toFixed(1)}" width="${(c.s*S-.6).toFixed(1)}" height="${(c.s*S-.6).toFixed(1)}" fill="var(--accent)" fill-opacity="${(.1+.8*v).toFixed(2)}" stroke="var(--surface)" stroke-width=".6"/>`}).join('');
+  return [
+  /* S1 · side-by-side grids */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="${px+S/2}" y="24" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".06em">UNIFORM · 36 CELLS</text>
+    ${draw(uni,px)}<rect x="${px}" y="${oy}" width="${S}" height="${S}" fill="none" stroke="var(--line)" stroke-width="1.2"/>
+    <text x="${px+S+g+S/2}" y="24" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--accent)" letter-spacing=".06em">HIWE · ${ad.length} CELLS</text>
+    ${draw(ad,px+S+g)}<rect x="${px+S+g}" y="${oy}" width="${S}" height="${S}" fill="none" stroke="var(--accent)" stroke-width="1.2"/>
+    <text x="200" y="196" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">same budget — cells follow scene detail</text>`,'var(--surface)'),
+  /* S2 · research impact / depth map */
+  SVG(`<defs><linearGradient id="nerf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2C56E0"/><stop offset=".4" stop-color="#7A3FC2"/><stop offset=".7" stop-color="#B0306A"/><stop offset="1" stop-color="#B57805"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#nerf)" opacity=".85"/>
+    ${(()=>{let r='';for(let i=0;i<7;i++){const rad=24+i*18;r+=`<circle cx="270" cy="120" r="${rad}" fill="none" stroke="#fff" stroke-width="1" opacity="${(.28-i*.03).toFixed(2)}"/>`}return r})()}
+    <text x="30" y="70" font-family="${F_D}" font-weight="800" font-size="26" fill="#fff" letter-spacing="-.02em">Same size,</text>
+    <text x="30" y="100" font-family="${F_D}" font-weight="800" font-size="26" fill="#fff" letter-spacing="-.02em">better quality</text>
+    <text x="30" y="128" font-family="${F_M}" font-size="10" fill="rgba(255,255,255,.85)" letter-spacing=".06em">NeRF · positional encoding</text>
+    <text x="30" y="172" font-family="${F_M}" font-size="9" fill="rgba(255,255,255,.8)">matches / beats SOTA convergence</text>`),
+  /* S3 · publication card */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <rect x="28" y="26" width="200" height="28" rx="14" fill="var(--t-res)"/>
+    <text x="128" y="45" text-anchor="middle" font-family="${F_M}" font-size="11" fill="#fff" letter-spacing=".04em">SUBMITTED · ICLR 2024</text>
+    <text x="28" y="82" font-family="${F_D}" font-weight="800" font-size="19" fill="var(--ink)">HIWE</text>
+    <text x="28" y="100" font-family="${F_M}" font-size="8.5" fill="var(--muted)">Durvasula, Kumar, Liang, Shehata, Panneer, Jain, Vijaykumar</text>
+    <rect x="28" y="112" width="344" height="6" rx="2" fill="var(--line)" opacity=".7"/>
+    <rect x="28" y="124" width="320" height="6" rx="2" fill="var(--line)" opacity=".6"/>
+    <rect x="28" y="136" width="280" height="6" rx="2" fill="var(--line)" opacity=".5"/>
+    <rect x="28" y="158" width="104" height="26" rx="13" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.2"/>
+    <text x="80" y="175" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--accent)">arXiv preprint</text>`,'var(--surface)')
+  ];
+},
+
+/* ── SPRINKLR ────────────────────────────────────────────────────────────── */
+sprinklr:()=>[
+  /* S1 · browser mockup */
+  SVG(`<rect width="400" height="200" fill="var(--paper)"/>
+    <rect x="24" y="20" width="352" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1.4"/>
+    <rect x="24" y="20" width="352" height="30" rx="10" fill="var(--paper)"/><rect x="24" y="38" width="352" height="12" fill="var(--paper)"/>
+    <circle cx="44" cy="35" r="4.5" fill="#ff5f57"/><circle cx="60" cy="35" r="4.5" fill="#febc2e"/><circle cx="76" cy="35" r="4.5" fill="#28c840"/>
+    <rect x="96" y="28" width="220" height="14" rx="4" fill="var(--line)" opacity=".6"/>
+    <rect x="40" y="64" width="150" height="12" rx="3" fill="var(--line)" opacity=".5"/>
+    <rect x="40" y="86" width="100" height="12" rx="3" fill="var(--line)" opacity=".4"/>
+    <rect x="40" y="130" width="210" height="12" rx="3" fill="var(--line)" opacity=".45"/>
+    <rect x="202" y="60" width="70" height="18" rx="4" fill="var(--t-web)" opacity=".22" stroke="var(--t-web)" stroke-width="1.8"/><text x="237" y="73" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--t-web)" font-weight="600">BTN</text>
+    <rect x="202" y="104" width="64" height="18" rx="4" fill="var(--t-web)" opacity=".22" stroke="var(--t-web)" stroke-width="1.8"/><text x="234" y="117" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--t-web)" font-weight="600">LINK</text>
+    <rect x="290" y="62" width="76" height="106" rx="8" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.8"/>
+    <text x="328" y="80" text-anchor="middle" font-family="${F_M}" font-size="8.5" fill="var(--accent)" letter-spacing=".04em">SEGMENT</text>
+    <rect x="298" y="88" width="60" height="9" rx="2" fill="var(--accent-soft)"/><rect x="298" y="102" width="60" height="9" rx="2" fill="var(--line)" opacity=".5"/><rect x="298" y="116" width="60" height="9" rx="2" fill="var(--line)" opacity=".4"/>
+    <rect x="298" y="138" width="60" height="20" rx="5" fill="var(--accent)"/><text x="328" y="152" text-anchor="middle" font-family="${F_M}" font-size="9" fill="#fff">TRACK</text>`,'var(--paper)'),
+  /* S2 · architecture flow */
+  SVG(`<rect width="400" height="200" fill="var(--accent-soft)"/>
+    ${AR('spA','var(--accent)')}
+    <text x="30" y="40" font-family="${F_M}" font-size="10" fill="var(--accent)" letter-spacing=".1em">EXTENSION ARCHITECTURE</text>
+    ${[['Event config',0],['Chrome msg',1],['Content script',1],['DOM highlight',0],['Segment API',2]].map((n,i)=>{const w=64,g=12,x=20+i*(w+g);const fill=n[1]===2?'var(--accent)':'var(--surface)';return `<rect x="${x}" y="80" width="${w}" height="52" rx="8" fill="${fill}" stroke="var(--accent)" stroke-width="1.5"/><text x="${x+w/2}" y="110" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="9.5" fill="${n[1]===2?'#fff':'var(--accent)'}">${n[0]}</text>`+(i<4?`<path d="M${x+w+1} 106 L${x+w+g-1} 106" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#spA)"/>`:'')}).join('')}
+    <text x="200" y="166" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">popup &amp; content script stay in sync via message passing</text>`),
+  /* S3 · popup closeup */
+  SVG(`<rect width="400" height="200" fill="var(--paper)"/>
+    <rect x="110" y="18" width="180" height="164" rx="12" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="200" y="42" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="15" fill="var(--accent)">Segment Events</text>
+    ${[0,1,2].map(i=>`<rect x="128" y="${56+i*30}" width="110" height="20" rx="4" fill="var(--paper)"/><text x="138" y="${70+i*30}" font-family="${F_M}" font-size="9" fill="var(--ink)">event_${i+1}</text><rect x="250" y="${58+i*30}" width="26" height="16" rx="8" fill="${i<2?'var(--accent)':'var(--line)'}"/><circle cx="${i<2?268:258}" cy="${66+i*30}" r="6" fill="#fff"/>`).join('')}
+    <rect x="128" y="150" width="148" height="24" rx="6" fill="var(--accent)"/><text x="202" y="166" text-anchor="middle" font-family="${F_M}" font-size="10" fill="#fff">Track selected</text>`,'var(--paper)')
+],
+
+/* ── BITCOIN ─────────────────────────────────────────────────────────────── */
+bitcoin:()=>{
+  const N={A:[64,64],B:[64,136],C:[180,100],D:[300,64],E:[300,136],F:[372,100]};
+  const E2=[['A','C'],['B','C'],['C','D'],['C','E'],['E','F']];
+  let dag=`${AR('btA','var(--muted)')}<rect width="400" height="200" fill="var(--surface)"/>`;
+  dag+=`<text x="30" y="28" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">MEMPOOL DEPENDENCY GRAPH</text>`;
+  E2.forEach(([a,b])=>{const[x1,y1]=N[a],[x2,y2]=N[b],dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);dag+=`<line x1="${(x1+dx/L*24).toFixed(1)}" y1="${(y1+dy/L*24).toFixed(1)}" x2="${(x2-dx/L*27).toFixed(1)}" y2="${(y2-dy/L*27).toFixed(1)}" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#btA)"/>`});
+  Object.entries(N).forEach(([k,[x,y]])=>{const hi=k==='C';dag+=`<circle cx="${x}" cy="${y}" r="23" fill="${hi?'var(--signal-soft)':'var(--accent-soft)'}" stroke="${hi?'var(--signal)':'var(--accent)'}" stroke-width="${hi?'2.4':'1.8'}"/><text x="${x}" y="${y+1}" text-anchor="middle" font-family="${F_M}" font-size="12" font-weight="600" fill="${hi?'var(--signal)':'var(--accent)'}">tx ${k}</text>`+(hi?`<text x="${x}" y="${y+14}" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--signal)">tracked</text>`:'')});
+  dag+=`<text x="64" y="180" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">ancestors</text><text x="336" y="180" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">descendants</text>`;
+  return [
+  SVG(dag,'var(--surface)'),
+  /* S2 · merged badge + diff */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <rect x="28" y="30" width="344" height="40" rx="20" fill="#8250df"/>
+    <circle cx="54" cy="50" r="10" fill="#fff" opacity=".25"/><text x="54" y="55" text-anchor="middle" font-family="${F_M}" font-size="13" fill="#fff">⑃</text>
+    <text x="74" y="55" font-family="${F_D}" font-weight="700" font-size="15" fill="#fff">bitcoin/bitcoin #22856 · Merged</text>
+    <rect x="28" y="86" width="344" height="86" rx="8" fill="var(--ink)"/>
+    ${[['- for (auto& ancestor : ancestors)','#f28b82'],['-   count++;  // wrong set','#f28b82'],['+ CountInMempool(tx, setAncestors)','#81c995'],['+ assert(setAncestors.size()==n)','#81c995']].map((l,i)=>`<text x="42" y="${106+i*18}" font-family="${F_M}" font-size="9.5" fill="${l[1]}">${esc(l[0])}</text>`).join('')}`,'var(--surface)'),
+  /* S3 · benchmark fix */
+  SVG(`<rect width="400" height="200" fill="var(--paper)"/>
+    <text x="104" y="28" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--t-med)" letter-spacing=".08em">BEFORE · buggy</text>
+    <text x="296" y="28" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--ok)" letter-spacing=".08em">AFTER · fixed</text>
+    <rect x="20" y="40" width="168" height="130" rx="8" fill="var(--surface)" stroke="var(--t-med)" stroke-width="1.5"/>
+    ${[90,140,110,70].map((w,i)=>`<rect x="34" y="${56+i*24}" width="${w}" height="9" rx="2" fill="var(--t-med)" opacity="${i===1?'.5':'.25'}"/>`).join('')}
+    <rect x="212" y="40" width="168" height="130" rx="8" fill="var(--surface)" stroke="var(--ok)" stroke-width="1.5"/>
+    ${[110,80,150,100].map((w,i)=>`<rect x="226" y="${56+i*24}" width="${w}" height="9" rx="2" fill="var(--ok)" opacity="${i===2?'.55':'.25'}"/>`).join('')}
+    <text x="200" y="192" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">ancestor/descendant counting corrected</text>`,'var(--paper)')
+  ];
+},
+
+/* ── COMPARCH ────────────────────────────────────────────────────────────── */
+comparch:()=>{
+  const stages=[['IF','var(--muted)','var(--surface)'],['ID','var(--muted)','var(--surface)'],['EX','var(--accent)','var(--accent-soft)'],['MEM','var(--muted)','var(--surface)'],['WB','var(--signal)','var(--signal-soft)']];
+  let p1=`${AR('caA','var(--accent)')}<rect width="400" height="200" fill="var(--surface)"/>`;
+  p1+=`<text x="200" y="36" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">5-STAGE PIPELINE · DATA FORWARDING</text>`;
+  const nw=62,g=12,pad=(400-(5*nw+4*g))/2,y=80;
+  stages.forEach(([t,c,bg],i)=>{const x=pad+i*(nw+g);p1+=`<rect x="${x}" y="${y}" width="${nw}" height="58" rx="9" fill="${bg}" stroke="${c}" stroke-width="1.8"/><text x="${x+nw/2}" y="${y+36}" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="18" fill="${c}">${t}</text>`+(i<4?`<path d="M${x+nw+1} ${y+29} L${x+nw+g-1} ${y+29}" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#caA)"/>`:'')});
+  const cx=i=>pad+i*(nw+g)+nw/2;
+  p1+=`<path d="M${cx(4)} ${y} C ${cx(4)} ${y-32}, ${cx(2)} ${y-32}, ${cx(2)} ${y-2}" stroke="var(--accent)" stroke-width="1.6" fill="none" marker-end="url(#caA)"/><text x="${(cx(2)+cx(4))/2}" y="${y-36}" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--accent)">forwarding</text>`;
+  return [
+  SVG(p1,'var(--surface)'),
+  /* S2 · branch predictor columns */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="34" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">BRANCH PREDICTOR ACCURACY</text>
+    ${[['Bimodal',.82,'var(--muted)'],['gshare',.91,'var(--accent)'],['Tournament',.95,'var(--signal)']].map((n,i)=>{const w=96,g=16,x=28+i*(w+g);const h=n[1]*110;return `<rect x="${x}" y="${160-h}" width="${w}" height="${h}" rx="6" fill="${n[2]}" opacity=".85"/><text x="${x+w/2}" y="${160-h-8}" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="16" fill="${n[2]}">${Math.round(n[1]*100)}%</text><text x="${x+w/2}" y="178" text-anchor="middle" font-family="${F_M}" font-size="9.5" fill="var(--ink)">${n[0]}</text>`}).join('')}
+    <line x1="24" y1="160" x2="376" y2="160" stroke="var(--line)" stroke-width="1.2"/>`,'var(--surface)'),
+  /* S3 · pipeline timing diagram */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="26" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">PIPELINE TIMING</text>
+    ${(()=>{const ST=['IF','ID','EX','MEM','WB'],cols=['#7f9cff','#b994f2','#2C56E0','#B57805','#1D7A46'];const ins=['lw','add','sub','or'],x0=62,y0=40,cw=56,rh=32;let g='';ins.forEach((v,r)=>{g+=`<text x="${x0-10}" y="${y0+r*rh+21}" text-anchor="end" font-family="${F_M}" font-size="11" fill="var(--ink)">${v}</text>`;for(let s=0;s<5;s++){const c=r+s;g+=`<rect x="${x0+c*cw}" y="${y0+r*rh}" width="${cw-4}" height="${rh-6}" rx="4" fill="${cols[s]}" opacity=".85"/><text x="${x0+c*cw+(cw-4)/2}" y="${y0+r*rh+17}" text-anchor="middle" font-family="${F_M}" font-size="9" fill="#fff">${ST[s]}</text>`}});for(let c=0;c<8;c++)g+=`<text x="${x0+c*cw+(cw-4)/2}" y="${y0-6}" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--muted)">t${c+1}</text>`;return g})()}
+    <text x="200" y="188" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">stages overlap — all five busy at once</text>`,'var(--surface)')
+  ];
+},
+
+/* ── COMPILER ────────────────────────────────────────────────────────────── */
+compiler:()=>[
+  /* S1 · source → asm */
+  SVG(`${AR('cmpA','var(--accent)')}<rect width="400" height="200" fill="var(--surface)"/>
+    <rect x="20" y="24" width="150" height="152" rx="9" fill="var(--paper)" stroke="var(--line)" stroke-width="1.4"/>
+    <rect x="20" y="24" width="150" height="24" rx="9" fill="var(--surface)"/><rect x="20" y="40" width="150" height="8" fill="var(--surface)"/>
+    <text x="95" y="40" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">Main.java</text>
+    ${[['var(--t-sys)',60],['var(--t-res)',100],['var(--line)',80],['var(--accent)',50],['var(--line)',90],['var(--t-infra)',44]].map((l,i)=>`<rect x="32" y="${58+i*17}" width="${l[1]}" height="8" rx="2" fill="${l[0]}" opacity="${l[0]==='var(--line)'?'.5':'.75'}"/>`).join('')}
+    <line x1="176" y1="100" x2="222" y2="100" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#cmpA)"/>
+    <text x="199" y="92" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--accent)">Flex</text><text x="199" y="116" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--accent)">Bison</text>
+    <rect x="228" y="24" width="152" height="152" rx="9" fill="#0d1117"/>
+    <rect x="228" y="24" width="152" height="24" rx="9" fill="#0d1117"/>
+    <text x="304" y="40" text-anchor="middle" font-family="${F_M}" font-size="9" fill="#8b98a5">output.s</text>
+    ${[['#79c0ff',70],['#a5d6ff',54],['#d2a8ff',88],['#79c0ff',46],['#a5d6ff',76]].map((l,i)=>`<rect x="240" y="${58+i*20}" width="${l[1]}" height="8" rx="2" fill="${l[0]}" opacity=".8"/>`).join('')}`,'var(--surface)'),
+  /* S2 · compiler stages */
+  SVG(`<defs><linearGradient id="cstg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="var(--accent)" stop-opacity=".1"/><stop offset="1" stop-color="var(--t-sys)" stop-opacity=".14"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#cstg)"/>${AR('csA','var(--muted)')}
+    <text x="30" y="42" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">COMPILATION STAGES</text>
+    ${[['Lex','tokens'],['Parse','AST'],['Symbols','table'],['3AC IR','intermediate'],['x86','emit']].map((n,i)=>{const w=62,g=12,x=20+i*(w+g);const last=i===4;return `<rect x="${x}" y="84" width="${w}" height="50" rx="8" fill="${last?'var(--accent)':'var(--surface)'}" stroke="var(--accent)" stroke-width="1.5"/><text x="${x+w/2}" y="106" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="11" fill="${last?'#fff':'var(--accent)'}">${n[0]}</text><text x="${x+w/2}" y="122" text-anchor="middle" font-family="${F_M}" font-size="7.5" fill="${last?'rgba(255,255,255,.85)':'var(--muted)'}">${n[1]}</text>`+(i<4?`<path d="M${x+w+1} 109 L${x+w+g-1} 109" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#csA)"/>`:'')}).join('')}`),
+  /* S3 · features 2x2 */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    ${['OOP','Recursion','Overloading','Multi-dim arrays'].map((f,i)=>{const col=i%2,row=(i/2|0);const x=28+col*184,y=24+row*86;const c=['var(--accent)','var(--t-sys)','var(--signal)','var(--t-infra)'][i];return `<rect x="${x}" y="${y}" width="160" height="72" rx="10" fill="${c}" opacity=".12"/><rect x="${x}" y="${y}" width="160" height="72" rx="10" fill="none" stroke="${c}" stroke-width="1.6"/><text x="${x+80}" y="${y+44}" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="16" fill="${c}">${f}</text>`}).join('')}`,'var(--surface)')
+],
+
+/* ── XV6 ─────────────────────────────────────────────────────────────────── */
+xv6:()=>{
+  let tree=`${AR('xvA','var(--muted)')}<rect width="400" height="200" fill="var(--surface)"/>`;
+  const box=(x,y,t,c,bg)=>tree+=`<rect x="${x-44}" y="${y-18}" width="88" height="36" rx="7" fill="${bg}" stroke="${c}" stroke-width="1.8"/><text x="${x}" y="${y+5}" text-anchor="middle" font-family="${F_M}" font-size="13" fill="${c}" font-weight="600">${t}</text>`;
+  const ln=(x1,y1,x2,y2)=>tree+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#xvA)"/>`;
+  box(200,36,'init','var(--muted)','var(--surface)');
+  box(200,100,'sh','var(--accent)','var(--accent-soft)');ln(200,54,200,80);
+  const kids=[['cat',80],['grep',200],['ls',320]];
+  tree+=`<line x1="80" y1="140" x2="320" y2="140" stroke="var(--muted)" stroke-width="1.2"/>`;
+  kids.forEach(([t,x])=>{box(x,164,t,'var(--signal)','var(--signal-soft)');ln(x,140,x,145)});
+  tree+=`<line x1="200" y1="118" x2="200" y2="140" stroke="var(--muted)" stroke-width="1.2"/>`;
+  return [
+  SVG(tree,'var(--surface)'),
+  /* S2 · schedulers Gantt */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="30" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">SCHEDULERS COMPARED</text>
+    ${[['SJF',[[0,60,'var(--accent)'],[60,120,'var(--t-sys)'],[120,80,'var(--signal)']]],['Round Robin',[[0,45,'var(--accent)'],[45,45,'var(--t-sys)'],[90,45,'var(--signal)'],[135,45,'var(--accent)'],[180,80,'var(--t-sys)']]],['UNIX',[[0,100,'var(--signal)'],[100,60,'var(--accent)'],[160,100,'var(--t-sys)']]]].map((row,r)=>{const y=48+r*44;let g=`<text x="26" y="${y+16}" font-family="${F_M}" font-size="10" fill="var(--ink)">${row[0]}</text>`;row[1].forEach(([off,w,c])=>{g+=`<rect x="${140+off*.9}" y="${y}" width="${w*.9-2}" height="24" rx="3" fill="${c}" opacity=".8"/>`});return g}).join('')}
+    <text x="200" y="190" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">time →</text>`,'var(--surface)'),
+  /* S3 · syscall tiles */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="30" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">CUSTOM SYSTEM CALLS</text>
+    ${[['waitpid()','reap a child'],['forkf()','fork + flag'],['uptime()','ticks since boot'],['pinfo()','process info']].map((n,i)=>{const col=i%2,row=(i/2|0);const x=28+col*184,y=42+row*74;return `<rect x="${x}" y="${y}" width="160" height="60" rx="10" fill="var(--paper)" stroke="var(--accent)" stroke-width="1.5"/><text x="${x+14}" y="${y+28}" font-family="${F_M}" font-size="14" fill="var(--accent)" font-weight="500">${n[0]}</text><text x="${x+14}" y="${y+46}" font-family="${F_M}" font-size="9" fill="var(--muted)">${n[1]}</text>`}).join('')}`,'var(--surface)')
+  ];
+},
+
+/* ── NETWORKS ────────────────────────────────────────────────────────────── */
+networks:()=>{
+  const sim=(reset)=>{const a=[];let c=1,ss=14;for(let t=0;t<26;t++){a.push(c);if(c>=22){ss=c/2;c=reset?1:ss}else c=c<ss?Math.min(c*2,ss):c+1}return a;};
+  const reno=sim(false);let ss=14;
+  const chart=(arr,W,ox,stroke)=>{const X=t=>ox+t*((W-ox-10)/25),Y=v=>160-v*5.6,pl=arr.map((v,t)=>`${X(t).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');let g='';[0,11,22].forEach(v=>g+=`<line x1="${ox}" x2="${W-6}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width=".8"/>`);g+=`<line x1="${ox}" x2="${W-6}" y1="${Y(ss)}" y2="${Y(ss)}" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1"/>`;g+=`<polyline points="${pl}" fill="none" stroke="${stroke}" stroke-width="2.4" stroke-linejoin="round"/>`;const lt=arr.findIndex((v,i)=>i>0&&arr[i-1]>arr[i]&&arr[i-1]>10);if(lt>0)g+=`<circle cx="${X(lt).toFixed(1)}" cy="${Y(arr[lt]).toFixed(1)}" r="5" fill="var(--signal)"/>`;return g;};
+  return [
+  /* S1 · Reno cwnd */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="36" y="28" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".08em">TCP RENO · CONGESTION WINDOW</text>
+    ${chart(reno,392,36,'var(--accent)')}
+    <text x="36" y="178" font-family="${F_M}" font-size="9" fill="var(--signal)">↑ loss · halve window</text>
+    <text x="356" y="${160-ss*5.6-4}" text-anchor="end" font-family="${F_M}" font-size="8" fill="var(--muted)">ssthresh</text>`,'var(--surface)'),
+  /* S2 · Tahoe vs Reno */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="110" y="24" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--signal)">TAHOE · reset to 1</text>
+    <text x="300" y="24" text-anchor="middle" font-family="${F_M}" font-size="10" fill="var(--accent)">RENO · halve</text>
+    <g transform="translate(0,0)">${chart(sim(true),196,30,'var(--signal)')}</g>
+    <g transform="translate(200,0)">${chart(sim(false),196,20,'var(--accent)')}</g>
+    <line x1="200" y1="20" x2="200" y2="170" stroke="var(--line)" stroke-width="1"/>`,'var(--surface)'),
+  /* S3 · protocol stack */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>${AR('nwA','var(--muted)')}
+    <text x="30" y="30" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">PROTOCOL STACK</text>
+    ${[['SMTP server','var(--accent)'],['TCP / UDP sockets','var(--t-sys)'],['Dijkstra routing','var(--t-infra)'],['POSIX APIs','var(--muted)']].map((n,i)=>{const y=46+i*34;return `<rect x="60" y="${y}" width="280" height="26" rx="5" fill="${n[1]}" opacity=".14"/><rect x="60" y="${y}" width="280" height="26" rx="5" fill="none" stroke="${n[1]}" stroke-width="1.4"/><text x="200" y="${y+17}" text-anchor="middle" font-family="${F_M}" font-size="11" fill="${n[1]}">${n[0]}</text>`}).join('')}`,'var(--surface)')
+  ];
+},
+
+/* ── AASPAAS ─────────────────────────────────────────────────────────────── */
+aaspaas:()=>[
+  /* S1 · observation → stocks */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>${AR('aaA','var(--accent)')}
+    <rect x="20" y="62" width="120" height="76" rx="10" fill="var(--paper)" stroke="var(--line)" stroke-width="1.4"/>
+    <text x="80" y="88" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)" letter-spacing=".06em">YOU NOTICE</text>
+    <text x="80" y="112" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="17" fill="var(--ink)">Tata EVs</text>
+    <text x="80" y="130" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">on the road</text>
+    <path d="M142 100 L170 100" stroke="var(--accent)" stroke-width="2" marker-end="url(#aaA)"/>
+    <rect x="176" y="40" width="112" height="56" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+    <text x="232" y="60" text-anchor="middle" font-family="${F_M}" font-size="9.5" fill="var(--accent)">TATAMOTORS</text><text x="232" y="78" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="13" fill="var(--accent)">sells the cars</text>
+    <rect x="296" y="40" width="88" height="56" rx="9" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/>
+    <text x="340" y="60" text-anchor="middle" font-family="${F_M}" font-size="8.5" fill="var(--ok)">TATAPOWER</text><text x="340" y="78" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="12" fill="var(--ok)">charging</text>
+    <rect x="176" y="106" width="208" height="46" rx="9" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.5"/>
+    <text x="194" y="128" font-family="${F_D}" font-weight="700" font-size="13" fill="var(--signal)">→ Build portfolio</text><text x="194" y="144" font-family="${F_M}" font-size="8.5" fill="var(--muted)">with the business case attached</text>`,'var(--surface)'),
+  /* S2 · how it works */
+  SVG(`<rect width="400" height="200" fill="var(--ok-soft)"/>${AR('aaB','var(--ok)')}
+    <text x="30" y="42" font-family="${F_M}" font-size="10" fill="var(--ok)" letter-spacing=".1em">HOW IT WORKS</text>
+    ${[['Observe','something'],['Map','to stocks'],['Learn','the business'],['Build','a portfolio']].map((n,i)=>{const w=76,g=14,x=20+i*(w+g);const last=i===3;return `<rect x="${x}" y="82" width="${w}" height="56" rx="10" fill="${last?'var(--ok)':'var(--surface)'}" stroke="var(--ok)" stroke-width="1.6"/><text x="${x+w/2}" y="106" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="13" fill="${last?'#fff':'var(--ok)'}">${n[0]}</text><text x="${x+w/2}" y="122" text-anchor="middle" font-family="${F_M}" font-size="8" fill="${last?'rgba(255,255,255,.85)':'var(--muted)'}">${n[1]}</text>`+(i<3?`<path d="M${x+w+1} 110 L${x+w+g-1} 110" stroke="var(--ok)" stroke-width="1.6" marker-end="url(#aaB)"/>`:'')}).join('')}
+    <text x="200" y="172" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">start from what you see, not from tickers</text>`),
+  /* S3 · portfolio mockup */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <rect x="90" y="18" width="220" height="164" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.4"/>
+    <text x="108" y="42" font-family="${F_D}" font-weight="800" font-size="14" fill="var(--ink)">My Portfolio</text>
+    ${[['TATAMOTORS','sells the EVs you see','var(--accent)'],['ZOMATO','earns per food order','var(--signal)']].map((n,i)=>{const y=58+i*58;return `<rect x="108" y="${y}" width="184" height="46" rx="8" fill="var(--surface)" stroke="${n[2]}" stroke-width="1.4"/><text x="120" y="${y+20}" font-family="${F_M}" font-size="11" fill="${n[2]}" font-weight="500">${n[0]}</text><text x="120" y="${y+37}" font-family="${F_M}" font-size="8.5" fill="var(--muted)">${n[1]}</text>`}).join('')}`,'var(--surface)')
+],
+
+/* ── BHARATBENCH ─────────────────────────────────────────────────────────── */
+bharatbench:()=>[
+  /* S1 · eval pipeline */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>${AR('bbA','var(--muted)')}
+    <rect x="20" y="52" width="88" height="96" rx="9" fill="var(--surface)" stroke="var(--t-res)" stroke-width="1.6"/>
+    <text x="64" y="72" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--t-res)" letter-spacing=".06em">SCENARIO</text>
+    ${[0,1,2].map(i=>`<rect x="30" y="${82+i*13}" width="${68-i*8}" height="7" rx="2" fill="var(--t-res)" opacity="${.3-i*.07}"/>`).join('')}
+    <text x="64" y="140" text-anchor="middle" font-family="${F_D}" font-weight="700" font-size="10" fill="var(--ink)">Indian ctx</text>
+    <rect x="120" y="52" width="100" height="96" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+    <text x="170" y="72" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--accent)" letter-spacing=".04em">LLM IN CHARACTER</text>
+    ${[0,1,2,3].map(i=>`<rect x="130" y="${82+i*13}" width="${80-i*6}" height="7" rx="2" fill="var(--accent)" opacity="${.3-i*.05}"/>`).join('')}
+    <rect x="232" y="52" width="88" height="96" rx="9" fill="var(--surface)" stroke="var(--t-sys)" stroke-width="1.6"/>
+    <text x="276" y="72" text-anchor="middle" font-family="${F_M}" font-size="8" fill="var(--t-sys)">CULTURAL JUDGE</text>
+    <text x="276" y="118" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="30" fill="var(--t-sys)">A/B</text>
+    <rect x="332" y="86" width="48" height="28" rx="6" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.4"/>
+    <text x="356" y="104" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="15" fill="var(--signal)">Score</text>
+    <path d="M110 100 L118 100" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#bbA)"/><path d="M222 100 L230 100" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#bbA)"/>`,'var(--surface)'),
+  /* S2 · knows vs behaves */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <rect x="24" y="40" width="168" height="120" rx="12" fill="var(--paper)" stroke="var(--line)" stroke-width="1.4"/>
+    <text x="108" y="78" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">what a model</text>
+    <text x="108" y="104" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="24" fill="var(--muted)" text-decoration="line-through">KNOWS</text>
+    <text x="108" y="132" text-anchor="middle" font-family="${F_M}" font-size="8.5" fill="var(--muted)">facts about a culture</text>
+    <rect x="208" y="40" width="168" height="120" rx="12" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+    <text x="292" y="78" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--accent)">how it ✓</text>
+    <text x="292" y="104" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="24" fill="var(--accent)">BEHAVES</text>
+    <text x="292" y="132" text-anchor="middle" font-family="${F_M}" font-size="8.5" fill="var(--accent)">tone · respect · context</text>`,'var(--surface)'),
+  /* S3 · pilot results */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <rect x="24" y="24" width="180" height="28" rx="14" fill="var(--signal)"/>
+    <text x="114" y="43" text-anchor="middle" font-family="${F_M}" font-size="10.5" fill="#fff" letter-spacing=".04em">PILOT COMPLETE · OCT 2026</text>
+    ${[['M-1',.7,'var(--accent)'],['M-2',.55,'var(--t-sys)'],['M-3',.85,'var(--signal)'],['M-4',.4,'var(--t-res)']].map((n,i)=>{const w=56,g=24,x=36+i*(w+g);const h=n[1]*86;return `<rect x="${x}" y="${160-h}" width="${w}" height="${h}" rx="5" fill="${n[2]}" opacity=".8"/><text x="${x+w/2}" y="176" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--muted)">${n[0]}</text>`}).join('')}
+    <line x1="30" y1="160" x2="372" y2="160" stroke="var(--line)" stroke-width="1.2"/>
+    <text x="200" y="192" text-anchor="middle" font-family="${F_M}" font-size="8.5" fill="var(--muted)" opacity=".7">placeholder scores · findings coming</text>`,'var(--surface)')
+],
+
+/* ── AULI ────────────────────────────────────────────────────────────────── */
+auli:()=>{
+  const gid='aug'+(mk++);
+  return [
+  /* S1 · panorama */
+  SVG(`<defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1E2A4A"/><stop offset=".3" stop-color="#5E6F96"/><stop offset=".55" stop-color="#C0705A"/><stop offset=".78" stop-color="#F0A86E"/><stop offset="1" stop-color="#5FA3E8"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#${gid})"/>
+    <circle cx="36" cy="30" r="1.6" fill="rgba(255,255,255,.75)"/><circle cx="70" cy="18" r="1.1" fill="rgba(255,255,255,.55)"/><circle cx="96" cy="40" r="1.3" fill="rgba(255,255,255,.6)"/><circle cx="54" cy="52" r="1" fill="rgba(255,255,255,.5)"/>
+    <polygon points="0,200 70,120 120,142 200,70 250,110 310,88 360,112 400,96 400,200" fill="rgba(12,18,14,.55)"/>
+    <polygon points="200,70 180,118 222,118" fill="rgba(255,255,255,.7)"/>
+    <polygon points="200,70 180,118 222,118" fill="rgba(240,168,110,.4)"/>
+    <text x="200" y="186" text-anchor="middle" style="fill:#fff;font-family:${F_M};font-size:11px;letter-spacing:.16em;opacity:.92">AULI · FIRST LIGHT · 3050 m</text>`),
+  /* S2 · four phases */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="26" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".1em">FOUR PHASES OF LIGHT</text>
+    ${[['Pre-dawn',['#1E2A4A','#5E6F96']],['First light',['#5E6F96','#C7B7C9']],['Alpenglow',['#C0705A','#F0A86E']],['Full morning',['#5FA3E8','#EAF2FB']]].map((p,i)=>{const w=84,g=10,x=24+i*(w+g);const gi=gid+'p'+i;return `<defs><linearGradient id="${gi}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p[1][0]}"/><stop offset="1" stop-color="${p[1][1]}"/></linearGradient></defs><rect x="${x}" y="40" width="${w}" height="110" rx="8" fill="url(#${gi})"/><polygon points="${x},150 ${x+w*.4},110 ${x+w},150" fill="rgba(12,18,14,.4)"/><text x="${x+w/2}" y="170" text-anchor="middle" font-family="${F_M}" font-size="9" fill="var(--ink)">${p[0]}</text>`}).join('')}`,'var(--surface)'),
+  /* S3 · photo essay stats */
+  SVG(`<defs><linearGradient id="${gid}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C0705A"/><stop offset="1" stop-color="#1E2A4A"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#${gid}s)"/>
+    <polygon points="0,200 80,130 150,150 240,90 320,120 400,100 400,200" fill="rgba(12,18,14,.5)"/>
+    <text x="30" y="70" font-family="${F_D}" font-weight="800" font-size="34" fill="#fff" letter-spacing="-.02em">6 photos</text>
+    <text x="30" y="104" font-family="${F_D}" font-weight="800" font-size="26" fill="rgba(255,255,255,.92)">2 languages</text>
+    <text x="30" y="132" font-family="${F_D}" font-weight="800" font-size="26" fill="rgba(255,255,255,.92)">1 reel</text>
+    <text x="30" y="160" font-family="${F_M}" font-size="9" fill="rgba(255,255,255,.75)" letter-spacing=".06em">+ a traveller's page</text>`)
+  ];
+},
+
+/* ── SUBSTACK ────────────────────────────────────────────────────────────── */
+substack:()=>[
+  /* S1 · essay page with pull-quote */
+  SVG(`<rect width="400" height="200" fill="var(--paper)"/>
+    <rect x="70" y="18" width="260" height="164" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1.4"/>
+    <rect x="86" y="34" width="210" height="14" rx="3" fill="var(--ink)" opacity=".55"/>
+    <rect x="86" y="56" width="110" height="8" rx="2" fill="var(--muted)" opacity=".4"/>
+    <rect x="86" y="76" width="228" height="7" rx="2" fill="var(--line)" opacity=".7"/>
+    <rect x="86" y="88" width="210" height="7" rx="2" fill="var(--line)" opacity=".6"/>
+    <rect x="80" y="104" width="5" height="46" rx="2" fill="var(--accent)"/>
+    <rect x="92" y="108" width="222" height="9" rx="2" fill="var(--accent)" opacity=".6"/>
+    <rect x="92" y="122" width="186" height="9" rx="2" fill="var(--accent)" opacity=".45"/>
+    <rect x="92" y="136" width="140" height="9" rx="2" fill="var(--accent)" opacity=".3"/>
+    <rect x="86" y="158" width="228" height="7" rx="2" fill="var(--line)" opacity=".5"/>`,'var(--paper)'),
+  /* S2 · title poster */
+  SVG(`<defs><linearGradient id="svp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--t-sys)"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#svp)"/>
+    ${(()=>{let p='M0 150';for(let x=0;x<=400;x+=6){const a=24*Math.sin(x/30)*Math.exp(-((x-200)**2)/90000);p+=` L${x} ${(150+a).toFixed(1)}`}return `<path d="${p}" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>`})()}
+    <text x="30" y="70" font-family="${F_D}" font-weight="800" font-size="30" fill="#fff" letter-spacing="-.02em">The Coming</text>
+    <text x="30" y="106" font-family="${F_D}" font-weight="800" font-size="30" fill="#fff" letter-spacing="-.02em">Voice Revolution</text>
+    <text x="30" y="134" font-family="${F_M}" font-size="10" fill="rgba(255,255,255,.82)" letter-spacing=".08em">ESSAY · @SHORYAK</text>`),
+  /* S3 · subscriber card */
+  SVG(`<rect width="400" height="200" fill="var(--surface)"/>
+    <text x="30" y="46" font-family="${F_D}" font-weight="800" font-size="24" fill="var(--ink)">1 essay published</text>
+    <text x="30" y="70" font-family="${F_M}" font-size="10" fill="var(--muted)" letter-spacing=".06em">2025 · writing on AI products</text>
+    <rect x="30" y="92" width="340" height="80" rx="12" fill="var(--paper)" stroke="var(--accent)" stroke-width="1.6"/>
+    <circle cx="68" cy="132" r="22" fill="var(--accent)" opacity=".15"/><text x="68" y="140" text-anchor="middle" font-family="${F_D}" font-weight="800" font-size="20" fill="var(--accent)">S</text>
+    <text x="102" y="126" font-family="${F_D}" font-weight="700" font-size="14" fill="var(--ink)">Shorya on Substack</text>
+    <text x="102" y="146" font-family="${F_M}" font-size="9" fill="var(--muted)">@shoryak</text>
+    <rect x="276" y="118" width="80" height="28" rx="14" fill="#FF6719"/><text x="316" y="137" text-anchor="middle" font-family="${F_M}" font-size="10" fill="#fff" font-weight="500">Subscribe</text>`,'var(--surface)')
+]
+
+};
+
 const ITEMS=[
  {id:"startup",kind:"role",title:"iCurious AI → Protago AI",org:"CTO & Co-founder · one startup, one pivot",dates:"Oct 2025 – Jun 2026",tags:["ai","hw","web"],
   sum:"Started as a voice-AI companion for kids on custom hardware, then pivoted to personalised AI storybooks for the same families.",
@@ -351,7 +880,8 @@ const ITEMS=[
   fig:()=>schem("The pivot",flow([{t:"iCurious",s:"voice companion",hi:1},{t:"Alpha tests",s:"with children"},{t:"₹12L+ grants",s:"NIDHI · MeitY"},{t:"Pivot",s:"same users",warn:1},{t:"Protago",s:"AI storybooks",hi:1},{t:"50k+",s:"revenue · 2 months",warn:1}],{w:108}))+
       schem("Phase 1 · conversational voice loop",flow([{t:"Child speaks",s:"device mic"},{t:"ASR",s:"speech → text",hi:1},{t:"LLM",s:"inference",hi:1},{t:"TTS",s:"text → speech",hi:1},{t:"Companion",s:"spoken reply",warn:1}],{H:112,y:12,extra:({pad,w,gap,y0,h})=>`<rect x="${pad+w+gap-8}" y="${y0-8}" width="${3*w+2*gap+16}" height="${h+16}" rx="10" class="d-lane"/><text x="${pad+w+gap+(3*w+2*gap)/2}" y="104" text-anchor="middle" class="d-s">runs on edge hardware and on cloud backends</text>`}))+
       schem("Phase 2 · storybook pipeline",flow([{t:"Child photo",s:"+ story choice"},{t:"Flux + LoRA",s:"fine-tuned, Modal",hi:1},{t:"Face swap",s:"BFS pipeline",hi:1},{t:"Live preview",s:"real-time"},{t:"Storybook",s:"personalised",warn:1}])),
-  links:[["▶ Watch the iCurious demo","https://www.youtube.com/watch?v=F28lZyda-MY"],["▶ Watch the Protago demo","https://www.youtube.com/watch?v=At_FrzzTpQ0"],["icurious.ai","https://icurious.ai"],["protago.in","https://protago.in"]]},
+  videos:[{id:"F28lZyda-MY",label:"iCurious · voice AI companion for kids"},{id:"At_FrzzTpQ0",label:"Protago · AI personalised storybooks"}],
+  links:[["icurious.ai","https://icurious.ai"],["protago.in","https://protago.in"]]},
  {id:"databricks",kind:"role",title:"Databricks",org:"Software Engineer · Observability Platform",dates:"Jun 2024 – Sep 2025",tags:["infra"],
   sum:"Made the metrics platform cheaper and more reliable, and helped start the Bengaluru team.",
   metrics:[["$5M","annual savings"],["90→99%","HMR reliability"]],
@@ -545,15 +1075,125 @@ DEMOS.comparch=(m)=>{
 let active=null;
 const $=id=>document.getElementById(id);
 function cardHTML(it){return `<button class="card" data-id="${it.id}" id="card-${it.id}">
+  ${buildCarousel((VIS[it.id]||VIS.substack)(it))}
   <div class="top"><h3>${esc(it.title)}</h3><span class="dates">${it.dates}</span></div>
-  <div class="org">${esc(it.org)}</div><p class="sum">${esc(it.sum)}</p>
+  <div class="org">${esc(it.org)}</div>
   <div class="metrics">${it.metrics.map(([v,l])=>`<span class="metric"><b>${esc(v)}</b> ${esc(l)}</span>`).join('')}</div>
   <div class="tags">${it.tags.map(t=>`<span class="tag" style="--c:${DOM[t].c}"><i></i>${DOM[t].name}</span>`).join('')}${it.status?`<span class="status${it.wip?' wip':''}">${esc(it.status)}</span>`:''}${DEMOS[it.id]?`<span class="try">▶ Try it</span>`:''}<span class="open">Open →</span></div></button>`}
 $('roles').innerHTML=ITEMS.filter(i=>i.kind==='role').map(cardHTML).join('');
 $('projects').innerHTML=ITEMS.filter(i=>i.kind==='project').map(cardHTML).join('');
 $('exps').innerHTML=ITEMS.filter(i=>i.kind==='exp').map(cardHTML).join('');
-$('chars').innerHTML=CHARS.map((c,i)=>`<button class="char" id="char-${i}" ${c.id?`data-id="${c.id}"`:'disabled style="cursor:default"'}><span class="v">${c.v}</span><span class="l">${c.l}</span>${c.id?`<span class="src">See ${ITEMS.find(x=>x.id===c.id).title} →</span>`:''}</button>`).join('');
+renderChars();
+(function(){
+  const HL=['startup','databricks','cispa'];
+  $('highlights').innerHTML=HL.map(id=>{
+    const it=ITEMS.find(x=>x.id===id);if(!it)return'';
+    const visArr=(VIS[it.id]||VIS.substack)(it);
+    const slide1=Array.isArray(visArr)?visArr[0]:visArr;
+    const m=it.metrics[0];
+    return `<button class="card hcard" data-id="${it.id}">
+      <div class="card-vis">${slide1}</div>
+      <div class="top"><h3>${esc(it.title)}</h3><span class="dates">${it.dates}</span></div>
+      <div class="org">${esc(it.org)}</div>
+      ${m?`<div class="metrics"><span class="metric"><b>${esc(m[0])}</b> ${esc(m[1])}</span></div>`:''}
+      <div class="tags"><span class="open">Open →</span></div>
+    </button>`;
+  }).join('');
+})();
 $('ranks').innerHTML=RANKS.map(([a,b,c])=>`<div class="rank"><div class="row"><span>${a}</span><span class="big">${b}</span></div><small>${c}</small></div>`).join('');
+
+/* ---------- card carousels ---------- */
+function initCarousels(){
+  document.querySelectorAll('.cv-carousel').forEach(car=>{
+    const n=+car.dataset.n||1;const slides=car.querySelector('.cv-slides');
+    const dots=[...car.querySelectorAll('.cv-dots span')];
+    let i=0,timer=null;
+    const go=k=>{i=((k%n)+n)%n;slides.style.transform=`translateX(-${i*100}%)`;dots.forEach((d,j)=>d.classList.toggle('on',j===i));};
+    const start=()=>{if(RM||n<2||timer)return;timer=setInterval(()=>go(i+1),3500);};
+    const stop=()=>{if(timer){clearInterval(timer);timer=null;}};
+    car.addEventListener('mouseenter',stop);
+    car.addEventListener('mouseleave',start);
+    car.addEventListener('click',e=>{
+      e.preventDefault();e.stopPropagation();
+      const dot=e.target.closest('.cv-dots span');
+      if(dot)go(+dot.dataset.i);else go(i+1);
+    });
+    go(0);start();
+  });
+}
+initCarousels();
+
+/* ── entrance animations ── */
+(function(){
+  if(RM)return document.querySelectorAll('.card').forEach(c=>c.classList.add('in'));
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting||e.target.classList.contains('in'))return;
+      const delay=parseInt(e.target.dataset.ed||0);
+      setTimeout(()=>e.target.classList.add('in'),delay);
+      io.unobserve(e.target);
+    });
+  },{threshold:0.06});
+  let d=0;
+  document.querySelectorAll('.card').forEach(card=>{
+    card.dataset.ed=d;d=(d+80)%480;
+    io.observe(card);
+  });
+})();
+
+/* ── 3D card tilt ── */
+(function(){
+  if(RM||matchMedia('(hover:none)').matches)return;
+  document.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      if(card.classList.contains('dim'))return;
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(700px) rotateX(${-y*7}deg) rotateY(${x*7}deg) translateY(-3px) scale(1.015)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+})();
+
+/* ── count-up for characteristics ── */
+function countUp(el){
+  const raw=el.textContent;
+  const m=raw.match(/^([^0-9.]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
+  if(!m)return;
+  const[,pre,numStr,suf]=m;const end=parseFloat(numStr);
+  const dec=numStr.includes('.')?numStr.split('.')[1].length:0;
+  const dur=1300;const t0=performance.now();
+  const tick=now=>{
+    const p=Math.min((now-t0)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=pre+(end*ease).toFixed(dec)+suf;
+    if(p<1)requestAnimationFrame(tick);else el.textContent=pre+numStr+suf;
+  };
+  requestAnimationFrame(tick);
+}
+function observeChars(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const v=e.target.querySelector('.v');
+      if(v&&!v._counted){v._counted=true;countUp(v);}
+      io.unobserve(e.target);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.char').forEach(c=>io.observe(c));
+}
+observeChars();
+
+/* ── sticky persona bar ── */
+(function(){
+  const bar=$('persona-bar');
+  if(!bar)return;
+  const sentinel=document.createElement('div');
+  sentinel.style.cssText='position:absolute;top:0;left:0;height:1px;pointer-events:none';
+  bar.parentElement.insertBefore(sentinel,bar);
+  new IntersectionObserver(([e])=>bar.classList.toggle('stuck',!e.isIntersecting)).observe(sentinel);
+})();
 
 $('filter').innerHTML=`<button class="fbtn" id="f-all" data-f="" aria-pressed="true">All</button>`+Object.entries(DOM).map(([k,d])=>`<button class="fbtn" id="f-${k}" data-f="${k}" style="--c:${d.c}" aria-pressed="false"><i></i>${d.name}</button>`).join('');
 
@@ -568,6 +1208,72 @@ $('filter').innerHTML=`<button class="fbtn" id="f-all" data-f="" aria-pressed="t
   $('chip').innerHTML=s;
 })();
 
+/* ---------- persona switcher ---------- */
+const DEFAULT_ROLE='AI systems, edge hardware and systems security. Products shipped to real users, research published at ESORICS.';
+const DEFAULT_BIO='Founding CTO of an AI startup, ex-Databricks, IIT Kanpur double major (CGPA 9.7). Research stints at CISPA Helmholtz Center and the University of Toronto. Equally drawn to products people use and research that moves what is understood.';
+const PERSONAS={
+  default:{role:DEFAULT_ROLE,bio:DEFAULT_BIO,spotlight:null,chars:[0,1,2,3,4,5,6,7]},
+  builder:{
+    role:'Products that ship. From 0 to 1.',
+    bio:'Founding CTO of iCurious.ai (voice AI for kids) → pivoted to Protago (personalised storybooks, revenue in 2 months). Ex-Databricks. I go from idea to user in the shortest path possible.',
+    spotlight:['startup','aaspaas','bharatbench','sprinklr','databricks'],
+    chars:[2,3,0,1]
+  },
+  researcher:{
+    role:'Systems security · ML · computer architecture.',
+    bio:'Published at ESORICS 2025 (covert-channel attack via NIC firmware). NeRF/scene-importance research at University of Toronto. Contributed to bitcoin/bitcoin core. IIT Kanpur CGPA 9.7 across EE and CS.',
+    spotlight:['cispa','toronto','bitcoin','comparch','compiler','xv6','networks','bharatbench'],
+    chars:[4,5,1,6]
+  },
+  engineer:{
+    role:'Infrastructure, systems and open source at scale.',
+    bio:'Owned HMR at Databricks — reliability from 90% → 99%, $5M/yr in savings. Merged into bitcoin/bitcoin core. Built compilers, OS kernels and computer architecture simulators from scratch.',
+    spotlight:['databricks','bitcoin','comparch','compiler','xv6','networks','cispa'],
+    chars:[0,1,7,6]
+  },
+  founder:{
+    role:'Technical founder with deep engineering roots.',
+    bio:'Founded two products (iCurious → Protago), raised ₹12L+ in government grants, first revenue in 2 months. Ex-Databricks. ESORICS publication. IIT Kanpur. I can build the system and the company.',
+    spotlight:['startup','databricks','aaspaas','bharatbench'],
+    chars:[2,3,0,4]
+  }
+};
+
+function renderChars(idxs,animate){
+  const el=$('chars');
+  const doRender=()=>{
+    el.innerHTML=(idxs||CHARS.map((_,i)=>i)).map(i=>{
+      const c=CHARS[i];
+      return `<button class="char" id="char-${i}" ${c.id?`data-id="${c.id}"`:'disabled style="cursor:default"'}><span class="v">${c.v}</span><span class="l">${c.l}</span>${c.id?`<span class="src">See ${ITEMS.find(x=>x.id===c.id).title} →</span>`:''}</button>`;
+    }).join('');
+    el.classList.remove('swapping');
+    observeChars();
+  };
+  if(animate){
+    el.classList.add('swapping');
+    setTimeout(doRender,220);
+  } else doRender();
+}
+
+function setPersona(id){
+  const p=PERSONAS[id]||PERSONAS.default;
+  const roleEl=document.querySelector('.hero .role');
+  const bioEl=document.querySelector('.hero > div > p');
+  [roleEl,bioEl].forEach(el=>el.classList.add('hero-xfade'));
+  setTimeout(()=>{
+    roleEl.textContent=p.role;
+    bioEl.textContent=p.bio;
+    [roleEl,bioEl].forEach(el=>el.classList.remove('hero-xfade'));
+  },220);
+  ITEMS.forEach(it=>{
+    const card=$('card-'+it.id);if(!card)return;
+    const lit=p.spotlight?p.spotlight.includes(it.id):true;
+    card.classList.toggle('dim',!lit);
+  });
+  renderChars(p.chars,true);
+  document.querySelectorAll('.pbtn').forEach(b=>b.classList.toggle('on',b.dataset.p===id));
+}
+
 function setFilter(f){
   f=f||'';let shown=0;
   ITEMS.forEach(it=>{const on=!f||it.tags.includes(f);$('card-'+it.id).hidden=!on;if(on)shown++;});
@@ -576,6 +1282,7 @@ function setFilter(f){
   $('count').textContent=f?`Showing ${shown} of ${ITEMS.length} · ${DOM[f].name}`:`${ITEMS.length} entries · filter by domain or use the pinout`;
 }
 document.addEventListener('click',e=>{
+  const pb=e.target.closest('.pbtn');if(pb){setPersona(pb.dataset.p);return}
   const fb=e.target.closest('.fbtn');if(fb){setFilter(fb.dataset.f);return}
   const pin=e.target.closest('.pin');if(pin){const f=pin.classList.contains('on')?'':pin.dataset.f;setFilter(f);$('work').scrollIntoView({behavior:'smooth',block:'start'});return}
   const op=e.target.closest('[data-id]');if(op&&!op.disabled){openItem(op.dataset.id);return}
@@ -589,12 +1296,17 @@ document.addEventListener('keydown',e=>{
 
 function visible(){return ITEMS.filter(it=>!$('card-'+it.id).hidden)}
 function openItem(id){
-  const it=ITEMS.find(x=>x.id===id);if(!it)return;active=id;
+  const it=ITEMS.find(x=>x.id===id);if(!it)return;
+  document.querySelectorAll('.card.active').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll(`.card[data-id="${id}"]`).forEach(c=>c.classList.add('active'));
+  active=id;
   $('d-crumb').textContent=KIND[it.kind]+(it.status?' · '+it.status:'')+' · '+it.dates;
+  const ytSection=it.videos?`<div style="margin-top:18px"><div class="label" style="margin-bottom:10px">Watch demos</div><div class="yt-row">${it.videos.map(v=>`<div class="yt-card" data-ytid="${v.id}"><div class="yt-card-img"><img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${esc(v.label)}" loading="lazy"><div class="yt-card-play">▶</div></div><div class="yt-card-lbl">${esc(v.label)}</div></div>`).join('')}</div></div>`:'';
   $('d-body').innerHTML=`<div class="tags">${it.tags.map(t=>`<span class="tag" style="--c:${DOM[t].c}"><i></i>${DOM[t].name}</span>`).join('')}</div>
    <h2 id="d-title">${esc(it.title)}</h2><div class="sub">${esc(it.org)}</div>
    <p style="margin:14px 0 0;max-width:62ch">${esc(it.sum)}</p>
    <div class="dmetrics">${it.metrics.map(([v,l])=>`<div class="dm"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
+   ${ytSection}
    ${DEMOS[id]?`<div class="demo" id="d-demo"><div class="label"><span>Try it</span><span>INTERACTIVE</span></div><div id="d-demo-body"></div></div>`:''}
    ${it.fig()}
    <ul class="dpoints">${it.points.map(p=>`<li><span>${esc(p)}</span></li>`).join('')}</ul>
@@ -602,9 +1314,19 @@ function openItem(id){
   if(DEMOS[id]){try{DEMOS[id]($('d-demo-body'))}catch(e){$('d-demo').hidden=true}}
   $('drawer').hidden=false;$('scrim').hidden=false;$('d-body').scrollTop=0;document.body.style.overflow='hidden';$('d-close').focus();
 }
-function closeItem(){$('drawer').hidden=true;$('scrim').hidden=true;document.body.style.overflow='';const c=active&&$('card-'+active);if(c&&!c.hidden)c.focus();active=null}
+function closeItem(){
+  document.querySelectorAll('.card.active').forEach(c=>c.classList.remove('active'));
+  $('drawer').hidden=true;$('scrim').hidden=true;document.body.style.overflow='';
+  const c=active&&$('card-'+active);if(c&&!c.hidden)c.focus();active=null;
+}
 function step(d){const v=visible();if(!v.length)return;let i=v.findIndex(x=>x.id===active);i=(i+d+v.length)%v.length;openItem(v[i].id)}
 $('d-close').onclick=closeItem;$('scrim').onclick=closeItem;$('d-prev').onclick=()=>step(-1);$('d-next').onclick=()=>step(1);
+$('d-body').addEventListener('click',e=>{
+  const yc=e.target.closest('.yt-card[data-ytid]');if(!yc)return;
+  const ytid=yc.dataset.ytid;
+  const img=yc.querySelector('.yt-card-img');
+  img.innerHTML=`<iframe src="https://www.youtube.com/embed/${ytid}?autoplay=1" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>`;
+});
 
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,1800)}
 function copy(txt){
